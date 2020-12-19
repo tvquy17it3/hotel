@@ -17,3 +17,13 @@ Route::get('/', function () {
 
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/admin', 'AdminController@index');
+
+Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
+
+    Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
+    // Route::get('/city', ['as' => 'city', 'uses' => 'CityController@index']);
+ 
+
+
+});
