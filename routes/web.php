@@ -11,7 +11,6 @@
 |
 */
 
-
 Route::get('/', 'HotelController@index');
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@home')->name('home');
@@ -43,3 +42,5 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	#account
  	Route::get('/account', ['as' => 'room', 'uses' => 'AdminController@account']);
 });
+
+
