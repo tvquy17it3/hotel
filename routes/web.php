@@ -28,11 +28,13 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::get('/addorder', ['as' => 'addorder', 'uses' => 'AdminController@addorder']);
  	Route::get('/success', ['as' => 'ordersucc', 'uses' => 'AdminController@success']);
  	Route::get('/huy', ['as' => 'huy', 'uses' => 'AdminController@huy']);
-
-
+ 	Route::get('/order/edit', ['as' => 'editorder', 'uses' => 'AdminController@editorder']);
+ 	Route::post('/order/editd/{id}', ['as' => 'editor', 'uses' => 'AdminController@editorder1']);
 
  	#room
  	Route::get('/room', ['as' => 'room', 'uses' => 'AdminController@room']);
+ 	Route::get('/addroom', ['as' => 'addroom', 'uses' => 'AdminController@addroom']);
+ 	Route::get('/room/edit', ['as' => 'editroom', 'uses' => 'AdminController@editroom']);
 
  	#account
  	Route::get('/account', ['as' => 'room', 'uses' => 'AdminController@account']);

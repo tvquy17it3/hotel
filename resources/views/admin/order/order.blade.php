@@ -63,10 +63,12 @@
     <th>Edit/Del</th>
 
   </tr>
+
+  <tr>
     <td>1</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
-    <td>LK01</td>
+    <td>105</td>
     <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
     <td>2</td>
     <td>3.500.000</td>
@@ -77,7 +79,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>2</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -92,7 +94,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>3</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -107,7 +109,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>4</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -122,7 +124,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>5</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -137,7 +139,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>6</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -152,7 +154,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>7</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -167,7 +169,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>8</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -182,11 +184,11 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>9</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
-    <td>LK01</td>
+    <td>102</td>
     <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
     <td>2</td>
     <td>3.500.000</td>
@@ -197,7 +199,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>10</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>

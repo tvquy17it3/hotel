@@ -92,8 +92,8 @@
                   <option value="2">Đã xác nhận</option>
                 </select>
               </div>
-              <button class="btn btn-primary" type="submit" name="save">SAVE</button>
-              <a href="admin/order"><button class="btn btn-dark" type="button" >NO SAVE </button></a>
+              <button class="btn btn-primary" type="submit" name="save">THÊM NGAY</button>
+              <a href="admin/order"><button class="btn btn-danger btn-sm" type="button" >HỦY</button></a>
        
     </form>
 </div>

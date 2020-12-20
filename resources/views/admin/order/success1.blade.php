@@ -61,6 +61,7 @@
     <th>Edit/Del</th>
 
   </tr>
+  <tr>
     <td>1</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -74,7 +75,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>2</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -88,7 +89,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>3</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -102,7 +103,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>4</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -116,7 +117,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>5</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -130,7 +131,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>6</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -144,7 +145,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>7</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -158,7 +159,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>8</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -172,7 +173,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>9</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>
@@ -186,7 +187,7 @@
     </td>
   </tr>
 
-  </tr>
+  <tr>
     <td>10</td>
     <td>Trần Văn Quý</td>
     <td>123456</td>

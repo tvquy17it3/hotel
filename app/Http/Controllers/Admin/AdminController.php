@@ -33,7 +33,17 @@ class AdminController extends Controller
     	
     	return view('admin.order.huy');
     }
-    
+    public function editorder()
+    {
+        return view('admin.order.editorder');
+    }
+    public function editorder1(Request $request,$id)
+    {
+        #dd($id);
+        return redirect('admin/order');
+    }
+
+
 
     #room
     public function room()
@@ -41,7 +51,16 @@ class AdminController extends Controller
 
     	return view('admin.room.room');
     }
+    public function addroom()
+    {
 
+        return view('admin.room.addroom');
+    }
+    public function editroom()
+    {
+
+        return view('admin.room.editroom');
+    }
     #account
      public function account()
     {

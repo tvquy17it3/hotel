@@ -1,7 +1,7 @@
 
 @extends('layouts.ad')
 
-@section('title', 'Order')
+@section('title', 'Room')
 
 @section('sidebar')
    <!--  <p>sidebar</p> -->
@@ -45,171 +45,68 @@
 </style>
 
 <div class="container">
-<p class="ds btn btn-secondary btn-lg btn-block">Danh Sách Phòng Đã Đặt</p>
-<a href="admin/editorder"><button type="button" class="add btn btn-secondary btn-sm">Đặt phòng</button></a>
+  <p class="ds btn btn-secondary btn-lg btn-block">Danh Sách Phòng</p>
+  <a href="admin/addroom"><button type="button" class="add btn btn-primary btn-sm">Thêm phòng</button></a>
 
-<table id="customers">
-  <tr>
-    <th>ID</th>
-    <th>Tên</th>
-    <th>Số ĐT</th>
-    <th>Phòng</th>
-    <th>Thời gian</th>
-    <th>Số người</th>
-    <th>Giá</th>
-    <th>Tình trạng</th>
-    <th>Edit/Del</th>
+  <table id="customers">
+    <tr>
+      <th>ID</th>
+      <th>Tên phòng</th>
+      <th>Số phòng</th>
+      <th>Loại phòng</th>
+      <th>Số giường</th>
+      <th>Kích thước phòng</th>
+      <th>Giá</th>
+      <th>Tình trạng</th>
+      <th>Edit/Del</th>
 
-  </tr>
-    <td>1</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Deluxe 1</td>
+      <td>106</td>
+      <td>Vip</td>
+      <td>2</td>
+      <td>40m2</td>
+      <td>3.500.000</td>
+      <td>Còn trống</td>
+      <td>
+        <a href="admin/room/edit/" class="fa fa-pencil-square-o"> / </a>
+        <a href="admin/deleteroom" onclick="return confirm('Delete this Room?')" class="fa fa-trash"></a>
+      </td>
+    </tr>
 
-  </tr>
-    <td>2</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
+    <tr>
+      <td>1</td>
+      <td>Deluxe 1</td>
+      <td>106</td>
+      <td>Vip</td>
+      <td>2</td>
+      <td>40m2</td>
+      <td>3.500.000</td>
+      <td>Còn trống</td>
+      <td>
+        <a href="admin/room/edit/" class="fa fa-pencil-square-o"> / </a>
+        <a href="admin/deleteroom" onclick="return confirm('Delete this Room?')" class="fa fa-trash"></a>
+      </td>
+    </tr>
 
-  </tr>
-    <td>3</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
+    <tr>
+      <td>1</td>
+      <td>Deluxe 1</td>
+      <td>106</td>
+      <td>Vip</td>
+      <td>2</td>
+      <td>40m2</td>
+      <td>3.500.000</td>
+      <td>Còn trống</td>
+      <td>
+        <a href="admin/room/edit/" class="fa fa-pencil-square-o"> / </a>
+        <a href="admin/deleteroom" onclick="return confirm('Delete this Room?')" class="fa fa-trash"></a>
+      </td>
+    </tr>
 
-  </tr>
-    <td>4</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
 
-  </tr>
-    <td>5</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
-
-  </tr>
-    <td>6</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
-
-  </tr>
-    <td>7</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
-
-  </tr>
-    <td>8</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
-
-  </tr>
-    <td>9</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
-
-  </tr>
-    <td>10</td>
-    <td>Trần Văn Quý</td>
-    <td>123456</td>
-    <td>LK01</td>
-    <td>10h00 25/12/2020 - 12h00 26/12/2020</td>
-    <td>2</td>
-    <td>3.500.000</td>
-    <td>Chưa xác nhận</td>
-    <td>
-      <a href="admin/order/edit/" class="fa fa-pencil-square-o"> / </a>
-      <a href="admin/deleteorder" onclick="return confirm('Delete this Order?')" class="fa fa-trash"></a>
-    </td>
-  </tr>
-
-</table>
+  </table>
 </div>
 @endsection
