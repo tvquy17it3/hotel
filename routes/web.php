@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', 'HotelController@index');
 Auth::routes();  //login and register
-Route::get('/home', 'HomeController@index')->name('home');
-// Route::get('/admin', 'AdminController@index');
+Route::get('/home', 'HomeController@home')->name('home');
+
+
+
+
+
+
+
 
 Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
 
