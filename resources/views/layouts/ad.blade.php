@@ -90,9 +90,9 @@
           </li>
         
           <!-- User Account: style can be found in dropdown.less -->
-             @if (Auth::guest())
-                            <!-- <li><a href="{{ route('login') }}">Login</a></li> -->
-              @else
+            <!--  @if (Auth::guest())
+                            <li><a href="{{ route('login') }}">Login</a></li>
+              @else -->
                 
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -179,27 +179,18 @@
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MAIN NAVIGATION</li>
-            <li>
-          <a href="admin/location">
-            <i class="fa fa-map-marker"></i> <span>Phòng</span>
+        <li>
+          <a href="admin/order">
+            <i class="fa fa-list-alt"></i> <span>Order</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-red"></small>
               <small class="label pull-right bg-blue"></small>
             </span>
           </a>
         </li>
-            <li>
-          <a href="admin/city">
-            <i class="fa fa-university"></i> <span>Đặt Phòng</span>
-            <span class="pull-right-container">
-              <small class="label pull-right bg-red"></small>
-              <small class="label pull-right bg-blue"></small>
-            </span>
-          </a>
-        </li>
-            <li>
-          <a href="admin/category">
-            <i class="fa fa-bars"></i> <span>Lịch sử</span>
+        <li>
+          <a href="admin/room">
+            <i class="fa fa-bed"></i> <span>Room</span>
             <span class="pull-right-container">
               <small class="label pull-right bg-red"></small>
               <small class="label pull-right bg-blue"></small>
@@ -208,23 +199,37 @@
         </li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-cubes"></i>
-            <span>Options</span>
+            <i class="fa fa-user-circle-o"></i>
+            <span>User</span>
             <span class="pull-right-container">
               <span class="label label-primary pull-right">3</span>
             </span>
           </a>
           <ul class="treeview-menu">
             <li><a href="admin/account"><i class="fa fa-address-card-o"></i>Account</a></li>
-            <li><a href="admin/slide"><i class="fa fa-bullhorn"></i>ABC</a></li>
-            <li><a href="admin/Analysis"><i class="fa fa-area-chart"></i>Analysis </a></li>
+            <li><a href="admin/addaccount"><i class="fa fa-bullhorn"></i>add account</a></li>
+            <li><a href="admin/block"><i class="fa fa-area-chart"></i>Block account</a></li>
           </ul>
         </li>
 
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-bar-chart"></i>
+            <span>Statistic</span>
+            <span class="pull-right-container">
+              <span class="label label-primary pull-right">Today</span>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Các ngày trong tuần</a></li>
+            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Các tháng trong năm</a></li>
+            <li><a href="admin/analysis"><i class="fa fa-area-chart"></i>Analysis </a></li>
+          </ul>
+        </li>
     
         <li class="header">Page</li>
        
-        <li><a href="../TravelLocation/template"><i class="fa fa-circle-o text-aqua"></i> <span>Index Hotel</span></a></li>
+        <li><a href="../hotel"><i class="fa fa-circle-o text-aqua"></i> <span>Index Hotel</span></a></li>
       </ul>
     </section>
     <!-- /.sidebar -->

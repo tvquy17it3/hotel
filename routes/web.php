@@ -22,8 +22,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
 
     Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
-    // Route::get('/city', ['as' => 'city', 'uses' => 'CityController@index']);
- 
+  
+  	#order
+ 	Route::get('/order', ['as' => 'order', 'uses' => 'AdminController@order']);
+ 	Route::get('/addorder', ['as' => 'addorder', 'uses' => 'AdminController@addorder']);
+ 	Route::get('/success', ['as' => 'ordersucc', 'uses' => 'AdminController@success']);
+ 	Route::get('/huy', ['as' => 'huy', 'uses' => 'AdminController@huy']);
 
 
+
+ 	#room
+ 	Route::get('/room', ['as' => 'room', 'uses' => 'AdminController@room']);
+
+ 	#account
+ 	Route::get('/account', ['as' => 'room', 'uses' => 'AdminController@account']);
 });
