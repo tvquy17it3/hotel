@@ -110,7 +110,17 @@
                 @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                    <a href="{{ url('/home') }}">Home</a>
+
+                        <a href="{{ url('/admin') }}">Admin</a>
+                        <a href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                             {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+
                     @else
                     <a href="{{ route('login') }}">Login</a>
 
@@ -124,8 +134,10 @@
         </nav>
     </div>
 
+        
+        <div class="flex-center position-ref full-height">
 
-    <div class="flex-center position-ref full-height">
+
 
         <div class="content">
             <div class="title m-b-md">
