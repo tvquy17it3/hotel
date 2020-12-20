@@ -15,5 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/room', ['as' => 'room', 'uses' => 'RoomController@index']);
+
+
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@index')->name('home');
