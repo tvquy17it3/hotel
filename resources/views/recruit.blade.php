@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('recruit')
+@extends('layouts.header')
+@section('title', 'HOTEL ')
+@section('content')
 <div class="container">
     <div class="row">
         <img width="190" height="70"
@@ -67,7 +67,4 @@
         </div>
     </div>
 </div>
-@component('footer')
-
-@endcomponent
 @endsection
