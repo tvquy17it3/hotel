@@ -11,12 +11,34 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'HotelController@index');
+Auth::routes();  //login and register
+Route::get('/home', 'HomeController@home')->name('home');
+
+
+
+
+
+
+Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
+
+    Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
+  
+  	#order
+ 	Route::get('/order', ['as' => 'order', 'uses' => 'AdminController@order']);
+ 	Route::get('/addorder', ['as' => 'addorder', 'uses' => 'AdminController@addorder']);
+ 	Route::get('/success', ['as' => 'ordersucc', 'uses' => 'AdminController@success']);
+ 	Route::get('/huy', ['as' => 'huy', 'uses' => 'AdminController@huy']);
+ 	Route::get('/order/edit', ['as' => 'editorder', 'uses' => 'AdminController@editorder']);
+ 	Route::post('/order/editd/{id}', ['as' => 'editor', 'uses' => 'AdminController@editorder1']);
+
+ 	#room
+ 	Route::get('/room', ['as' => 'room', 'uses' => 'AdminController@room']);
+ 	Route::get('/addroom', ['as' => 'addroom', 'uses' => 'AdminController@addroom']);
+ 	Route::get('/room/edit', ['as' => 'editroom', 'uses' => 'AdminController@editroom']);
+
+ 	#account
+ 	Route::get('/account', ['as' => 'room', 'uses' => 'AdminController@account']);
 });
 
-Route::get('/room', ['as' => 'room', 'uses' => 'RoomController@index']);
 
-
-Auth::routes();  //login and register
-Route::get('/home', 'HomeController@index')->name('home');
