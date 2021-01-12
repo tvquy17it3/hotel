@@ -18,8 +18,6 @@ Route::get('/home', 'HomeController@home')->name('home');
 
 
 
-
-
 Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
 
     Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
@@ -38,7 +36,10 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::get('/room/edit', ['as' => 'editroom', 'uses' => 'AdminController@editroom']);
 
  	#account
- 	Route::get('/account', ['as' => 'room', 'uses' => 'AdminController@account']);
+ 	Route::get('/account', ['as' => 'room', 'uses' => 'UserController@accounts']);
+ 	Route::get('/account/blocks', ['as' => 'room', 'uses' => 'UserController@blocks']);
+ 	Route::post('/account/position', ['as' => 'positions', 'uses' => 'UserController@position']);
+ 	Route::get('/account/block/{id}', ['as' => 'block', 'uses' => 'UserController@block']);
 });
 
 
