@@ -24,17 +24,10 @@ Route::get('/endow', 'EndowController@index');
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@home')->name('home');
 
+Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
 
-
-
-
-
-
-
-Route::group(['namespace' => 'Admin', 'as' => 'admin::', 'prefix' => 'admin', 'middleware' => ['auth', 'acl']], function () {
-
-	Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
-
+  Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
+  
 	#order
 	Route::get('/order', ['as' => 'order', 'uses' => 'AdminController@order']);
 	Route::get('/addorder', ['as' => 'addorder', 'uses' => 'AdminController@addorder']);
