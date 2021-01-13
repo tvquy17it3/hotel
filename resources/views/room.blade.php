@@ -10,6 +10,7 @@
     margin: 10000px;
 }
 </style>
+
 <div class="card mb-3  d-none d-lg-block" style="border-color: rgb(242, 169, 0);">
     <div class="row g-0">
         <div class="col-md-3" style="padding: 10px; padding-top: 20px;">
@@ -17,7 +18,7 @@
         </div>
         <div class="col-md-9 d-none d-lg-block">
             <div class="card-body cutpad">
-                <h5 class="card-title">{{ $name }}</h5>
+                <h5 class="card-title">{{$name}}</h5>
                 <p class="card-text">{{$introduce}}</p>
                 <div class="row g-0">
                     <div class="col-md-6">
@@ -67,13 +68,19 @@
                     </small></p>
                 <p class="card-text" style="margin: 0px;padding-left: 40px;padding-right: 40px;">
                     <small class="text-muted">
-                        <select class="form-select form-select-sm" name="chooseRoom"
-                            aria-label=".form-select-sm example">
-                            <option value="0">0 phòng</option>
-                            <option value="1">1 phòng</option>
-                            <option value="2">2 phòng</option>
-                            <option value="3">3 phòng</option>
-                            <option value="4">4 phòng</option>
+                        <select class="form-select form-select-sm" roomID={{$roomInfo}} name="chooseRoom"
+                            aria-label=".form-select-sm example"
+                            value="{{array_key_exists(intval((string)$roomInfo), session()->get('cart'))? session()->get('cart')[(string)$roomInfo]['quantity'] : 0}}">
+                            <?php 
+                                $num = 0;
+                                if(array_key_exists(intval((string)$roomInfo), session()->get('cart'))){
+                                    $num = session()->get('cart')[(string)$roomInfo]['quantity'];
+                                } 
+                            ?>
+                            @for($i =0; $i < 5; $i++) <option value='{{$i}}' {{$num==$i ? 'selected' : '' }}>{{$i}}
+                                phòng
+                                </option>
+                                @endfor
                         </select>
                     </small>
                 </p>
@@ -87,10 +94,6 @@
         </div>
     </div>
 </div>
-
-
-
-
 
 
 

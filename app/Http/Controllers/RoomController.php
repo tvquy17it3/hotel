@@ -8,6 +8,8 @@ use Session;
 
 class RoomController extends Controller
 {
+    private $num = 0;
+
     public function index()
     {
         $rooms = Room::all();
@@ -16,7 +18,8 @@ class RoomController extends Controller
         $room3 = Room::where('capacity', '=',3)->get();
         $room4 = Room::where('capacity', '=',4)->get();
 
-        Session::put('numRoom',0);
+        $cart = session()->has('cart') ? session()->get('cart') : [];
+        //session()->flush();
         // foreach($room1 as $value){
         //     if($value->kindOfRoom=='2'){
 
@@ -28,9 +31,29 @@ class RoomController extends Controller
     //     $selectValue = $request->input('chooseRoom');
     //     Session::put('numRoom',$selectValue);
     // }
-    public function Postdata(Request $request) {
-        $value = $request->chooseRoom;
-        \log($value);
-        Session::put('numRoom',$value); 
+    public function postData(Request $request) {
+        // $numRoom = $request->all();
+        // $request->session()->put('numRoom',$request->qty);
+        // $value = $request->session()->get('numRoom');
+        // $this->num = $request->qty;
+        // Session::forget('numRoom');
+        // Session::put('numRoom',$this->num);
+
+
+
+        $cart = session()->has('cart') ? session()->get('cart') : [];
+        if((int)$request->qty == 0){
+            unset($cart[$request->id]);
+        }else{
+            $cart[(int)$request->id] = [
+            'quantity' => $request->qty
+            ];
+        }
+        
+
+        session(['cart' => $cart]);
+        //$this->num = $request->qty;
+       // $request->session()->put('numRoom','1');
+        return json_encode($cart);
     }
 }
