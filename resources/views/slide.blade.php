@@ -23,7 +23,9 @@
     @component('status')
     @slot('numStep') 2 @endslot
     @endcomponent
-    {{session('numRoom')}}
+    <div>
+        <p class="info">{{json_encode(session('cart'))}}</p>
+    </div>
     <div class="row d-lg-none">
         <div class="col-md-3" style="text-align: left; padding-bottom: 10px;">
             <button id="abc" type="button" style="background-color: rgb(242, 169, 0);"
@@ -146,6 +148,7 @@
                         @foreach ($room1 as $value)
                         @if($value->kindOfRooms == '1')
                         @component('room')
+                        @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
                         tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
@@ -164,6 +167,7 @@
                         @foreach ($room1 as $value)
                         @if($value->kindOfRooms == '2')
                         @component('room')
+                        @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
                         tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
@@ -183,6 +187,7 @@
                         @foreach ($room2 as $value)
                         @if($value->kindOfRooms == '1')
                         @component('room')
+                        @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
                         tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
@@ -201,6 +206,7 @@
                         @foreach ($room2 as $value)
                         @if($value->kindOfRooms == '2')
                         @component('room')
+                        @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
                         tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
@@ -222,6 +228,7 @@
                         @foreach ($room3 as $value)
                         @if($value->kindOfRooms == '1')
                         @component('room')
+                        @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
                         tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
@@ -240,6 +247,7 @@
                         @foreach ($room3 as $value)
                         @if($value->kindOfRooms == '2')
                         @component('room')
+                        @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
                         tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
@@ -260,6 +268,7 @@
                         @foreach ($room4 as $value)
                         @if($value->kindOfRooms == '1')
                         @component('room')
+                        @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
                         tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
@@ -278,6 +287,7 @@
                         @foreach ($room4 as $value)
                         @if($value->kindOfRooms == '2')
                         @component('room')
+                        @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
                         tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
@@ -307,6 +317,11 @@
     </div>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
         $('.list-group-item').click(function() {
             //alert('ok');
             $('.list-group-item.active').removeClass("active");
@@ -325,9 +340,26 @@
             $('#nav-tabContent').removeClass('d-none');
         });
 
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+
         $('.form-select').on('change', function(e) {
             e.preventDefault();
-            console.log(e.target.value);
+            //console.log(e.target.attributes.roomid.value);
+            var qty = e.target.value;
+            var roomID = e.target.attributes.roomid.value;
+
+            $.post("http://localhost/hotel/chooseroom", {
+                id: roomID,
+                qty: qty
+            }).done(function(data) {
+
+                alert("Data Loaded: " +
+                    data);
+            });
         });
 
     });

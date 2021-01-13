@@ -16,6 +16,7 @@ Route::get('/checkin', 'CheckinController@index');
 Route::get('/chooseroom', 'RoomController@index');
 Route::get('/form', 'OrderController@index');
 Route::get('/submit', 'SubmitController@index');
+Route::post('/chooseroom', 'RoomController@postData');
 Route::get('/vieworder', 'ViewOrderController@index');
 Route::get('/about', 'AboutController@index');
 Route::get('/recruit', 'RecruitController@index');
