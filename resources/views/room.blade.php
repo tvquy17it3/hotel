@@ -39,7 +39,7 @@
     <div class="card-body cutpad">
         <div class="row g-0">
             <div class="col-md-3">
-                <h5 class="card-title">Phòng Deluxe</h5>
+                <h5 class="card-title">Phòng {{ $name }}</h5>
             </div>
             <div class="col-3 col-md-3" style="text-align: center;">
                 <p class="card-text" style="margin: 0px;"><small class="text-muted">
@@ -67,7 +67,9 @@
                     </small></p>
                 <p class="card-text" style="margin: 0px;padding-left: 40px;padding-right: 40px;">
                     <small class="text-muted">
-                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <select class="form-select form-select-sm" name="chooseRoom"
+                            aria-label=".form-select-sm example">
+                            <option value="0">0 phòng</option>
                             <option value="1">1 phòng</option>
                             <option value="2">2 phòng</option>
                             <option value="3">3 phòng</option>
@@ -131,7 +133,7 @@
                     </small></p>
                 <p class="card-text d-lg-none">
                     <small class="text-muted">
-                        <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                        <select id="numRoom" class="form-select form-select-sm" aria-label=".form-select-sm example">
                             <option value="1">1 người</option>
                             <option value="2">2 người</option>
                             <option value="3">3 người</option>
@@ -174,3 +176,7 @@
         </div>
     </div>
 </div>
+
+<script>
+
+</script>

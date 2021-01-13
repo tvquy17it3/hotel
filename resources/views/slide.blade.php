@@ -23,6 +23,7 @@
     @component('status')
     @slot('numStep') 2 @endslot
     @endcomponent
+    {{session('numRoom')}}
     <div class="row d-lg-none">
         <div class="col-md-3" style="text-align: left; padding-bottom: 10px;">
             <button id="abc" type="button" style="background-color: rgb(242, 169, 0);"
@@ -46,11 +47,11 @@
                             <div class="list-group list-group-flush" style="background-color: #f2a900;" id="list-tab"
                                 style="background-color: #f2a900;" role="tablist">
                                 <a class="list-group-item list-group-item-action active"
-                                    style="background-color: #f2a900;" id="list-home-list" data-bs-toggle="list"
-                                    href="#list-home" role="tab" aria-controls="home"><b>Phong VIP</b></a>
+                                    style="background-color: #f2a900;" id="list-room1-vip-list" data-bs-toggle="list"
+                                    href="#list-room1-vip" role="tab" aria-controls="home"><b>Phong VIP</b></a>
                                 <a class="list-group-item list-group-item-action" style="background-color: #f2a900;"
-                                    id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab"
-                                    aria-controls="profile">
+                                    id="list-room1-normal-list" data-bs-toggle="list" href="#list-room1-normal"
+                                    role="tab" aria-controls="profile">
                                     <b>Phong Thuong</b></a>
                             </div>
                         </div>
@@ -68,12 +69,12 @@
                         <div class="accordion-body" style="background-color: #f2a900;">
                             <div class="list-group list-group-flush" id="list-tab" style="background-color: #f2a900;"
                                 role="tablist">
-                                <a class="list-group-item list-group-item-action active" id="list-home-list"
+                                <a class="list-group-item list-group-item-action" id="list-room2-vip-list"
                                     style="background-color: #f2a900;" data-bs-toggle="list"
-                                    style="background-color: #f2a900;" href="#list-home" role="tab"
+                                    style="background-color: #f2a900;" href="#list-room2-vip" role="tab"
                                     aria-controls="home"><b>Phong VIP</b></a>
-                                <a class="list-group-item list-group-item-action" id="list-profile-list"
-                                    data-bs-toggle="list" style="background-color: #f2a900;" href="#list-profile"
+                                <a class="list-group-item list-group-item-action" id="list-room2-normal-list"
+                                    data-bs-toggle="list" style="background-color: #f2a900;" href="#list-room2-normal"
                                     role="tab" aria-controls="profile">
                                     <b>Phong Thuong</b></a>
                             </div>
@@ -91,11 +92,33 @@
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div class="list-group list-group-flush" id="list-tab" role="tablist">
-                                <a class="list-group-item list-group-item-action active" id="list-home-list"
-                                    data-bs-toggle="list" href="#list-home" role="tab" aria-controls="home"
+                                <a class="list-group-item list-group-item-action" id="list-room3-vip-list"
+                                    data-bs-toggle="list" href="#list-room3-vip" role="tab" aria-controls="home"
                                     style="background-color: #f2a900;"><b>Phong VIP</b></a>
-                                <a class="list-group-item list-group-item-action" id="list-profile-list"
-                                    data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="profile"
+                                <a class="list-group-item list-group-item-action" id="list-room3-normal-list"
+                                    data-bs-toggle="list" href="#list-room3-normal" role="tab" aria-controls="profile"
+                                    style="background-color: #f2a900;">
+                                    <b>Phong Thuong</b></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingFour">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <b>Phong 4 nguoi</b>
+                        </button>
+                    </h2>
+                    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                        data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="list-group list-group-flush" id="list-tab" role="tablist">
+                                <a class="list-group-item list-group-item-action" id="list-room4-vip-list"
+                                    data-bs-toggle="list" href="#list-room4-vip" role="tab" aria-controls="home"
+                                    style="background-color: #f2a900;"><b>Phong VIP</b></a>
+                                <a class="list-group-item list-group-item-action" id="list-room4-normal-list"
+                                    data-bs-toggle="list" href="#list-room4-normal" role="tab" aria-controls="profile"
                                     style="background-color: #f2a900;">
                                     <b>Phong Thuong</b></a>
                             </div>
@@ -118,57 +141,195 @@
         <div class="col-md-9 ">
             <div class="overflow-auto" style="height: 80vh;">
                 <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active" id="list-home" role="tabpanel"
-                        aria-labelledby="list-home-list">
-                        @for ($i = 0; $i < 10; $i++) @component('room') @slot('name') Phong Duluxe @endslot
-                            @slot('introduce') Với phòng Deluxe quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn tượng
-                            của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
-                            trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
-                            hiện đại. @endslot @slot('bedSize') 1111 m2 @endslot @slot('roomSize') 1111 m2 @endslot
-                            @slot('people') 2 người lớn @endslot @slot('price') 1000000 @endslot @endcomponent @endfor
-                            </div>
-                            <div class="tab-pane fade" id="list-profile" role="tabpanel"
-                                aria-labelledby="list-profile-list">
-                                @for ($i = 0; $i < 10; $i++) @component('room') @slot('name') Phong Duluxe @endslot
-                                    @slot('introduce') Với phòng Deluxe quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
-                                    tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm
-                                    giác sang trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các
-                                    thiết bị nội thất hiện đại. @endslot @slot('bedSize') 1111 m2 @endslot
-                                    @slot('roomSize') 1111 m2 @endslot @slot('people') 2 người lớn @endslot
-                                    @slot('price') 1000000 @endslot @endcomponent @endfor </div>
-                            </div>
+                    <div class="tab-pane fade show active" id="list-room1-vip" role="tabpanel"
+                        aria-labelledby="list-room1-vip-list">
+                        @foreach ($room1 as $value)
+                        @if($value->kindOfRooms == '1')
+                        @component('room')
+                        @slot('name') {{$value->name}} @endslot
+                        @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
+                        tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
+                        trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
+                        hiện đại. @endslot
+                        @slot('bedSize') 1111 m2 @endslot
+                        @slot('roomSize') 1111 m2 @endslot
+                        @slot('people') {{$value->capacity}} người lớn @endslot
+                        @slot('price') {{$value->price}} @endslot
+                        @endcomponent
+                        @endif
+                        @endforeach
                     </div>
-                    <div class="col-md-2" style=" text-align: center;margin: auto;padding-top: 10px;margin-right: 0;">
-                        <p class="card-text" style="margin: 0px;"><small class="text-muted">
-                                <button type="button" style="width: 100%; background-color: rgb(242, 169, 0);"
-                                    class="btn btn-warning"><a href="/hotel/form"
-                                        style="text-decoration: none; color:black;">Đặt
-                                        phòng</a></button>
-                            </small></p>
+                    <div class="tab-pane fade" id="list-room1-normal" role="tabpanel"
+                        aria-labelledby="list-room1-normal-list">
+                        @foreach ($room1 as $value)
+                        @if($value->kindOfRooms == '2')
+                        @component('room')
+                        @slot('name') {{$value->name}} @endslot
+                        @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
+                        tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
+                        trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
+                        hiện đại. @endslot
+                        @slot('bedSize') 1111 m2 @endslot
+                        @slot('roomSize') 1111 m2 @endslot
+                        @slot('people') {{$value->capacity}} người lớn @endslot
+                        @slot('price') {{$value->price}} @endslot
+                        @endcomponent
+                        @endif
+                        @endforeach
                     </div>
+
+                    <div class="tab-pane fade" id="list-room2-vip" role="tabpanel"
+                        aria-labelledby="list-room2-vip-list">
+                        @foreach ($room2 as $value)
+                        @if($value->kindOfRooms == '1')
+                        @component('room')
+                        @slot('name') {{$value->name}} @endslot
+                        @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
+                        tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
+                        trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
+                        hiện đại. @endslot
+                        @slot('bedSize') 1111 m2 @endslot
+                        @slot('roomSize') 1111 m2 @endslot
+                        @slot('people') {{$value->capacity}} người lớn @endslot
+                        @slot('price') {{$value->price}} @endslot
+                        @endcomponent
+                        @endif
+                        @endforeach
+                    </div>
+                    <div class="tab-pane fade" id="list-room2-normal" role="tabpanel"
+                        aria-labelledby="list-room2-normal-list">
+                        @foreach ($room2 as $value)
+                        @if($value->kindOfRooms == '2')
+                        @component('room')
+                        @slot('name') {{$value->name}} @endslot
+                        @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
+                        tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
+                        trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
+                        hiện đại. @endslot
+                        @slot('bedSize') 1111 m2 @endslot
+                        @slot('roomSize') 1111 m2 @endslot
+                        @slot('people') {{$value->capacity}} người lớn @endslot
+                        @slot('price') {{$value->price}} @endslot
+                        @endcomponent
+                        @endif
+                        @endforeach
+                    </div>
+
+
+
+                    <div class="tab-pane fade" id="list-room3-vip" role="tabpanel"
+                        aria-labelledby="list-room3-vip-list">
+                        @foreach ($room3 as $value)
+                        @if($value->kindOfRooms == '1')
+                        @component('room')
+                        @slot('name') {{$value->name}} @endslot
+                        @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
+                        tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
+                        trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
+                        hiện đại. @endslot
+                        @slot('bedSize') 1111 m2 @endslot
+                        @slot('roomSize') 1111 m2 @endslot
+                        @slot('people') {{$value->capacity}} người lớn @endslot
+                        @slot('price') {{$value->price}} @endslot
+                        @endcomponent
+                        @endif
+                        @endforeach
+                    </div>
+                    <div class="tab-pane fade" id="list-room3-normal" role="tabpanel"
+                        aria-labelledby="list-room3-normal-list">
+                        @foreach ($room3 as $value)
+                        @if($value->kindOfRooms == '2')
+                        @component('room')
+                        @slot('name') {{$value->name}} @endslot
+                        @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
+                        tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
+                        trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
+                        hiện đại. @endslot
+                        @slot('bedSize') 1111 m2 @endslot
+                        @slot('roomSize') 1111 m2 @endslot
+                        @slot('people') {{$value->capacity}} người lớn @endslot
+                        @slot('price') {{$value->price}} @endslot
+                        @endcomponent
+                        @endif
+                        @endforeach
+                    </div>
+
+
+                    <div class="tab-pane fade" id="list-room4-vip" role="tabpanel"
+                        aria-labelledby="list-room4-vip-list">
+                        @foreach ($room4 as $value)
+                        @if($value->kindOfRooms == '1')
+                        @component('room')
+                        @slot('name') {{$value->name}} @endslot
+                        @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
+                        tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
+                        trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
+                        hiện đại. @endslot
+                        @slot('bedSize') 1111 m2 @endslot
+                        @slot('roomSize') 1111 m2 @endslot
+                        @slot('people') {{$value->capacity}} người lớn @endslot
+                        @slot('price') {{$value->price}} @endslot
+                        @endcomponent
+                        @endif
+                        @endforeach
+                    </div>
+                    <div class="tab-pane fade" id="list-room4-normal" role="tabpanel"
+                        aria-labelledby="list-room4-normal-list">
+                        @foreach ($room4 as $value)
+                        @if($value->kindOfRooms == '2')
+                        @component('room')
+                        @slot('name') {{$value->name}} @endslot
+                        @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
+                        tượng của thành phố ngay trong phòng ngủ của mình. Quý khách sẽ tận hưởng được cảm giác sang
+                        trọng, ấm cúng trong lối thiết kế phòng độc đáo với 1 giường King và các thiết bị nội thất
+                        hiện đại. @endslot
+                        @slot('bedSize') 1111 m2 @endslot
+                        @slot('roomSize') 1111 m2 @endslot
+                        @slot('people') {{$value->capacity}} người lớn @endslot
+                        @slot('price') {{$value->price}} @endslot
+                        @endcomponent
+                        @endif
+                        @endforeach
+                    </div>
+
+
                 </div>
             </div>
+            <div class="col-md-2" style=" text-align: center;margin: auto;padding-top: 10px;margin-right: 0;">
+                <p class="card-text" style="margin: 0px;"><small class="text-muted">
+                        <button type="button" style="width: 100%; background-color: rgb(242, 169, 0);"
+                            class="btn btn-warning"><a href="/hotel/form"
+                                style="text-decoration: none; color:black;">Đặt
+                                phòng</a></button>
+                    </small></p>
+            </div>
         </div>
-        <script>
-        $(document).ready(function() {
-            $('.list-group-item').click(function() {
-                //alert('ok');
-                $('.list-group-item.active').removeClass("active");
-                //$(this).removeClass("active");
-                //$(this).addClass("active");
-                $(this).tab('show');
-            });
-            var dem = 0;
-            $('#abc').click(function() {
-                $('#menu').removeClass('d-none');
-                $('#nav-tabContent').addClass('d-none');
-            });
-
-            $('.list-group-item.list-group-item-action').click(function() {
-                $('#menu').addClass('d-none');
-                $('#nav-tabContent').removeClass('d-none');
-            });
-
+    </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        $('.list-group-item').click(function() {
+            //alert('ok');
+            $('.list-group-item.active').removeClass("active");
+            //$(this).removeClass("active");
+            //$(this).addClass("active");
+            $(this).tab('show');
         });
-        </script>
-        @endsection
+        var dem = 0;
+        $('#abc').click(function() {
+            $('#menu').removeClass('d-none');
+            $('#nav-tabContent').addClass('d-none');
+        });
+
+        $('.list-group-item.list-group-item-action').click(function() {
+            $('#menu').addClass('d-none');
+            $('#nav-tabContent').removeClass('d-none');
+        });
+
+        $('.form-select').on('change', function(e) {
+            e.preventDefault();
+            console.log(e.target.value);
+        });
+
+    });
+    </script>
+    @endsection
