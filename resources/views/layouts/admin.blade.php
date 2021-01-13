@@ -206,6 +206,7 @@
         </li>
 
         <li><a href=""><i class="fa fa-book"></i> <span>Ghi chú</span></a></li>
+        @if(Auth::user()->role==1)
         <li class="header">Users</li>
         <li class="treeview">
           <a href="#">
@@ -219,6 +220,7 @@
             <li><a href="admin/account/blocks"><i class="fa fa-circle-o"></i>Đã khóa</a></li>
           </ul>
         </li>
+        @endif
 
         <li><a href="admin"><i class="fa fa-circle-o text-red"></i> <span>Admin</span></a></li>
         <li><a href=""><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>

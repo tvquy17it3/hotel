@@ -18,8 +18,7 @@ class UserController extends Controller
 
     public function blocks()
     {
-
-    	$accounts = User::orderBy('id', 'ASC')->Where('role', 4)->paginate(8);
+    	$accounts = User::orderBy('id', 'ASC')->Where('role', 3)->paginate(8);
         return view('admin.users.blocks',['accounts'=>$accounts]);
     }
     public function position(Request $request)
@@ -43,7 +42,7 @@ class UserController extends Controller
     {
         $ldate = date('Y-m-d H:i:s');
         $user = User::find($id);
-        $user->role = 4;
+        $user->role = 3;
         $user->updated_at = $ldate;
         $user->save();
         return redirect()->back();
