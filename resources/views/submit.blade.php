@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('submit')
+@extends('layouts.header')
+@section('title', 'HOTEL ')
+@section('content')
 <div class="container">
     <div class="row g-0">
         <img width="190" height="70"
@@ -44,7 +44,8 @@
                             </h6>
                         </div>
                         <div class="row">
-                            <a href="#" style="text-align:center; color: blue;">
+                            <a href="/hotel/vieworder"
+                                style="text-decoration: none; color:black;text-align:center; color: blue;">
                                 <h6>Kiểm tra phòng đã đặt</h6>
                             </a>
                         </div>
@@ -57,7 +58,4 @@
     </div>
 
 </div>
-@component('footer')
-
-@endcomponent
 @endsection

@@ -12,15 +12,23 @@
 */
 
 Route::get('/', 'HotelController@index');
+Route::get('/checkin', 'CheckinController@index');
+Route::get('/chooseroom', 'RoomController@index');
+Route::get('/form', 'OrderController@index');
+Route::get('/submit', 'SubmitController@index');
+Route::post('/chooseroom', 'RoomController@postData');
+Route::get('/vieworder', 'ViewOrderController@index');
+Route::get('/about', 'AboutController@index');
+Route::get('/recruit', 'RecruitController@index');
+Route::get('/endow', 'EndowController@index');
+
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@home')->name('home');
 
 
-
-
 Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
 
-    Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
+  Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
   
   	#order
  	Route::get('/order', ['as' => 'order', 'uses' => 'AdminController@order']);
@@ -41,5 +49,4 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::post('/account/position', ['as' => 'positions', 'uses' => 'UserController@position']);
  	Route::get('/account/block/{id}', ['as' => 'block', 'uses' => 'UserController@block']);
 });
-
 

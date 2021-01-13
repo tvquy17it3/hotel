@@ -1,6 +1,6 @@
-@extends('layouts.app')
-
-@section('checkin')
+@extends('layouts.header')
+@section('title', 'HOTEL ')
+@section('content')
 <div class="container">
     <div class="row">
         <img width="190" height="70"
@@ -40,13 +40,10 @@
         </div>
         <div class="row g-0" style="margin-top: 10px;">
             <button type="button" style="background-color: rgb(242, 169, 0); width:50%; margin:auto;"
-                class="btn btn-warning">Chọn
-                phòng</button>
+                class="btn btn-warning"><a href="/hotel/chooseroom" style="text-decoration: none; color:black;">Chọn
+                    phòng</a></button>
         </div>
     </div>
 
 </div>
-@component('footer')
-
-@endcomponent
 @endsection

@@ -3,11 +3,57 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Room;
+use Session;
 
 class RoomController extends Controller
 {
+    private $num = 0;
+
     public function index()
     {
-        return view('slide');
+        $rooms = Room::all();
+        $room1 = Room::where('capacity', '=',1)->get();
+        $room2 = Room::where('capacity', '=',2)->get();
+        $room3 = Room::where('capacity', '=',3)->get();
+        $room4 = Room::where('capacity', '=',4)->get();
+
+        $cart = session()->has('cart') ? session()->get('cart') : [];
+        //session()->flush();
+        // foreach($room1 as $value){
+        //     if($value->kindOfRoom=='2'){
+
+        //     }
+        // }
+        return view('slide', ['rooms'=>$rooms, 'room1'=>$room1, 'room2'=>$room2, 'room3'=>$room3, 'room4'=>$room4]);
+    }
+    // public function store(Request $request){
+    //     $selectValue = $request->input('chooseRoom');
+    //     Session::put('numRoom',$selectValue);
+    // }
+    public function postData(Request $request) {
+        // $numRoom = $request->all();
+        // $request->session()->put('numRoom',$request->qty);
+        // $value = $request->session()->get('numRoom');
+        // $this->num = $request->qty;
+        // Session::forget('numRoom');
+        // Session::put('numRoom',$this->num);
+
+
+
+        $cart = session()->has('cart') ? session()->get('cart') : [];
+        if((int)$request->qty == 0){
+            unset($cart[$request->id]);
+        }else{
+            $cart[(int)$request->id] = [
+            'quantity' => $request->qty
+            ];
+        }
+        
+
+        session(['cart' => $cart]);
+        //$this->num = $request->qty;
+       // $request->session()->put('numRoom','1');
+        return json_encode($cart);
     }
 }
