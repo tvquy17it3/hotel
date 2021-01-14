@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Room;
-
+use App\Model\Order;
+use DB;
 class AdminController extends Controller
 {
      public function index()
@@ -45,14 +46,25 @@ class AdminController extends Controller
         return redirect('admin/order');
     }
 
-
-    
-    #account
-     public function account()
+    #chart
+    public function week()
     {
-
-    	return view('admin.users.users');
+        $groups = DB::table('orders')
+                  ->select('price', DB::raw('count(*) as total'))
+                  ->groupBy('price')
+                  ->pluck('total', 'price')->all();
+        // $ord = Order::WhereYear('created_at', date('Y-m-d'))->get();
+        for ($i=0; $i<=count($groups); $i++) {
+            $cl[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+        }
+        $lb = (array_keys($groups));
+        $dt = (array_values($groups));
+        return view('admin.chart.week',compact('lb','cl','dt'));
     }
-
+    public function year()
+    {
+       
+        return view('admin.chart.year');
+    }
     
 }

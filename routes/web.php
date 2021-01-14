@@ -54,5 +54,10 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::get('/account/blocks', ['as' => 'room', 'uses' => 'UserController@blocks']);
  	Route::post('/account/position', ['as' => 'positions', 'uses' => 'UserController@position']);
  	Route::get('/account/block/{id}', ['as' => 'block', 'uses' => 'UserController@block']);
+
+ 	#chart
+ 	Route::get('/week', ['as' => 'monthe', 'uses' => 'AdminController@week']);
+ 	Route::get('/year', ['as' => 'monthe', 'uses' => 'AdminController@year']);
+
 });
 
