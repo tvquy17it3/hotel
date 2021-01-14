@@ -25,6 +25,12 @@ Route::get('/endow', 'EndowController@index');
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@home')->name('home');
 
+Route::group(['middleware' => 'web'], function () {
+    Route::get('bar', function () {
+        return csrf_token(); // works
+	});
+	Route::post('/getCart', 'RoomController@getCart');
+});
 
 Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
 

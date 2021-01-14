@@ -37,12 +37,30 @@
                     <h5>Chi tiết đặt phòng</h5>
                 </label>
                 <div class="row g-0 border border-warning rounded" style="margin-top:20px; padding-bottom: 10px;">
+                    <?php $total = 0; ?>
+                    @if(count(session('cart'))>0)
+                    @foreach(session('cart') as $value)
                     <div class="row g-0">
-                        <div class="col-md-8">
-                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Phòng Deluxe King</b></p>
+                        <div class="col-md-6">
+                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Phòng {{$value['name']}}</b></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Số lượng: {{$value['quantity']}}</b>
+                            </p>
                         </div>
                         <div class="col-md-4" style="padding-right: 10px; text-align: right;">
-                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><u>đ</u> 1000000</p>
+                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><u>đ</u> {{$value['price']}}</p>
+                        </div>
+                    </div>
+                    <?php $total = $total + (int)$value['price']*(int)$value['quantity'];?>
+                    @endforeach
+                    @else
+                    <div class="row g-0">Trong
+                    </div>
+                    @endif
+                    <div class="row g-0">
+                        <div class="col-md-8"></div>
+                        <div class="col-md-4" style="padding-right: 10px; text-align: right;">
                             <p style="margin: auto;">Chính sách đặt phòng</p>
                         </div>
                     </div>
@@ -139,7 +157,7 @@
                                     <p class="on">Giá phòng</p>
                                 </div>
                                 <div class="col-md-6" style="padding-right: 10px; text-align: right;">
-                                    <p class="on" style="margin: auto;"><u>đ</u> 1000000</p>
+                                    <p class="on" style="margin: auto;"><u>đ</u> {{$total}}</p>
                                 </div>
                                 <hr style="margin-bottom: 5px;">
                             </div>
@@ -148,7 +166,7 @@
                                     <p class="on">Tổng</p>
                                 </div>
                                 <div class="col-md-6" style="padding-right: 10px; text-align: right;">
-                                    <p class="on" style="margin: auto;"><b><u>đ</u> 1000000</b></p>
+                                    <p class="on" style="margin: auto;"><b><u>đ</u> {{$total}}</b></p>
                                 </div>
                                 <p style="margin: auto;">Giá bao gồm thuế</p>
                             </div>
@@ -163,7 +181,7 @@
                                     <p class="on">Số tiền đặt cọc</p>
                                 </div>
                                 <div class="col-md-6" style="padding-right: 10px; text-align: right;">
-                                    <p class="on" style="margin: auto;"><u>đ</u> 1000000</p>
+                                    <p class="on" style="margin: auto;"><u>đ</u> {{$total*20/100}}</p>
                                 </div>
                             </div>
                             <div class="row g-0 ">
@@ -171,7 +189,7 @@
                                     <p class="on">Số tiền phải thanh toán khi nhận phòng</p>
                                 </div>
                                 <div class="col-md-6" style="padding-right: 10px; text-align: right;">
-                                    <p class="on" style="margin: auto;"><u>đ</u> 0</p>
+                                    <p class="on" style="margin: auto;"><u>đ</u> {{$total - $total*20/100}}</p>
                                 </div>
                             </div>
                         </div>
