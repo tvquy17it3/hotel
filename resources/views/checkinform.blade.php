@@ -19,10 +19,10 @@
                     <h4>NOVOTEL hotel</h4>
                 </label>
                 <div class="row g-0 border border-warning rounded">
-                    <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Nhận phòng:</b> Thứ 2, Tháng 10 28, 2020 từ
-                        14:00</p>
-                    <p style="margin: auto; padding: 10px 0px 10px 20px;"><b>Trả phòng:</b> Thứ 4, Tháng 10 30, 2020 cho
-                        đến 12:00</p>
+                    <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Nhận phòng:</b>
+                        {{session('checkin')['dateCheckIn'] }}</p>
+                    <p style="margin: auto; padding: 10px 0px 10px 20px;"><b>Trả phòng:</b>
+                        {{session('checkin')['dateCheckOut']}}</p>
                 </div>
             </div>
 
@@ -80,10 +80,19 @@
                             <div class="row g-0 ">
                                 <div class="col-md-5" style=" padding-left: 20px;">
                                     <select class="form-control" aria-label=".form-select-lg example">
-                                        <option selected>Số người ở</option>
-                                        <option value="1">1 người</option>
-                                        <option value="2">2 người</option>
-                                        <option value="3">3 người</option>
+                                        <?php 
+                                            $num = 0;
+                                            if(session()->get('checkin')!==""){
+                                            $num = session()->get('checkin')['quantity'];
+                                            } 
+                                        ?>
+
+                                        <option value="0" selected>Số người ở</option>
+                                        @for($i =1; $i < 5; $i++) <option value='{{$i}}'
+                                            {{$num==$i ? 'selected' : '' }}>{{$i}}
+                                            người
+                                            </option>
+                                            @endfor
                                     </select>
                                 </div>
                             </div>

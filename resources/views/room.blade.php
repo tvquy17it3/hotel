@@ -10,7 +10,6 @@
     margin: 10000px;
 }
 </style>
-
 <div class="card mb-3  d-none d-lg-block" style="border-color: rgb(242, 169, 0);">
     <div class="row g-0">
         <div class="col-md-3" style="padding: 10px; padding-top: 20px;">
