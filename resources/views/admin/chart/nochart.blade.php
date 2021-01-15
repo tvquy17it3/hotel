@@ -23,17 +23,10 @@ table {
   overflow-x: auto;
   width: 100%;
 }
-div.doanhthu {
-  text-align: center;
-  margin-left: 20px;
-}
 </style>
  <link rel="stylesheet" href="public/css/table.css">
 @endsection
-
 @section('content')
-
-    <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
         Dashboard
@@ -44,15 +37,7 @@ div.doanhthu {
         <li class="active">7 days</li>
       </ol>
     </section>
-  <!-- /.content-wrapper -->
-
-     <!-- Main content -->
     <section class="content">
-
-
-       <!--  Hang 2 contents -->
-      <!-- /.row -->
-      <!-- Main row -->
       <div class="div1">
         <div class="table-wrapper div2">
             <div class="table-title">
@@ -61,53 +46,17 @@ div.doanhthu {
                         <h2>Doanh Thu <b>Hotel</b></h2>
                     </div>
                       <div class="col-sm-6">
-                        <a  href="admin/year" class="btn btn-success" data-toggle="modal"><span>Trong 30 Ngày</span></a>                   
+                        <a  href="admin/year" class="btn btn-success" data-toggle="modal"><span>Trong 7 Ngày</span></a>                   
                     </div>
                 </div>
             </div>
 
             <div class="container">
               <div class="doanhthu">
-                <h3>Thống kê doanh thu trong 7 ngày</h3>
+                <h3>Không có dữ liệu thống kê</h3>
               </div>
-                <canvas id="myChart"></canvas>
             </div>
         </div>
       </div>
-      
-     
-      <!-- /.row (main row) -->
-      <!--  /Hang 2 contents -->
     </section>
-
-@endsection
-
-@section('scripts')
-<script src="public/js/chart.min.js"></script>
-
-<script>
-var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: {!!json_encode($lb)!!},
-        datasets: [{
-            label: ['Doanh thu:'],
-            data: {!!json_encode($dt)!!} ,
-            backgroundColor: {!!json_encode($cl)!!},
-            borderColor:{!!json_encode($cl)!!},
-            borderWidth: 2
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
-                }
-            }]
-        }
-    }
-});
-</script>
 @endsection

@@ -54,7 +54,7 @@ class AdminController extends Controller
     {
         $range = Carbon::now()->subDays(30);
         $stats = DB::table('orders')
-          ->where('status', 0)
+          ->where('status', 2)
           ->where('checkOut', '>=', $range)
           ->groupBy('date')
           ->orderBy('date', 'ASC')
@@ -71,7 +71,9 @@ class AdminController extends Controller
            $lb[] = $stats[$i]->date;
            $dt[] = $stats[$i]->sums;
         }
-
+        if ($counts==0) {
+          return view('admin.chart.nochart');
+        }
         return view('admin.chart.year',compact('lb','cl','dt'));
     }
 
@@ -79,7 +81,7 @@ class AdminController extends Controller
     {
         $range = Carbon::now()->subDays(7);
         $stats = DB::table('orders')
-          ->where('status', 0)
+          ->where('status', 2)
           ->where('checkOut', '>=', $range)
           ->groupBy('date')
           ->orderBy('date', 'ASC')
@@ -96,7 +98,9 @@ class AdminController extends Controller
            $lb[] = $stats[$i]->date;
            $dt[] = $stats[$i]->sums;
         }
-
+        if ($counts==0) {
+          return view('admin.chart.nochart');
+        }
         return view('admin.chart.week',compact('lb','cl','dt'));
     }
 
