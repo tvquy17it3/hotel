@@ -45,14 +45,14 @@
                             <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Phòng {{$value['name']}}</b></p>
                         </div>
                         <div class="col-md-2">
-                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Số lượng: {{$value['quantity']}}</b>
+                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Số lượng: {{$value['qty']}}</b>
                             </p>
                         </div>
                         <div class="col-md-4" style="padding-right: 10px; text-align: right;">
                             <p style="margin: auto; padding: 10px 0px 0px 20px;"><u>đ</u> {{$value['price']}}</p>
                         </div>
                     </div>
-                    <?php $total = $total + (int)$value['price']*(int)$value['quantity'];?>
+                    <?php $total = $total + (int)$value['price']*(int)$value['qty'];?>
                     @endforeach
                     @else
                     <div class="row g-0">Trong
@@ -79,7 +79,7 @@
                             <p style="margin: auto; padding-left: 20px;">Số lượng khách</p>
                             <div class="row g-0 ">
                                 <div class="col-md-5" style=" padding-left: 20px;">
-                                    <select class="form-control" aria-label=".form-select-lg example">
+                                    <select class="form-control" id="numPeople" aria-label=".form-select-lg example">
                                         <?php 
                                             $num = 0;
                                             if(session()->get('checkin')!==""){
@@ -117,29 +117,29 @@
                             </div>
                             <div class="col" style="padding-right:10px;">
                                 <label>Tên</label>
-                                <input type="text" id="name" class="form-control">
+                                <input type="text" id="name" class="form-control" value="Nha">
                             </div>
                             <div class="col" style="padding-right:10px;">
                                 <label>Họ</label>
-                                <input type="text" id="last" class="form-control">
+                                <input type="text" id="last" class="form-control" value="Vo">
                             </div>
                         </div>
                         <div class="row g-0" style="padding:10px;">
                             <div class="col" style="padding-right:10px;">
                                 <label>Thư điện tử</label>
-                                <input type="email" id="email" class="form-control">
+                                <input type="email" id="email" class="form-control" value="test2@gmail.com">
                             </div>
                         </div>
                         <div class="row g-0" style="padding:10px;">
                             <div class="col" style="padding-right:10px;">
                                 <label>Xác nhận bằng thư điện tử</label>
-                                <input type="email" id="emailVerify" class="form-control">
+                                <input type="email" id="emailVerify" class="form-control" value="test2@gmail.com">
                             </div>
                         </div>
                         <div class="row g-0" style="padding:10px;">
                             <div class="col" style="padding-right:10px;">
                                 <label>Số điện thoại liên lạc</label>
-                                <input type="text" id="phone" class="form-control">
+                                <input type="text" id="phone" class="form-control" value="0905905293">
                             </div>
                         </div>
                         <div class="row g-0" style="padding:10px;">
@@ -342,17 +342,27 @@ document.addEventListener('DOMContentLoaded', function() {
             var email = $('#email').val().trim();
             var emailVerify = $('#emailVerify').val().trim();
             var phone = $('#phone').val().trim();
+            var people = $('#numPeople').val().trim();
             var service = $('#service').val().trim();
             var checkbox = $('#checkbox').is(":checked");
             var option = $('input:checked').val();
 
-            //console.log(option);
+            // console.log(
+            //     ''
+            // );
+
             if (name != '' && last != '' && email != '' && emailVerify != '' && phone != '') {
                 if (checkbox == true) {
                     var cusName = last + " " + name;
 
                     $.post("http://localhost/hotel/form", {
-                        qty: checkbox
+                        cusName: cusName,
+                        phone: phone,
+                        price: <?php echo $total ?>,
+                        people: people,
+                        status: 0,
+                        checkIn: <?php  echo strtotime(session('checkin')['dateCheckIn'])  ?>,
+                        checkOut: <?php  echo strtotime(session('checkin')['dateCheckOut'])  ?>
                     }).done(function(data) {
                         alert(data);
                         //window.location.replace("http://localhost/hotel/chooseroom");

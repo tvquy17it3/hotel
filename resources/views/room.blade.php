@@ -72,7 +72,7 @@
                             <?php 
                                 $num = 0;
                                 if(is_array(session()->get('cart'))&&(array_key_exists(intval((string)$roomInfo), session()->get('cart')) )){
-                                    $num = session()->get('cart')[(string)$roomInfo]['quantity'];
+                                    $num = session()->get('cart')[(string)$roomInfo]['qty'];
                                 } 
                             ?>
                             @for($i =0; $i < 5; $i++) <option value='{{$i}}' {{$num==$i ? 'selected' : '' }}>{{$i}}
