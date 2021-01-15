@@ -19,10 +19,10 @@
                     <h4>NOVOTEL hotel</h4>
                 </label>
                 <div class="row g-0 border border-warning rounded">
-                    <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Nhận phòng:</b> Thứ 2, Tháng 10 28, 2020 từ
-                        14:00</p>
-                    <p style="margin: auto; padding: 10px 0px 10px 20px;"><b>Trả phòng:</b> Thứ 4, Tháng 10 30, 2020 cho
-                        đến 12:00</p>
+                    <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Nhận phòng:</b>
+                        {{session('checkin')['dateCheckIn'] }}</p>
+                    <p style="margin: auto; padding: 10px 0px 10px 20px;"><b>Trả phòng:</b>
+                        {{session('checkin')['dateCheckOut']}}</p>
                 </div>
             </div>
 
@@ -45,14 +45,14 @@
                             <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Phòng {{$value['name']}}</b></p>
                         </div>
                         <div class="col-md-2">
-                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Số lượng: {{$value['quantity']}}</b>
+                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Số lượng: {{$value['qty']}}</b>
                             </p>
                         </div>
                         <div class="col-md-4" style="padding-right: 10px; text-align: right;">
                             <p style="margin: auto; padding: 10px 0px 0px 20px;"><u>đ</u> {{$value['price']}}</p>
                         </div>
                     </div>
-                    <?php $total = $total + (int)$value['price']*(int)$value['quantity'];?>
+                    <?php $total = $total + (int)$value['price']*(int)$value['qty'];?>
                     @endforeach
                     @else
                     <div class="row g-0">Trong
@@ -79,11 +79,20 @@
                             <p style="margin: auto; padding-left: 20px;">Số lượng khách</p>
                             <div class="row g-0 ">
                                 <div class="col-md-5" style=" padding-left: 20px;">
-                                    <select class="form-control" aria-label=".form-select-lg example">
-                                        <option selected>Số người ở</option>
-                                        <option value="1">1 người</option>
-                                        <option value="2">2 người</option>
-                                        <option value="3">3 người</option>
+                                    <select class="form-control" id="numPeople" aria-label=".form-select-lg example">
+                                        <?php 
+                                            $num = 0;
+                                            if(session()->get('checkin')!==""){
+                                            $num = session()->get('checkin')['quantity'];
+                                            } 
+                                        ?>
+
+                                        <option value="0" selected>Số người ở</option>
+                                        @for($i =1; $i < 5; $i++) <option value='{{$i}}'
+                                            {{$num==$i ? 'selected' : '' }}>{{$i}}
+                                            người
+                                            </option>
+                                            @endfor
                                     </select>
                                 </div>
                             </div>
@@ -108,29 +117,29 @@
                             </div>
                             <div class="col" style="padding-right:10px;">
                                 <label>Tên</label>
-                                <input type="text" class="form-control">
+                                <input type="text" id="name" class="form-control" value="Nha">
                             </div>
                             <div class="col" style="padding-right:10px;">
                                 <label>Họ</label>
-                                <input type="text" class="form-control">
+                                <input type="text" id="last" class="form-control" value="Vo">
                             </div>
                         </div>
                         <div class="row g-0" style="padding:10px;">
                             <div class="col" style="padding-right:10px;">
                                 <label>Thư điện tử</label>
-                                <input type="email" class="form-control">
+                                <input type="email" id="email" class="form-control" value="test2@gmail.com">
                             </div>
                         </div>
                         <div class="row g-0" style="padding:10px;">
                             <div class="col" style="padding-right:10px;">
                                 <label>Xác nhận bằng thư điện tử</label>
-                                <input type="email" class="form-control">
+                                <input type="email" id="emailVerify" class="form-control" value="test2@gmail.com">
                             </div>
                         </div>
                         <div class="row g-0" style="padding:10px;">
                             <div class="col" style="padding-right:10px;">
                                 <label>Số điện thoại liên lạc</label>
-                                <input type="text" class="form-control">
+                                <input type="text" id="phone" class="form-control" value="0905905293">
                             </div>
                         </div>
                         <div class="row g-0" style="padding:10px;">
@@ -141,7 +150,8 @@
                         </div>
                         <div class="row g-0" style="padding:10px;">
                             <label>Yêu cầu thêm</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="service" id="exampleFormControlTextarea1"
+                                rows="3"></textarea>
                         </div>
 
                     </div>
@@ -202,21 +212,21 @@
                             <div class="row g-0 ">
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadios"
-                                        id="exampleRadios1" value="option1">
+                                        id="exampleRadios1" value="visa">
                                     <label class="form-check-label" for="exampleRadios1">
                                         Thanh toán qua thẻ visa
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadios"
-                                        id="exampleRadios2" value="option2">
+                                        id="exampleRadios2" value="ATM">
                                     <label class="form-check-label" for="exampleRadios2">
                                         Thanh toán qua thẻ ATM
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadios"
-                                        id="exampleRadios3" value="option3" checked>
+                                        id="exampleRadios3" value="COD" checked>
                                     <label class="form-check-label" for="exampleRadios3">
                                         Thanh toán khi nhận phòng
                                     </label>
@@ -229,9 +239,10 @@
 
                         <div class="row g-0  border border-warning rounded" style="padding:10px;margin-top: 20px;">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input vertical-center " type="checkbox" id="inlineCheckbox1"
-                                    value="option1" style="margin-top: 5px;">
-                                <p class="form-check-label " for="inlineCheckbox1">Tôi đã đọc và chấp nhận Chính sách
+                                <input class="form-check-input vertical-center " id="checkbox" type="checkbox"
+                                    id="inlineCheckbox1" value="option1" style="margin-top: 5px;">
+                                <p class="form-check-label " for="inlineCheckbox1">Tôi đã đọc và chấp nhận
+                                    Chính sách
                                     đặt
                                     phòng</p>
                             </div>
@@ -255,7 +266,7 @@
                                                 Trở về</a></button>
                                     </div>
                                     <div class="col-md-7">
-                                        <button type="button" style="background-color: rgb(242, 169, 0);"
+                                        <button type="button" id="order" style="background-color: rgb(242, 169, 0);"
                                             class="btn btn-warning"><a href="/hotel/submit"
                                                 style="text-decoration: none; color:black;">Đặt phòng
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -305,4 +316,83 @@
     </div>
 
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    //import axios from 'axios';
+    var tokenCSRF;
+    var loading = true;
+    $.get("http://localhost/hotel/bar").done(function(data) {
+        tokenCSRF = data;
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': tokenCSRF
+            }
+        });
+
+
+
+        $('#order').on('click', function(e) {
+            e.preventDefault();
+
+            var name = $('#name').val().trim();
+            var last = $('#last').val().trim();
+            var email = $('#email').val().trim();
+            var emailVerify = $('#emailVerify').val().trim();
+            var phone = $('#phone').val().trim();
+            var people = $('#numPeople').val().trim();
+            var service = $('#service').val().trim();
+            var checkbox = $('#checkbox').is(":checked");
+            var option = $('input:checked').val();
+
+            // console.log(
+            //     ''
+            // );
+
+            if (name != '' && last != '' && email != '' && emailVerify != '' && phone != '') {
+                if (checkbox == true) {
+                    var cusName = last + " " + name;
+
+                    $.post("http://localhost/hotel/form", {
+                        cusName: cusName,
+                        phone: phone,
+                        price: <?php echo $total ?>,
+                        people: people,
+                        status: 0,
+                        checkIn: <?php  echo strtotime(session('checkin')['dateCheckIn'])  ?>,
+                        checkOut: <?php  echo strtotime(session('checkin')['dateCheckOut'])  ?>
+                    }).done(function(data) {
+                        //alert(data);
+                        window.location.replace("http://localhost/hotel/submit");
+                    });
+                } else {
+                    alert('Vui long chap nhan de dat phong');
+                }
+            } else {
+                alert('Vui long nhap day du thong tin');
+            }
+
+            // var qty = e.target.value;
+            // var dataCheckIn = $('#checkIn').val();
+            // var dataCheckOut = $('#checkOut').val();
+            // var qty = $('#numPeople').val();
+            // if (qty !== '0' && dataCheckIn !== '' && dataCheckOut !== '') {
+            //     $.post("http://localhost/hotel/checkin", {
+            //         dateCheckIn: dataCheckIn,
+            //         dateCheckOut: dataCheckOut,
+            //         qty: qty
+            //     }).done(function(data) {
+            //         window.location.replace("http://localhost/hotel/chooseroom");
+            //     });
+            // } else {
+            //     alert('Mời điền đầy đủ thông tin');
+            // }
+            //alert("OK");
+        });
+    });
+});
+</script>
+
 @endsection

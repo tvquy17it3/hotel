@@ -43,9 +43,10 @@ class RoomController extends Controller
         }else{
             $room = Room::find((int)$request->id);
             $cart[(int)$request->id] = [
+            'id'=>(int)$request->id,
             'name' => $room->name,
             'price' => $room->price,
-            'quantity' => $request->qty,
+            'qty' => $request->qty,
             ];
         }
         

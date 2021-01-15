@@ -10,7 +10,6 @@
     margin: 10000px;
 }
 </style>
-
 <div class="card mb-3  d-none d-lg-block" style="border-color: rgb(242, 169, 0);">
     <div class="row g-0">
         <div class="col-md-3" style="padding: 10px; padding-top: 20px;">
@@ -73,7 +72,7 @@
                             <?php 
                                 $num = 0;
                                 if(is_array(session()->get('cart'))&&(array_key_exists(intval((string)$roomInfo), session()->get('cart')) )){
-                                    $num = session()->get('cart')[(string)$roomInfo]['quantity'];
+                                    $num = session()->get('cart')[(string)$roomInfo]['qty'];
                                 } 
                             ?>
                             @for($i =0; $i < 5; $i++) <option value='{{$i}}' {{$num==$i ? 'selected' : '' }}>{{$i}}
