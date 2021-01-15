@@ -27,6 +27,9 @@ class OrderController extends Controller
         foreach($cart as $value){
             OrderDetail::create(["orderID"=>$orderID,"roomID"=> $value['id'], "qty"=>$value['qty'], "price"=>$value['price']]);
         }
+        if($orderID>0){
+            session()->flush();
+        }
         return json_encode($orderID);
     }
 }

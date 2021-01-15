@@ -364,8 +364,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         checkIn: <?php  echo strtotime(session('checkin')['dateCheckIn'])  ?>,
                         checkOut: <?php  echo strtotime(session('checkin')['dateCheckOut'])  ?>
                     }).done(function(data) {
-                        alert(data);
-                        //window.location.replace("http://localhost/hotel/chooseroom");
+                        //alert(data);
+                        window.location.replace("http://localhost/hotel/submit");
                     });
                 } else {
                     alert('Vui long chap nhan de dat phong');

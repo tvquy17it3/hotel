@@ -28,11 +28,17 @@
             </div>
             <div class="col-md-8" style="padding-left: 10px;">
                 <div class="overflow-auto" style="height: 60vh;">
-                    @for ($i = 0; $i < 5; $i++) @component('ordered') @endcomponent @endfor </div>
+                    @foreach($order as $value)
+                    @foreach($value->orderDetail as $detail)
+                    @component('ordered', ['roomInfo'=>['people'=>$value->people, 'name'=>$detail->name]])
+                    @endcomponent
+                    @endforeach
+                    @endforeach
                 </div>
             </div>
-            <div class="col-md-1">
-            </div>
+        </div>
+        <div class="col-md-1">
         </div>
     </div>
-    @endsection
+</div>
+@endsection
