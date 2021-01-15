@@ -29,10 +29,9 @@
             <div class="col-md-8" style="padding-left: 10px;">
                 <div class="overflow-auto" style="height: 60vh;">
                     @foreach($order as $value)
-                    @foreach($value->orderDetail as $detail)
-                    @component('ordered', ['roomInfo'=>['people'=>$value->people, 'name'=>$detail->name]])
+                    @component('ordered', ['roomInfo'=>['people'=>$value->people, 'dateCheckIn'=>$value->checkIn,
+                    'dateCheckOut'=>$value->checkOut, 'price'=>$value->price,'detail'=>$value->orderDetail]])
                     @endcomponent
-                    @endforeach
                     @endforeach
                 </div>
             </div>

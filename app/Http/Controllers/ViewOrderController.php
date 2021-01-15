@@ -17,7 +17,9 @@ class ViewOrderController extends Controller
         foreach($order as $value){
             $orderDetail = OrderDetail::where('orderID', '=',$value->id)->get();
             foreach($orderDetail as $detail){
-                $detail->name = Room::find($detail->roomID)->name;
+                $detailInfo = Room::find($detail->roomID);
+                $detail->name = $detailInfo->name;
+                $detail->capacity = $detailInfo->capacity;
             }
             $value->orderDetail = $orderDetail;
             //$value->name = 'a';
