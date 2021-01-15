@@ -10,7 +10,6 @@
     margin: 10000px;
 }
 </style>
-
 <div class="card mb-3  d-none d-lg-block" style="border-color: rgb(242, 169, 0);">
     <div class="row g-0">
         <div class="col-md-3" style="padding: 10px; padding-top: 20px;">
@@ -68,13 +67,12 @@
                     </small></p>
                 <p class="card-text" style="margin: 0px;padding-left: 40px;padding-right: 40px;">
                     <small class="text-muted">
-                        <select class="form-select form-select-sm" roomID={{$roomInfo}} name="chooseRoom"
-                            aria-label=".form-select-sm example"
-                            value="{{array_key_exists(intval((string)$roomInfo), session()->get('cart'))? session()->get('cart')[(string)$roomInfo]['quantity'] : 0}}">
+                        <select class="form-select form-select-sm" roomID={{$roomInfo}} roomName={{$name}}
+                            name="chooseRoom" aria-label=".form-select-sm example">
                             <?php 
                                 $num = 0;
-                                if(array_key_exists(intval((string)$roomInfo), session()->get('cart'))){
-                                    $num = session()->get('cart')[(string)$roomInfo]['quantity'];
+                                if(is_array(session()->get('cart'))&&(array_key_exists(intval((string)$roomInfo), session()->get('cart')) )){
+                                    $num = session()->get('cart')[(string)$roomInfo]['qty'];
                                 } 
                             ?>
                             @for($i =0; $i < 5; $i++) <option value='{{$i}}' {{$num==$i ? 'selected' : '' }}>{{$i}}

@@ -17,9 +17,11 @@ class RoomController extends Controller
         $room2 = Room::where('capacity', '=',2)->get();
         $room3 = Room::where('capacity', '=',3)->get();
         $room4 = Room::where('capacity', '=',4)->get();
-
-        $cart = session()->has('cart') ? session()->get('cart') : [];
+        
         //session()->flush();
+        $cart = session()->has('cart') ? session()->get('cart') : [];
+        session(['cart' => $cart]);
+        
         // foreach($room1 as $value){
         //     if($value->kindOfRoom=='2'){
 
@@ -32,26 +34,36 @@ class RoomController extends Controller
     //     Session::put('numRoom',$selectValue);
     // }
     public function postData(Request $request) {
-        // $numRoom = $request->all();
-        // $request->session()->put('numRoom',$request->qty);
-        // $value = $request->session()->get('numRoom');
-        // $this->num = $request->qty;
-        // Session::forget('numRoom');
-        // Session::put('numRoom',$this->num);
 
-
+        
 
         $cart = session()->has('cart') ? session()->get('cart') : [];
         if((int)$request->qty == 0){
             unset($cart[$request->id]);
         }else{
+            $room = Room::find((int)$request->id);
             $cart[(int)$request->id] = [
-            'quantity' => $request->qty
+            'id'=>(int)$request->id,
+            'name' => $room->name,
+            'price' => $room->price,
+            'qty' => $request->qty,
             ];
         }
         
 
         session(['cart' => $cart]);
+        //$this->num = $request->qty;
+       // $request->session()->put('numRoom','1');
+        return json_encode($cart);
+    }
+
+    public function getCart(Request $request) {
+
+        //$cart = session()->has('cart') ? session()->get('cart') : [];
+        //$cart = session()->has('cart') ? session()->get('cart') : [];
+        session()->flush();
+        $info = $request->all();
+        $cart = session(['cart' => $info]);
         //$this->num = $request->qty;
        // $request->session()->put('numRoom','1');
         return json_encode($cart);

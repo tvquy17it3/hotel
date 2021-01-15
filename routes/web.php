@@ -13,8 +13,10 @@
 
 Route::get('/', 'HotelController@index');
 Route::get('/checkin', 'CheckinController@index');
+Route::post('/checkin', 'CheckinController@postData');
 Route::get('/chooseroom', 'RoomController@index');
 Route::get('/form', 'OrderController@index');
+Route::post('/form', 'OrderController@postData');
 Route::get('/submit', 'SubmitController@index');
 Route::post('/chooseroom', 'RoomController@postData');
 Route::get('/vieworder', 'ViewOrderController@index');
@@ -25,6 +27,12 @@ Route::get('/endow', 'EndowController@index');
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@home')->name('home');
 
+Route::group(['middleware' => 'web'], function () {
+    Route::get('bar', function () {
+        return csrf_token(); // works
+	});
+	Route::post('/getCart', 'RoomController@getCart');
+});
 
 Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
 
@@ -55,9 +63,12 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::post('/account/position', ['as' => 'positions', 'uses' => 'UserController@position']);
  	Route::get('/account/block/{id}', ['as' => 'block', 'uses' => 'UserController@block']);
 
+
+
  	#chart
  	Route::get('/week', ['as' => 'monthe', 'uses' => 'AdminController@week']);
  	Route::get('/year', ['as' => 'monthe', 'uses' => 'AdminController@year']);
 
 });
+
 
