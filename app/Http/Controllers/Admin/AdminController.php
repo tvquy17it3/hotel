@@ -3,13 +3,18 @@
 namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Room;
+use App\Model\Order;
+use DB;
+use Carbon\Carbon;
 
 class AdminController extends Controller
 {
      public function index()
     {
-    
-        return view('admin.index');
+        $dateInput =  date('Y-m-d');
+        $room = Room::All();
+        return view('admin.index',['room'=>$room,'dateS'=> $dateInput]);
     }
 
     #order
@@ -43,30 +48,58 @@ class AdminController extends Controller
         return redirect('admin/order');
     }
 
-
-
-    #room
-    public function room()
+    #chart
+   
+    public function year()
     {
+        $range = Carbon::now()->subDays(30);
+        $stats = DB::table('orders')
+          ->where('status', 0)
+          ->where('checkOut', '>=', $range)
+          ->groupBy('date')
+          ->orderBy('date', 'ASC')
+          ->get([DB::raw('Date(checkOut) as date'),
+            DB::raw('sum(price) as sums')
+          ])->All();
 
-    	return view('admin.room.room');
-    }
-    public function addroom()
-    {
-
-        return view('admin.room.addroom');
-    }
-    public function editroom()
-    {
-
-        return view('admin.room.editroom');
-    }
-    #account
-     public function account()
-    {
-
-    	return view('admin.users.users');
-    }
-
+        $counts = count($stats);
+        for ($i=0; $i< $counts; $i++) {
+            $cl[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+        }
     
+        for ($i=0; $i<$counts ; $i++) { 
+           $lb[] = $stats[$i]->date;
+           $dt[] = $stats[$i]->sums;
+        }
+
+        return view('admin.chart.year',compact('lb','cl','dt'));
+    }
+
+     public function week()
+    {
+        $range = Carbon::now()->subDays(7);
+        $stats = DB::table('orders')
+          ->where('status', 0)
+          ->where('checkOut', '>=', $range)
+          ->groupBy('date')
+          ->orderBy('date', 'ASC')
+          ->get([DB::raw('Date(checkOut) as date'),
+            DB::raw('sum(price) as sums')
+          ])->All();
+
+        $counts = count($stats);
+        for ($i=0; $i< $counts; $i++) {
+            $cl[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+        }
+    
+        for ($i=0; $i<$counts ; $i++) { 
+           $lb[] = $stats[$i]->date;
+           $dt[] = $stats[$i]->sums;
+        }
+
+        return view('admin.chart.week',compact('lb','cl','dt'));
+    }
+
 }
+
+
