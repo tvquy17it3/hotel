@@ -23,9 +23,9 @@
     @component('status')
     @slot('numStep') 2 @endslot
     @endcomponent
-    <div>
+    <!-- <div>
         <p class="info">{{json_encode(session('cart'))}}</p>
-    </div>
+    </div> -->
     <div class="row d-lg-none">
         <div class="col-md-3" style="text-align: left; padding-bottom: 10px;">
             <button id="abc" type="button" style="background-color: rgb(242, 169, 0);"
@@ -317,16 +317,53 @@
     </div>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
+        //import axios from 'axios';
+        var tokenCSRF;
+        var loading = true;
+        $.get("http://localhost/hotel/bar").done(function(data) {
+            tokenCSRF = data;
+
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': tokenCSRF
+                }
+            });
+
+
+            // $.post("http://localhost/hotel/getCart",
+            //     JSON.parse(String(localStorage.getItem('cart')))).done(function(data) {
+            //     alert(data);
+            // });
+
+
+
+            $('.form-select').on('change', function(e) {
+                e.preventDefault();
+                //console.log(e.target.attributes.roomid.value);
+                var qty = e.target.value;
+                var roomID = e.target.attributes.roomid.value;
+
+                $.post("http://localhost/hotel/chooseroom", {
+                    id: roomID,
+                    qty: qty
+                }).done(function(data) {
+
+                    alert("Data Loaded: " +
+                        data);
+
+                    localStorage.setItem('cart',
+                        JSON.stringify(
+                            <?php echo json_encode(session('cart')) ?>));
+                });
+            });
         });
+
+
+
+
         $('.list-group-item').click(function() {
-            //alert('ok');
             $('.list-group-item.active').removeClass("active");
-            //$(this).removeClass("active");
-            //$(this).addClass("active");
             $(this).tab('show');
         });
         var dem = 0;
@@ -346,21 +383,6 @@
         //     }
         // });
 
-        $('.form-select').on('change', function(e) {
-            e.preventDefault();
-            //console.log(e.target.attributes.roomid.value);
-            var qty = e.target.value;
-            var roomID = e.target.attributes.roomid.value;
-
-            $.post("http://localhost/hotel/chooseroom", {
-                id: roomID,
-                qty: qty
-            }).done(function(data) {
-
-                alert("Data Loaded: " +
-                    data);
-            });
-        });
 
     });
     </script>
