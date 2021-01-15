@@ -23,6 +23,10 @@ table {
   overflow-x: auto;
   width: 100%;
 }
+div.doanhthu {
+  text-align: center;
+  margin-left: 20px;
+}
 </style>
  <link rel="stylesheet" href="public/css/table.css">
 @endsection
@@ -37,7 +41,7 @@ table {
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">All Rooms</li>
+        <li class="active">30 days</li>
       </ol>
     </section>
   <!-- /.content-wrapper -->
@@ -57,13 +61,16 @@ table {
                         <h2>Doanh Thu <b>Hotel</b></h2>
                     </div>
                       <div class="col-sm-6">
-                        <a  href="admin/week" class="btn btn-success" data-toggle="modal"><span>Các ngày trong tuần</span></a>                       
+                        <a  href="admin/week" class="btn btn-success" data-toggle="modal"><span>Thống kê trong 7 ngày</span></a>                       
                     </div>
                 </div>
             </div>
             <div class="container">
-                        <canvas id="myChart"></canvas>
-                    </div>
+              <div class="doanhthu">
+                <h3>Thống kê doanh thu trong 30 ngày</h3>
+              </div>
+              <canvas id="myChart"></canvas>
+            </div>
         </div>
       </div>
       
@@ -82,28 +89,12 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 12'],
+        labels: {!!json_encode($lb)!!},
         datasets: [{
-            label: '#Doanh Thu',
-            data: [19, 18, 15, 20,19 , 26, 30],
-            backgroundColor: [
-                '#80ff00',
-                '#00ffbf',
-                '#0040ff',
-                '#bf00ff',
-                '#ff00bf',
-                '#ffbf00',
-                '#ff0000'
-            ],
-            borderColor: [
-                '#40ff00',
-                'rgba(54, 162, 235, 1)',
-                '#0080ff',
-                '#8000ff',
-                '#8000ff',
-                '#ff8000',
-                '#ff4000'
-            ],
+             label: ['Doanh thu:'],
+            data: {!!json_encode($dt)!!} ,
+            backgroundColor: {!!json_encode($cl)!!},
+            borderColor:{!!json_encode($cl)!!},
             borderWidth: 2
         }]
     },

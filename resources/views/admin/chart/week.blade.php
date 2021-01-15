@@ -23,6 +23,10 @@ table {
   overflow-x: auto;
   width: 100%;
 }
+div.doanhthu {
+  text-align: center;
+  margin-left: 20px;
+}
 </style>
  <link rel="stylesheet" href="public/css/table.css">
 @endsection
@@ -37,7 +41,7 @@ table {
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">All Rooms</li>
+        <li class="active">7 days</li>
       </ol>
     </section>
   <!-- /.content-wrapper -->
@@ -57,13 +61,17 @@ table {
                         <h2>Doanh Thu <b>Hotel</b></h2>
                     </div>
                       <div class="col-sm-6">
-                        <a  href="admin/year" class="btn btn-success" data-toggle="modal"><span>Theo Tháng</span></a>                   
+                        <a  href="admin/year" class="btn btn-success" data-toggle="modal"><span>Trong 30 Ngày</span></a>                   
                     </div>
                 </div>
             </div>
+
             <div class="container">
-                        <canvas id="myChart"></canvas>
-                    </div>
+              <div class="doanhthu">
+                <h3>Thống kê doanh thu trong 7 ngày</h3>
+              </div>
+              <canvas id="myChart"></canvas>
+            </div>
         </div>
       </div>
       
@@ -82,10 +90,10 @@ var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
-        labels: ['Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5'],
+        labels: {!!json_encode($lb)!!},
         datasets: [{
-            // label: {!!json_encode($lb)!!},
-            data: {!!json_encode($lb)!!} ,
+            label: ['Doanh thu:'],
+            data: {!!json_encode($dt)!!} ,
             backgroundColor: {!!json_encode($cl)!!},
             borderColor:{!!json_encode($cl)!!},
             borderWidth: 2
@@ -103,4 +111,3 @@ var myChart = new Chart(ctx, {
 });
 </script>
 @endsection
-<!-- https://welcm.uk/blog/getting-started-with-charts-in-laravel-7 -->
