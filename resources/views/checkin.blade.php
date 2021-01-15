@@ -91,24 +91,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-
-
-
-    $('.list-group-item').click(function() {
-        $('.list-group-item.active').removeClass("active");
-        $(this).tab('show');
-    });
-    var dem = 0;
-    $('#abc').click(function() {
-        $('#menu').removeClass('d-none');
-        $('#nav-tabContent').addClass('d-none');
-    });
-
-    $('.list-group-item.list-group-item-action').click(function() {
-        $('#menu').addClass('d-none');
-        $('#nav-tabContent').removeClass('d-none');
-    });
 });
 </script>
 @endsection

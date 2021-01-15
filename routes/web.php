@@ -16,6 +16,7 @@ Route::get('/checkin', 'CheckinController@index');
 Route::post('/checkin', 'CheckinController@postData');
 Route::get('/chooseroom', 'RoomController@index');
 Route::get('/form', 'OrderController@index');
+Route::post('/form', 'OrderController@postData');
 Route::get('/submit', 'SubmitController@index');
 Route::post('/chooseroom', 'RoomController@postData');
 Route::get('/vieworder', 'ViewOrderController@index');
@@ -56,4 +57,3 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::post('/account/position', ['as' => 'positions', 'uses' => 'UserController@position']);
  	Route::get('/account/block/{id}', ['as' => 'block', 'uses' => 'UserController@block']);
 });
-

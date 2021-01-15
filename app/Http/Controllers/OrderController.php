@@ -10,4 +10,14 @@ class OrderController extends Controller
     {
         return view('checkinform');
     }
+
+    public function postData(Request $request)
+    {
+        $checkin = session()->has('checkin') ? session()->get('checkin') : [];
+        $cart = session()->has('cart') ? session()->get('cart') : [];
+        foreach($cart as $value){
+            
+        }
+        return $checkin['dateCheckIn'] ;
+    }
 }
