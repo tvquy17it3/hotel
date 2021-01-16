@@ -41,7 +41,7 @@
                     <h2 class="accordion-header" id="headingOne">
                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <b>Phong 1 nguoi</b>
+                            <b>Phòng 1 người</b>
                         </button>
                     </h2>
                     <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
@@ -51,11 +51,11 @@
                                 style="background-color: #f2a900;" role="tablist">
                                 <a class="list-group-item list-group-item-action active"
                                     style="background-color: #f2a900;" id="list-room1-vip-list" data-bs-toggle="list"
-                                    href="#list-room1-vip" role="tab" aria-controls="home"><b>Phong VIP</b></a>
+                                    href="#list-room1-vip" role="tab" aria-controls="home"><b>Phòng VIP</b></a>
                                 <a class="list-group-item list-group-item-action" style="background-color: #f2a900;"
                                     id="list-room1-normal-list" data-bs-toggle="list" href="#list-room1-normal"
                                     role="tab" aria-controls="profile">
-                                    <b>Phong Thuong</b></a>
+                                    <b>Phòng thường</b></a>
                             </div>
                         </div>
                     </div>
@@ -64,7 +64,7 @@
                     <h2 class="accordion-header" id="headingTwo">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            <b>Phong 2 nguoi</b>
+                            <b>Phòng 2 người</b>
                         </button>
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
@@ -75,11 +75,11 @@
                                 <a class="list-group-item list-group-item-action" id="list-room2-vip-list"
                                     style="background-color: #f2a900;" data-bs-toggle="list"
                                     style="background-color: #f2a900;" href="#list-room2-vip" role="tab"
-                                    aria-controls="home"><b>Phong VIP</b></a>
+                                    aria-controls="home"><b>Phòng VIP</b></a>
                                 <a class="list-group-item list-group-item-action" id="list-room2-normal-list"
                                     data-bs-toggle="list" style="background-color: #f2a900;" href="#list-room2-normal"
                                     role="tab" aria-controls="profile">
-                                    <b>Phong Thuong</b></a>
+                                    <b>Phòng thường</b></a>
                             </div>
                         </div>
                     </div>
@@ -88,7 +88,7 @@
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            <b>Phong 3 nguoi</b>
+                            <b>Phòng 3 người</b>
                         </button>
                     </h2>
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
@@ -97,11 +97,11 @@
                             <div class="list-group list-group-flush" id="list-tab" role="tablist">
                                 <a class="list-group-item list-group-item-action" id="list-room3-vip-list"
                                     data-bs-toggle="list" href="#list-room3-vip" role="tab" aria-controls="home"
-                                    style="background-color: #f2a900;"><b>Phong VIP</b></a>
+                                    style="background-color: #f2a900;"><b>Phòng VIP</b></a>
                                 <a class="list-group-item list-group-item-action" id="list-room3-normal-list"
                                     data-bs-toggle="list" href="#list-room3-normal" role="tab" aria-controls="profile"
                                     style="background-color: #f2a900;">
-                                    <b>Phong Thuong</b></a>
+                                    <b>Phòng thường</b></a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
                     <h2 class="accordion-header" id="headingFour">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            <b>Phong 4 nguoi</b>
+                            <b>Phòng 4 người</b>
                         </button>
                     </h2>
                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
@@ -119,11 +119,11 @@
                             <div class="list-group list-group-flush" id="list-tab" role="tablist">
                                 <a class="list-group-item list-group-item-action" id="list-room4-vip-list"
                                     data-bs-toggle="list" href="#list-room4-vip" role="tab" aria-controls="home"
-                                    style="background-color: #f2a900;"><b>Phong VIP</b></a>
+                                    style="background-color: #f2a900;"><b>Phòng VIP</b></a>
                                 <a class="list-group-item list-group-item-action" id="list-room4-normal-list"
                                     data-bs-toggle="list" href="#list-room4-normal" role="tab" aria-controls="profile"
                                     style="background-color: #f2a900;">
-                                    <b>Phong Thuong</b></a>
+                                    <b>Phòng thường</b></a>
                             </div>
                         </div>
                     </div>
@@ -302,17 +302,16 @@
                         @endif
                         @endforeach
                     </div>
-
-
                 </div>
             </div>
             <div class="col-md-2" style=" text-align: center;margin: auto;padding-top: 10px;margin-right: 0;">
-                <p class="card-text" style="margin: 0px;"><small class="text-muted">
-                        <button type="button" style="width: 100%; background-color: rgb(242, 169, 0);"
-                            class="btn btn-warning"><a href="/hotel/form"
-                                style="text-decoration: none; color:black;">Đặt
-                                phòng</a></button>
-                    </small></p>
+                <p class="card-text" style="margin: 0px;">
+                    <small class="text-muted">
+                        <button type="button" style="width: 100%; background-color: rgb(242, 169, 0);" class="btn btn-warning">
+                            <a href="form" style="text-decoration: none; color:black;">Đặt phòng</a>
+                        </button>
+                    </small>
+                </p>
             </div>
         </div>
     </div>
@@ -321,7 +320,7 @@
         //import axios from 'axios';
         var tokenCSRF;
         var loading = true;
-        $.get("http://localhost/hotel/bar").done(function(data) {
+        $.get("bar").done(function(data) {
             tokenCSRF = data;
 
 
@@ -337,15 +336,13 @@
             //     alert(data);
             // });
 
-
-
             $('.form-select').on('change', function(e) {
                 e.preventDefault();
                 //console.log(e.target.attributes.roomid.value);
                 var qty = e.target.value;
                 var roomID = e.target.attributes.roomid.value;
 
-                $.post("http://localhost/hotel/chooseroom", {
+                $.post("chooseroom", {
                     id: roomID,
                     qty: qty
                 }).done(function(data) {
@@ -359,9 +356,6 @@
                 });
             });
         });
-
-
-
 
         $('.list-group-item').click(function() {
             $('.list-group-item.active').removeClass("active");
@@ -383,7 +377,6 @@
         //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         //     }
         // });
-
 
     });
     </script>
