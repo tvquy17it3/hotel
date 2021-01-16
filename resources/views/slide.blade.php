@@ -26,6 +26,7 @@
     <!-- <div>
         <p class="info">{{json_encode(session('cart'))}}</p>
     </div> -->
+    <?php ?>
     <div class="row d-lg-none">
         <div class="col-md-3" style="text-align: left; padding-bottom: 10px;">
             <button id="abc" type="button" style="background-color: rgb(242, 169, 0);"
