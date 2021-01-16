@@ -58,14 +58,12 @@ class RoomController extends Controller
     }
 
     public function getCart(Request $request) {
-
-        //$cart = session()->has('cart') ? session()->get('cart') : [];
-        //$cart = session()->has('cart') ? session()->get('cart') : [];
         session()->flush();
+        $cart = session()->has('cart') ? session()->get('cart') : [];
+        session(['cart' => $cart]);
+
         $info = $request->all();
         $cart = session(['cart' => $info]);
-        //$this->num = $request->qty;
-       // $request->session()->put('numRoom','1');
         return json_encode($cart);
     }
 }

@@ -11,6 +11,12 @@
     @component('status')
     @slot('numStep') 3 @endslot
     @endcomponent
+    <?php if(!isset(session('checkin')['dateCheckIn'])){header('Location: http://localhost/hotel/checkin'); die(); }
+        if(count(session('cart'))==0){$message = "Moi ban chon phong truoc";
+            echo "<script type='text/javascript'>alert('$message');</script>"; header('Location: http://localhost/hotel/chooseroom'); die(); }  ?>
+
+    <?php $total = 0; ?>
+    @if(isset(session('checkin')['dateCheckIn']))
     <div class="row g-0">
         <div class="row g-0">
             <div class="col-md-2"></div>
@@ -37,7 +43,6 @@
                     <h5>Chi tiết đặt phòng</h5>
                 </label>
                 <div class="row g-0 border border-warning rounded" style="margin-top:20px; padding-bottom: 10px;">
-                    <?php $total = 0; ?>
                     @if(count(session('cart'))>0)
                     @foreach(session('cart') as $value)
                     <div class="row g-0">
@@ -314,12 +319,11 @@
             </div>
         </div>
     </div>
-
+    @endif
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    //import axios from 'axios';
     var tokenCSRF;
     var loading = true;
     $.get("http://localhost/hotel/bar").done(function(data) {
@@ -347,10 +351,6 @@ document.addEventListener('DOMContentLoaded', function() {
             var checkbox = $('#checkbox').is(":checked");
             var option = $('input:checked').val();
 
-            // console.log(
-            //     ''
-            // );
-
             if (name != '' && last != '' && email != '' && emailVerify != '' && phone != '') {
                 if (checkbox == true) {
                     var cusName = last + " " + name;
@@ -361,10 +361,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         price: <?php echo $total ?>,
                         people: people,
                         status: 0,
-                        checkIn: <?php  echo strtotime(session('checkin')['dateCheckIn'])  ?>,
-                        checkOut: <?php  echo strtotime(session('checkin')['dateCheckOut'])  ?>
+                        checkIn: <?php  echo isset(session('checkin')['dateCheckIn'])? strtotime(session('checkin')['dateCheckIn']):"0-0-0"   ?>,
+                        checkOut: <?php  echo isset(session('checkin')['dateCheckOut'])?  strtotime(session('checkin')['dateCheckOut']):"0-0-0"  ?>
                     }).done(function(data) {
-                        //alert(data);
                         window.location.replace("http://localhost/hotel/submit");
                     });
                 } else {
@@ -373,23 +372,6 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 alert('Vui long nhap day du thong tin');
             }
-
-            // var qty = e.target.value;
-            // var dataCheckIn = $('#checkIn').val();
-            // var dataCheckOut = $('#checkOut').val();
-            // var qty = $('#numPeople').val();
-            // if (qty !== '0' && dataCheckIn !== '' && dataCheckOut !== '') {
-            //     $.post("http://localhost/hotel/checkin", {
-            //         dateCheckIn: dataCheckIn,
-            //         dateCheckOut: dataCheckOut,
-            //         qty: qty
-            //     }).done(function(data) {
-            //         window.location.replace("http://localhost/hotel/chooseroom");
-            //     });
-            // } else {
-            //     alert('Mời điền đầy đủ thông tin');
-            // }
-            //alert("OK");
         });
     });
 });
