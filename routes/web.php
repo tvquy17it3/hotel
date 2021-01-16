@@ -48,13 +48,28 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::post('/order/editd/{id}', ['as' => 'editor', 'uses' => 'AdminController@editorder1']);
 
  	#room
- 	Route::get('/room', ['as' => 'room', 'uses' => 'AdminController@room']);
- 	Route::get('/addroom', ['as' => 'addroom', 'uses' => 'AdminController@addroom']);
- 	Route::get('/room/edit', ['as' => 'editroom', 'uses' => 'AdminController@editroom']);
+ 	Route::get('/room', ['as' => 'room', 'uses' => 'RoomController@room']);
+ 	Route::get('/room/vip', ['as' => 'room', 'uses' => 'RoomController@roomVip']);
+ 	Route::get('/room/thuong', ['as' => 'room', 'uses' => 'RoomController@roomThuong']);
+ 	Route::get('/addroom', ['as' => 'addroom', 'uses' => 'RoomController@addroom']);
+ 	Route::get('/room/edit/{id}', ['as' => 'editroom', 'uses' => 'RoomController@editroom']);
+ 	Route::post('/room/addroom', ['as' => 'addroom', 'uses' => 'RoomController@store']);
+ 	Route::post('/room/edit/{id}', ['as' => 'edits', 'uses' => 'RoomController@update']);
+ 	Route::post('/room/edita/upload/{id}', ['as' => 'editA', 'uses' => 'RoomController@upload']);
+ 	Route::get('/room/delete/{id}', ['as' => 'edits', 'uses' => 'RoomController@delete']);
 
  	#account
  	Route::get('/account', ['as' => 'room', 'uses' => 'UserController@accounts']);
  	Route::get('/account/blocks', ['as' => 'room', 'uses' => 'UserController@blocks']);
  	Route::post('/account/position', ['as' => 'positions', 'uses' => 'UserController@position']);
  	Route::get('/account/block/{id}', ['as' => 'block', 'uses' => 'UserController@block']);
+
+
+
+ 	#chart
+ 	Route::get('/week', ['as' => 'monthe', 'uses' => 'AdminController@week']);
+ 	Route::get('/year', ['as' => 'monthe', 'uses' => 'AdminController@year']);
+
 });
+
+
