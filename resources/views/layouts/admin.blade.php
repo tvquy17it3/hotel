@@ -167,9 +167,9 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="admin/order"><i class="fa fa-circle-o"></i>Chưa xác nhận</a></li>
-            <li><a href="admin/order/xacnhan"><i class="fa fa-circle-o"></i>Đã xác nhận</a></li>
+            <li><a href="admin/xacnhan"><i class="fa fa-circle-o"></i>Đã xác nhận</a></li>
             <li><a href="admin/success"><i class="fa fa-circle-o"></i>Hoàn thành</a></li>
-            <li><a href="admin/order/allorder"><i class="fa fa-circle-o"></i>Xem tất cả</a></li>
+            <li><a href="admin/allorder"><i class="fa fa-circle-o"></i>Xem tất cả</a></li>
             <li><a href="admin/huy"><i class="fa fa-circle-o"></i>Đã hủy</a></li>
             <li><a href="admin/addorder"><i class="fa fa-circle-o"></i>Đặt phòng</a></li>
           </ul>
