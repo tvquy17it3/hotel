@@ -5,7 +5,7 @@
             <form id="frmAddTask">
                 <div class="modal-header">
                     <h4 class="modal-title">
-                        Add New Food
+                        Add New Room
                     </h4>
                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
                         ×
@@ -18,16 +18,14 @@
                     </div>
                     <div class="form-group">
                         <label>
-                            Food
+                            Room
                         </label>
-                        <!-- <input class="form-control" id="name" name="food" required="" type="text"></input> -->
-                        <input id="id" name="id" hidden="" type="text" value="{{$id}}"></input>
-                          <select name="foodname" class="form-control" id="name" name="food" required="">
-                            @foreach($Namefood as $valuename)
-                                <option value="{{$valuename->foodID}}">{{$valuename->foodName}}</option>
+                        <input id="id" name="orderID" hidden="" type="text" value="{{$orderID}}"></input>
+                          <select name="roomID" class="form-control" id="name" name="room" required="">
+                            @foreach($nameRoom as $valuename)
+                                <option value="{{$valuename->id}}">{{$valuename->number}} - {{$valuename->name}} - {{number_format($valuename->price)}} đ</option>
                             @endforeach
                           </select>
-
                     </div>
                     <div class="form-group">
                             <div class="input-group"> 
@@ -48,7 +46,7 @@
                 <div class="modal-footer">
                     <input class="btn btn-default" data-dismiss="modal" type="button" value="Cancel">
                         <button class="btn btn-info" id="btn-add" type="button" value="add">
-                            Add New Food
+                            Add New Room
                         </button>
                     </input>
                 </div>

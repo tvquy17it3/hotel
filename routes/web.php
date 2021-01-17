@@ -46,11 +46,18 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::get('/allorder', ['as' => 'allorder', 'uses' => 'OrderController@xemtatca']);
  	Route::get('/huy', ['as' => 'huy', 'uses' => 'OrderController@dahuy']);
  	Route::get('/order/vieworder/{id}', ['as' => 'vieworder', 'uses' => 'OrderController@vieworder']);
+ 	Route::post('/order/vieworder/editstatus', ['as' => 'editO', 'uses' => 'OrderController@editstatus']);
+ 	Route::post('/order/vieworder/thanhtoan', ['as'   => 'thanhtoan','uses' => 'OrderController@thanhtoan']);
+ 	Route::post('/order/vieworder/add', ['as'   => 'store', 'uses' => 'OrderController@addrooms']);
  	
-
-
+ 	#ajax
  	Route::get('/addorder', ['as' => 'addorder', 'uses' => 'AdminController@addorder']);
- 	
+ 	Route::delete('/order/vieworder/delete/{id}', ['as'   => 'destroy','uses' => 'OrderController@destroy']);
+ 	Route::get('/order/vieworder/detail/{id}', ['as'   => 'show2','uses' => 'OrderController@show']);
+ 	Route::delete('/order/vieworder/delete/{id}', ['as'   => 'destroy','uses' => 'OrderController@destroy']);
+ 	Route::put('/order/vieworder/update/{id}', ['as'   => 'update','uses' => 'OrderController@update']);
+ 	Route::put('/order/huyorder/{id}', ['as'   => 'huyorder','uses' => 'OrderController@huyorder']);
+
  	
  	Route::get('/order/edit', ['as' => 'editorder', 'uses' => 'AdminController@editorder']);
  	Route::post('/order/editd/{id}', ['as' => 'editor', 'uses' => 'AdminController@editorder1']);

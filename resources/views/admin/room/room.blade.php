@@ -93,7 +93,7 @@ table {
                       <td>{{$value->created_at}}</td>
                       <td>
                         <a href="admin/room/edit/{{$value->id}}" class="edit open-modal" ><i class="fa fa-pencil-square-o" data-toggle="tooltip" title="Edit"></i></a>
-                        <a href="admin/room/delete/{{$value->id}}" onclick="return confirm('Delete Food?')" class="delete"><i class="fa fa-trash-o" data-toggle="tooltip" title="Delete"></i></a>
+                        <a href="admin/room/delete/{{$value->id}}" onclick="return confirm('Delete Room?')" class="delete"><i class="fa fa-trash-o" data-toggle="tooltip" title="Delete"></i></a>
                       </td>
                     </tr>
                     @endforeach

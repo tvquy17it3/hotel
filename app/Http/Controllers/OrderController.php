@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\OrderDetail;
 use DB;
+use Carbon\Carbon;
 
 class OrderController extends Controller
 {
@@ -21,9 +22,23 @@ class OrderController extends Controller
             'checkIn' => date('Y-m-d H:i:s', $request->checkIn),
             'checkOut' => date('Y-m-d H:i:s', $request->checkOut)
         ]);
-        $orderID = DB::table('orders')->insertGetId(
-            $request->all()
-        );
+        // $orderID = DB::table('orders')->insertGetId(
+        //     $request->all()
+        // );
+
+        $orderID = DB::table('orders')
+        ->insertGetId(array(
+            'cusName' => $request->input('cusName'),
+            'phone' => $request->input('phone'),
+            'price' => $request->input('price'),
+            'people' => $request->input('people'),
+            'status' => 0,
+            'checkIn' => $request->input('checkIn'),
+            'checkOut' => $request->input('checkOut'),
+            "created_at" =>  \Carbon\Carbon::now(),
+            "updated_at" => \Carbon\Carbon::now()
+        ));
+
         foreach($cart as $value){
             OrderDetail::create(["orderID"=>$orderID,"roomID"=> $value['id'], "qty"=>$value['qty'], "price"=>$value['price']]);
         }

@@ -5,7 +5,7 @@
             <form id="frmEditTask">
                 <div class="modal-header">
                     <h4 class="modal-title">
-                        Edit Food
+                        Sửa Số lượng phòng
                     </h4>
                     <button aria-hidden="true" class="close" data-dismiss="modal" type="button">
                         ×
@@ -18,7 +18,7 @@
                     </div>
                     <div class="form-group">
                         <label>
-                            Food
+                            Room
                         </label>
                         <input class="form-control" id="task" name="task" required="" type="text" disabled="">
                         </input>
@@ -43,7 +43,7 @@
                     <input id="task_id" name="task_id" type="hidden" value="0">
                         <input class="btn btn-default" data-dismiss="modal" type="button" value="Cancel">
                             <button class="btn btn-info" id="btn-edit" type="button" value="add">
-                                Update Food
+                                Update
                             </button>
                         </input>
                     </input>

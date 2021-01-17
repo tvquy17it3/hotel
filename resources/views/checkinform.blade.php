@@ -314,7 +314,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var tokenCSRF;
     var loading = true;
-    $.get("http://localhost/hotel/bar").done(function(data) {
+    $.get("bar").done(function(data) {
         tokenCSRF = data;
 
 
