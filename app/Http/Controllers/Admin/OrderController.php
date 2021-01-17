@@ -48,7 +48,7 @@ class OrderController extends Controller
 
         if ($data == true) {
             foreach ($data->detail as $room) {
-              $name = OrderDetail::find((int)$room->roomID)->name;
+              $name = Room::find((int)$room->roomID)->name;
               $room->name = $name;
             }
         }
