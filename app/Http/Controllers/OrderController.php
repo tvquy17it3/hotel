@@ -19,7 +19,9 @@ class OrderController extends Controller
         $cart = session()->has('cart') ? session()->get('cart') : [];
         $request->merge([
             'checkIn' => date('Y-m-d H:i:s', $request->checkIn),
-            'checkOut' => date('Y-m-d H:i:s', $request->checkOut)
+            'checkOut' => date('Y-m-d H:i:s', $request->checkOut),
+            'created_at' =>\Carbon\Carbon::now(),
+            'updated_at' => \Carbon\Carbon::now()
         ]);
         $orderID = DB::table('orders')->insertGetId(
             $request->all()

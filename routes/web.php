@@ -27,6 +27,7 @@ Route::get('/endow', 'EndowController@index');
 
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/ss', 'HomeController@deleteSession');
 
 Route::group(['middleware' => 'web'], function () {
     Route::get('bar', function () {
@@ -79,5 +80,3 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::get('/year', ['as' => 'monthe', 'uses' => 'AdminController@year']);
 
 });
-
-
