@@ -38,7 +38,7 @@
         </div>
         <div class="step d-none d-lg-block">
             <img src="public/iconStep4-off.svg" class="icon">
-            <p class="vertical-center" style="width: 100px;">Thanh Toan</p>
+            <p class="vertical-center" style="width: 100px;">Thanh Toán</p>
         </div>
         @break
 
@@ -57,7 +57,7 @@
         </div>
         <div class="step d-none d-lg-block">
             <img src="public/iconStep4-off.svg" class="icon">
-            <p class="vertical-center" style="width: 100px;">Thanh Toan</p>
+            <p class="vertical-center" style="width: 100px;">Thanh Toán</p>
         </div>
         @break
         @case(4)
@@ -75,7 +75,7 @@
         </div>
         <div class="step d-none d-lg-block">
             <img src="public/iconStep4-on.svg" class="icon">
-            <p class="vertical-center" style="width: 100px;">Thanh Toan</p>
+            <p class="vertical-center" style="width: 100px;">Thanh Toán</p>
         </div>
         @break
         @default

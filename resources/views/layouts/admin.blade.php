@@ -222,7 +222,7 @@
         </li>
         @endif
 
-        <li><a href="admin"><i class="fa fa-circle-o text-red"></i> <span>Admin</span></a></li>
+        <li><a href=""><i class="fa fa-circle-o text-red"></i> <span>Hotel</span></a></li>
         <li><a href=""><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>
