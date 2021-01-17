@@ -40,10 +40,18 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
   Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
   
   	#order
- 	Route::get('/order', ['as' => 'order', 'uses' => 'AdminController@order']);
+ 	Route::get('/order', ['as' => 'order', 'uses' => 'OrderController@order']);
+ 	Route::get('/xacnhan', ['as' => 'xacnhan', 'uses' => 'OrderController@xacnhan']);
+ 	Route::get('/success', ['as' => 'ordersucc', 'uses' => 'OrderController@hoanthanh']);
+ 	Route::get('/allorder', ['as' => 'allorder', 'uses' => 'OrderController@xemtatca']);
+ 	Route::get('/huy', ['as' => 'huy', 'uses' => 'OrderController@dahuy']);
+ 	Route::get('/order/vieworder/{id}', ['as' => 'vieworder', 'uses' => 'OrderController@vieworder']);
+ 	
+
+
  	Route::get('/addorder', ['as' => 'addorder', 'uses' => 'AdminController@addorder']);
- 	Route::get('/success', ['as' => 'ordersucc', 'uses' => 'AdminController@success']);
- 	Route::get('/huy', ['as' => 'huy', 'uses' => 'AdminController@huy']);
+ 	
+ 	
  	Route::get('/order/edit', ['as' => 'editorder', 'uses' => 'AdminController@editorder']);
  	Route::post('/order/editd/{id}', ['as' => 'editor', 'uses' => 'AdminController@editorder1']);
 

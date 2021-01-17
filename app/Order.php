@@ -10,4 +10,7 @@ class Order extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'integer';
     protected $guarded = [];
+    protected function detail(){
+        return $this->hasMany('App\OrderDetail','orderID');
+    }
 }
