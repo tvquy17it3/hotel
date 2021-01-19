@@ -19,6 +19,7 @@ Route::get('/form', 'OrderController@index');
 Route::post('/form', 'OrderController@postData');
 Route::get('/submit', 'SubmitController@index');
 Route::post('/chooseroom', 'RoomController@postData');
+Route::get('/chooseroom/{id}', 'RoomController@seeItem');
 Route::get('/vieworder', 'ViewOrderController@index');
 Route::post('/vieworder', 'ViewOrderController@postData');
 Route::get('/about', 'AboutController@index');
@@ -27,6 +28,7 @@ Route::get('/endow', 'EndowController@index');
 
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/ss', 'HomeController@deleteSession');
 
 Route::group(['middleware' => 'web'], function () {
     Route::get('bar', function () {
@@ -86,5 +88,3 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::get('/year', ['as' => 'monthe', 'uses' => 'AdminController@year']);
 
 });
-
-

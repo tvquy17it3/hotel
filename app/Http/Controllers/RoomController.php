@@ -66,4 +66,20 @@ class RoomController extends Controller
         $cart = session(['cart' => $info]);
         return json_encode($cart);
     }
+
+    public function seeItem(Request $request, $id)
+    {
+        $rooms = Room::find($id);
+        $room1 = [];
+        $room2 = [];
+        $room3 = [];
+        $room4 = [];
+
+        
+        $cart = session()->has('cart') ? session()->get('cart') : [];
+        session(['cart' => $cart]);
+        
+        return view('roomInfo', ['rooms'=>$rooms, 'room1'=>$room1, 'room2'=>$room2, 'room3'=>$room3, 'room4'=>$room4]);
+    }
+
 }
