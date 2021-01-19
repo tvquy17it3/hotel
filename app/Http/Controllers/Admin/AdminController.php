@@ -18,26 +18,13 @@ class AdminController extends Controller
     }
 
     #order
-    public function order()
-    {
-
-    	return view('admin.order.order');
-    }
+  
     public function addorder()
     {
     	
     	return view('admin.order.addorder');
     }
-    public function success()
-    {
-    	
-    	return view('admin.order.success1');
-    }
-    public function huy()
-    {
-    	
-    	return view('admin.order.huy');
-    }
+
     public function editorder()
     {
         return view('admin.order.editorder');

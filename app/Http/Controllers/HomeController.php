@@ -26,4 +26,8 @@ class HomeController extends Controller
     {
         return view('endow');
     }
+    public function deleteSession(Request $request){
+        session()->flush();
+        return dd("OK");
+    }
 }

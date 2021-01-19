@@ -19,6 +19,7 @@ Route::get('/form', 'OrderController@index');
 Route::post('/form', 'OrderController@postData');
 Route::get('/submit', 'SubmitController@index');
 Route::post('/chooseroom', 'RoomController@postData');
+Route::get('/chooseroom/{id}', 'RoomController@seeItem');
 Route::get('/vieworder', 'ViewOrderController@index');
 Route::post('/vieworder', 'ViewOrderController@postData');
 Route::get('/about', 'AboutController@index');
@@ -27,6 +28,7 @@ Route::get('/endow', 'EndowController@index');
 
 Auth::routes();  //login and register
 Route::get('/home', 'HomeController@home')->name('home');
+Route::get('/ss', 'HomeController@deleteSession');
 
 Route::group(['middleware' => 'web'], function () {
     Route::get('bar', function () {
@@ -40,10 +42,18 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
   Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
   
   	#order
- 	Route::get('/order', ['as' => 'order', 'uses' => 'AdminController@order']);
+ 	Route::get('/order', ['as' => 'order', 'uses' => 'OrderController@order']);
+ 	Route::get('/xacnhan', ['as' => 'xacnhan', 'uses' => 'OrderController@xacnhan']);
+ 	Route::get('/success', ['as' => 'ordersucc', 'uses' => 'OrderController@hoanthanh']);
+ 	Route::get('/allorder', ['as' => 'allorder', 'uses' => 'OrderController@xemtatca']);
+ 	Route::get('/huy', ['as' => 'huy', 'uses' => 'OrderController@dahuy']);
+ 	Route::get('/order/vieworder/{id}', ['as' => 'vieworder', 'uses' => 'OrderController@vieworder']);
+ 	
+
+
  	Route::get('/addorder', ['as' => 'addorder', 'uses' => 'AdminController@addorder']);
- 	Route::get('/success', ['as' => 'ordersucc', 'uses' => 'AdminController@success']);
- 	Route::get('/huy', ['as' => 'huy', 'uses' => 'AdminController@huy']);
+ 	
+ 	
  	Route::get('/order/edit', ['as' => 'editorder', 'uses' => 'AdminController@editorder']);
  	Route::post('/order/editd/{id}', ['as' => 'editor', 'uses' => 'AdminController@editorder1']);
 
@@ -67,9 +77,7 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
 
 
  	#chart
- 	Route::get('/week', ['as' => 'monthe', 'uses' => 'AdminController@week']);
+ 	Route::get('/week', ['as' => 'week', 'uses' => 'AdminController@week']);
  	Route::get('/year', ['as' => 'monthe', 'uses' => 'AdminController@year']);
 
 });
-
-
