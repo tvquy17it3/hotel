@@ -2,7 +2,7 @@
     <div class="row g-0 " style="margin-top:20px;">
         <div class="col-md-3 border-right border-light" style="background-color: #6C757D; color:white;">
             <div class="row g-0">
-                <a href="#" class="verticalCenter">VỀ CHÚNG TÔI</a>
+                <a href="about" class="verticalCenter">VỀ CHÚNG TÔI</a>
             </div>
 
         </div>
@@ -13,7 +13,7 @@
         </div>
         <div class="col-md-3 border-right  border-light" style="background-color: #6C757D; color:white;">
             <div class="row g-0">
-                <a href="#" class="verticalCenter">TUYỂN DỤNG</a>
+                <a href="recruit" class="verticalCenter">TUYỂN DỤNG</a>
             </div>
         </div>
         <div class="col-md-3 border-right border-light" style="background-color: #6C757D; color:white;">
