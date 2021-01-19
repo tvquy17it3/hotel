@@ -19,6 +19,7 @@ Route::get('/form', 'OrderController@index');
 Route::post('/form', 'OrderController@postData');
 Route::get('/submit', 'SubmitController@index');
 Route::post('/chooseroom', 'RoomController@postData');
+Route::get('/chooseroom/{id}', 'RoomController@seeItem');
 Route::get('/vieworder', 'ViewOrderController@index');
 Route::post('/vieworder', 'ViewOrderController@postData');
 Route::get('/about', 'AboutController@index');

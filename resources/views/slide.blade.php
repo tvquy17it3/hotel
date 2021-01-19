@@ -307,7 +307,8 @@
             <div class="col-md-2" style=" text-align: center;margin: auto;padding-top: 10px;margin-right: 0;">
                 <p class="card-text" style="margin: 0px;">
                     <small class="text-muted">
-                        <button type="button" style="width: 100%; background-color: rgb(242, 169, 0);" class="btn btn-warning">
+                        <button type="button" style="width: 100%; background-color: rgb(242, 169, 0);"
+                            class="btn btn-warning">
                             <a href="form" style="text-decoration: none; color:black;">Đặt phòng</a>
                         </button>
                     </small>
@@ -347,8 +348,9 @@
                     qty: qty
                 }).done(function(data) {
 
-                    alert("Data Loaded: " +
-                        data);
+                    // alert("Data Loaded: " +
+                    //     data);
+                    alert("Dat hang thanh cong!!!");
 
                     localStorage.setItem('cart',
                         JSON.stringify(
@@ -376,6 +378,10 @@
         //     headers: {
         //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         //     }
+        // });
+
+        // $('.btn-warning').on('click', function(e) {
+        //     window.location.replace("chooseroom/{{}}");
         // });
 
     });
