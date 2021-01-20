@@ -238,7 +238,7 @@
                         <div class="row g-0  border border-warning rounded" style="padding:10px;margin-top: 20px;">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input vertical-center " id="checkbox" type="checkbox"
-                                    id="inlineCheckbox1" value="option1" style="margin-top: 5px;">
+                                    id="inlineCheckbox1" value="option1" style="margin-top: 5px;" required>
                                 <p class="form-check-label " for="inlineCheckbox1">Tôi đã đọc và chấp nhận chính sách đặt phòng</p>
                             </div>
                         </div>
@@ -314,7 +314,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var tokenCSRF;
     var loading = true;
-    $.get("http://localhost/hotel/bar").done(function(data) {
+    $.get("bar").done(function(data) {
         tokenCSRF = data;
 
 
