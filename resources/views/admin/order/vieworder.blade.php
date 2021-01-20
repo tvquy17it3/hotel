@@ -145,6 +145,7 @@ table {
             <button type="submit" class="btn btn-danger" style="float: left;margin-left: 10px;" onclick="return confirm('Đồng ý hủy?')">Hủy đơn này</button>
           </form>
         </div>
+        <a href="admin/printorder/{{$orderID}}" target="_blank" class="text-success"><b>In hóa đơn</b></a><br/><br/>
       </div>
     </section>
     

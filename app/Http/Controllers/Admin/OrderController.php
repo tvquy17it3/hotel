@@ -8,6 +8,7 @@ use App\Order;
 use App\OrderDetail;
 use App\Room;
 use Validator;
+use Auth;
 
 class OrderController extends Controller
 {
@@ -162,6 +163,25 @@ class OrderController extends Controller
             'error' => false,
             'task'  => $data,
         ], 200);
+    }
+    public function hoadon($id)
+    {
+ 
+        $date = date('Y-m-d H:i:s');
+        $nameA = Auth::user()->name;
+        $data = Order::find((int)$id);
+        $roomdt = OrderDetail::all();
+
+        if ($data == true) {
+            foreach ($data->detail as $room) {
+              $name = Room::find((int)$room->roomID)->name;
+              $number = Room::find((int)$room->roomID)->number;
+              $room->name = $name;
+              $room->number=$number;
+            }
+        }
+        // dd($data->detail);
+        return view('admin.order.hoadon',['dataRoom'=>$data->detail,'dataCus'=>$data,'orderID'=>$id,'stt'=> 1,'tongsotien'=>0,'date'=>$date,'nameA'=>$nameA]);
     }
 
 }
