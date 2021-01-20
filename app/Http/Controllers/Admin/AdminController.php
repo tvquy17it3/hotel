@@ -36,33 +36,6 @@ class AdminController extends Controller
     }
 
     #chart
-   
-    public function year()
-    {
-        $range = Carbon::now()->subDays(30);
-        $stats = DB::table('orders')
-          ->where('status', 2)
-          ->where('checkOut', '>=', $range)
-          ->groupBy('date')
-          ->orderBy('date', 'ASC')
-          ->get([DB::raw('Date(checkOut) as date'),
-            DB::raw('sum(price) as sums')
-          ])->All();
-
-        $counts = count($stats);
-        for ($i=0; $i< $counts; $i++) {
-            $cl[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
-        }
-    
-        for ($i=0; $i<$counts ; $i++) { 
-           $lb[] = $stats[$i]->date;
-           $dt[] = $stats[$i]->sums;
-        }
-        if ($counts==0) {
-          return view('admin.chart.nochart');
-        }
-        return view('admin.chart.year',compact('lb','cl','dt'));
-    }
 
      public function week()
     {
@@ -89,6 +62,62 @@ class AdminController extends Controller
           return view('admin.chart.nochart');
         }
         return view('admin.chart.week',compact('lb','cl','dt'));
+    }
+     public function year()
+    {
+        $range = Carbon::now()->subDays(30);
+        $stats = DB::table('orders')
+          ->where('status', 2)
+          ->where('checkOut', '>=', $range)
+          ->groupBy('date')
+          ->orderBy('date', 'ASC')
+          ->get([DB::raw('Date(checkOut) as date'),
+            DB::raw('sum(price) as sums')
+          ])->All();
+
+        $counts = count($stats);
+        for ($i=0; $i< $counts; $i++) {
+            $cl[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+        }
+    
+        for ($i=0; $i<$counts ; $i++) { 
+           $lb[] = $stats[$i]->date;
+           $dt[] = $stats[$i]->sums;
+        }
+        if ($counts==0) {
+          return view('admin.chart.nochart');
+        }
+        $date1 = explode(' ',$range);
+        $dateS = $date1[0];
+        return view('admin.chart.year',compact('lb','cl','dt','dateS'));
+    }
+
+    public function chart(Request $request)
+    {
+       $dateInput =  $request->dateS;
+          $stats = DB::table('orders')
+          ->where('status', 2)
+          ->where('checkOut', '>=', $dateInput)
+          ->groupBy('date')
+          ->orderBy('date', 'ASC')
+          ->get([DB::raw('Date(checkOut) as date'),
+            DB::raw('sum(price) as sums')
+          ])->All();
+
+        $counts = count($stats);
+        for ($i=0; $i< $counts; $i++) {
+            $cl[] = '#' . substr(str_shuffle('ABCDEF0123456789'), 0, 6);
+        }
+    
+        for ($i=0; $i<$counts ; $i++) { 
+           $lb[] = $stats[$i]->date;
+           $dt[] = $stats[$i]->sums;
+        }
+        if ($counts==0) {
+          return view('admin.chart.nochart');
+        }
+        $dateS = $dateInput;
+        return view('admin.chart.year',compact('lb','cl','dt','dateS'));
     }
 
 }

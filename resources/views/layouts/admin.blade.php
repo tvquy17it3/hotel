@@ -199,9 +199,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Các ngày trong tuần</a></li>
-            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Các tháng trong năm</a></li>
-            <li><a href="admin/analysis"><i class="fa fa-area-chart"></i>Analysis </a></li>
+            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Thống kê 7 ngày</a></li>
+            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Thống kê 30 ngày</a></li>
           </ul>
         </li>
 
