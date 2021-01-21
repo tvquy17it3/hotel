@@ -12,35 +12,52 @@ use Auth;
 
 class OrderController extends Controller
 {
+    public function thongke()
+    {
+        $collection = Order::count();
+        $cxn = Order::where('status', '0')->get();
+        $chuaxacnhan =count($cxn);
+        $dxn = Order::where('status', '1')->get();
+        $daxacnhan = count($dxn);
+        $ht = Order::where('status', '2')->get();
+        $hoanthanh = count($ht);
+        return $data = (['collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
+    }
+
     public function order()
     {
-    	$collection = Order::count();
+        $tk = $this->thongke();
+        extract($tk);
     	$orders = Order::where('status', 0)->paginate(8);
-    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'0','status'=>'Chưa xác nhận']);
+    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'0','status'=>'Chưa xác nhận','chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
     public function xacnhan()
     {
-    	$collection = Order::count();
+    	$tk = $this->thongke();
+        extract($tk);
     	$orders = Order::where('status', 1)->paginate(8);
-    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'1','status'=>'Đã xác nhận']);
+    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'1','status'=>'Đã xác nhận','chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
     public function hoanthanh()
     {
-    	$collection = Order::count();
+    	$tk = $this->thongke();
+        extract($tk);
     	$orders = Order::where('status', 2)->paginate(8);
-    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'2','status'=>'Hoàn thành']);
+    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'2','status'=>'Hoàn thành','chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
     public function xemtatca()
     {
-    	$collection = Order::count();
+    	$tk = $this->thongke();
+        extract($tk);
     	$orders = Order::orderBy('id', 'DESC')->whereIn('status', [0,1,2,3])->paginate(8);
-    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'0,1,2,3','status'=>'Xem lại tất cả']);
+    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'0,1,2,3','status'=>'Xem lại tất cả','chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
     public function dahuy()
     {
-    	$collection = Order::count();
+    	$tk = $this->thongke();
+        extract($tk);
     	$orders = Order::where('status', 3)->paginate(8);
-    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'3','status'=>'Đã hủy']);
+    	return view('admin.order.order',['orders'=>$orders,'collection'=>$collection,'xacnhan'=>'3','status'=>'Đã hủy','chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
 
 	public function vieworder($id)
