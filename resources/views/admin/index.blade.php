@@ -3,8 +3,31 @@
 
 @section('title', 'Admin')
 
-@section('sidebar')
-   <!--  <p>sidebar</p> -->
+@section('css')
+<style type="text/css">
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tables{
+  padding: 15px 1px 0 15px;
+}
+
+.div1 {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.div2 {
+  display: table-cell;
+  overflow-x: auto;
+  width: 100%;
+}
+</style>
+  <link rel="stylesheet" href="public/css/table.css">
 @endsection
 
 @section('content')
@@ -92,10 +115,10 @@
         <div class="table-title">
             <div class="row">
                 <div class="col-sm-6">
-                    <h2>Manage <b>Order</b></h2>
+                    <h2>Manage <b>Room Orders</b></h2>
                 </div>
                 <div class="col-sm-6" data-toggle="modal">
-                  <form action="{{url('admin')}}" method="POST">
+                  <form action="{{url('admin/postTable')}}" method="POST">
                       {{ csrf_field() }}
                       <div class="row" style="margin: 5px 0 0;">
                       <p class="col-sm-6"></p>
@@ -108,18 +131,25 @@
         </div>
         <div class="row" style="padding: 15px">
           <ul class="list-group list-group-horizontal">
-            @foreach($room as $value)
-               <li class="list-group-item col-sm-3" style="margin: 0px 10px 10px 0px;background: ;">
-                <p>Phòng: {{$value->number}}</p>
-                <p>Tên: {{$value->name}}</p>
-                <p>Loại phòng: {{$value->kindOfRooms}}</p>
+            @foreach($table as $value)
+              <li class="list-group-item col-sm-3" style="margin: 0px 10px 10px 0px;background: {{$color}};">
+                <p>Phòng: {{$value->number}} - {{$value->name}}</p>
+                <p>Số lượng: {{$value->qty}}</p>
                 <p>Giá: {{$value->price}}</p>  
-            </li>
+              </li>
             @endforeach
           </ul>
       </div>
       </div>
-      
+      <!--  "id" => 2
+        "orderID" => 26
+        "roomID" => 1
+        "qty" => 2
+        "price" => "563000"
+        "created_at" => "2021-01-16 23:34:41"
+        "updated_at" => "2021-01-20 22:49:16"
+        "name" => "Royal Suite"
+        "number" => "101" -->
       <!-- /.row (main row) -->
       <!--  /Hang 2 contents -->
 

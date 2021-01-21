@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Room;
-use App\Model\Order;
+use App\Order;
 use DB;
 use Carbon\Carbon;
+use App\OrderDetail;
 
 class AdminController extends Controller
 {
@@ -115,19 +116,50 @@ class AdminController extends Controller
 
 
     public function index()
-    {   $tk = $this->thongke();
-        extract($tk);
-        $dateInput =  date('Y-m-d');
-        $room = Room::All();
-        return view('admin.index',['room'=>$room,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
+    {  
+      $dateInput =  date('Y-m-d');
+      $tk = $this->thongke();
+      extract($tk);
+
+      $order = Order::where('checkIn', 'LIKE', '%' . $dateInput . '%') ->where('status','<=', 1)->get();
+      if (count($order) >0) {
+        foreach ($order as $data) {
+          foreach ($data->detail as $room) {
+            $name = Room::find((int)$room->roomID)->name;
+            $number = Room::find((int)$room->roomID)->number;
+            $room->name = $name;
+            $room->number=$number;
+          }
+          $table = $data->detail;
+        }
+      }else {
+        $table  = Room::All();
+      }
+      return view('admin.index',['table'=>$table,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
 
     public function postTable(Request $request)
-    {   $tk = $this->thongke();
-        extract($tk);
-        $dateInput = $request->dateS;
-        $room = Room::All();
-        return view('admin.index',['room'=>$room,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
+    {   
+      $tk = $this->thongke();
+      extract($tk);
+      $dateInput = $request->dateS;
+        // $room = Room::All();
+      $order = Order::where('checkIn', 'LIKE', '%' . $dateInput . '%') ->where('status','<=', 1)->get();
+      if (count($order) >0) {
+        foreach ($order as $data) {
+          foreach ($data->detail as $room) {
+            $name = Room::find((int)$room->roomID)->name;
+            $number = Room::find((int)$room->roomID)->number;
+            $room->name = $name;
+            $room->number=$number;
+          }
+          $table = $data->detail;
+          $color ='red';
+        }
+      }else {
+        $table  = Room::All();
+        $color ='blue';
+      }
+      return view('admin.index',['table'=>$table,'color'=>$color,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
-
 }
