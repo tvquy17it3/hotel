@@ -39,7 +39,8 @@ Route::group(['middleware' => 'web'], function () {
 
 Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'middleware' => ['auth', 'acl']], function() {
 
-  Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
+  	Route::get('/', ['as' => 'home', 'uses' => 'AdminController@index']);
+  	Route::post('/postTable', ['as' => 'home', 'uses' => 'AdminController@postTable']);
   
   	#order
  	Route::get('/order', ['as' => 'order', 'uses' => 'OrderController@order']);
@@ -80,6 +81,8 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::get('/account/blocks', ['as' => 'room', 'uses' => 'UserController@blocks']);
  	Route::post('/account/position', ['as' => 'positions', 'uses' => 'UserController@position']);
  	Route::get('/account/block/{id}', ['as' => 'block', 'uses' => 'UserController@block']);
+ 	Route::get('/account/manager', ['as' => 'manager', 'uses' => 'UserController@manager']);
+ 	Route::get('/account/blockmn', ['as' => 'room', 'uses' => 'UserController@blockmn']);
 
 
 

@@ -56,7 +56,7 @@ table {
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>Accounts Blocks</b></h2>
+                        <h2>Manage <b>Accounts</b></h2>
                     </div>
                 </div>
             </div>
@@ -68,9 +68,9 @@ table {
                       <th>Email</th>
                       <th>Số ĐT</th>
                       <th>Ngày tạo</th>
-                      <th>Updated</th>
+                      <th>Updated_at</th>
                       <th>Position</th>
-                      <th></th>
+                      <th>Khóa</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -88,12 +88,14 @@ table {
                           <input type="" name="id" hidden value="{{$value->id}}">
                           <select name="role" class="bg-green">
                             <option value="{{$value->role}}">{{$value->role}}</option>
-                            <option value="1">1 - Admin</option>
                             <option value="2">2 - Manager</option>
                             <option value="3">3 - Block</option>
                           </select>
                           <button type="submit" class="bg-primary small">CẬP NHẬT</button>
                         </form>
+                      </td>
+                      <td>
+                          <a href="admin/account/block/{{$value->id}}" class="delete" ><i class="fa fa-ban" aria-hidden="true" title="Block" onclick="return confirm('Block?')"></i></a>
                       </td>
                     </tr>
                     @endforeach

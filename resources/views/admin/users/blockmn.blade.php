@@ -87,14 +87,12 @@ table {
                           {{ csrf_field() }}
                           <input type="" name="id" hidden value="{{$value->id}}">
                           <select name="role" class="bg-green">
-                            <option value="{{$value->role}}">{{$value->role}}</option>
-                            <option value="1">1 - Admin</option>
                             <option value="2">2 - Manager</option>
-                            <option value="3">3 - Block</option>
                           </select>
                           <button type="submit" class="bg-primary small">CẬP NHẬT</button>
                         </form>
                       </td>
+                      <tr></tr>
                     </tr>
                     @endforeach
                 </tbody>

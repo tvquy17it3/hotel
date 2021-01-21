@@ -10,25 +10,18 @@ use Carbon\Carbon;
 
 class AdminController extends Controller
 {
-     public function index()
+    public function thongke()
     {
-        $dateInput =  date('Y-m-d');
-        $room = Room::All();
-        return view('admin.index',['room'=>$room,'dateS'=> $dateInput]);
+        $collection = Order::count();
+        $cxn = Order::where('status', '0')->get();
+        $chuaxacnhan =count($cxn);
+        $dxn = Order::where('status', '1')->get();
+        $daxacnhan = count($dxn);
+        $ht = Order::where('status', '2')->get();
+        $hoanthanh = count($ht);
+        return $data = (['collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
 
-    #order
-  
-    public function addorder()
-    {
-    	
-    	return view('admin.order.addorder');
-    }
-
-    public function editorder()
-    {
-        return view('admin.order.editorder');
-    }
     public function editorder1(Request $request,$id)
     {
         #dd($id);
@@ -120,6 +113,21 @@ class AdminController extends Controller
         return view('admin.chart.year',compact('lb','cl','dt','dateS'));
     }
 
+
+    public function index()
+    {   $tk = $this->thongke();
+        extract($tk);
+        $dateInput =  date('Y-m-d');
+        $room = Room::All();
+        return view('admin.index',['room'=>$room,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
+    }
+
+    public function postTable(Request $request)
+    {   $tk = $this->thongke();
+        extract($tk);
+        $dateInput = $request->dateS;
+        $room = Room::All();
+        return view('admin.index',['room'=>$room,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
+    }
+
 }
-
-
