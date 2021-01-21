@@ -132,24 +132,21 @@ table {
         <div class="row" style="padding: 15px">
           <ul class="list-group list-group-horizontal">
             @foreach($table as $value)
-              <li class="list-group-item col-sm-3" style="margin: 0px 10px 10px 0px;background: {{$color}};">
+            @if($colorss==1)
+            <a href="admin/order/vieworder/{{$value->orderID}}">
+              <li class="list-group-item col-sm-3" style="margin: 0px 5px 5px 0px; background:#dd4b39;color: #f9f9f9;">
+            @else
+              <li class="list-group-item col-sm-3" style="margin: 0px 5px 5px 0px; ">
+            @endif
                 <p>Phòng: {{$value->number}} - {{$value->name}}</p>
                 <p>Số lượng: {{$value->qty}}</p>
-                <p>Giá: {{$value->price}}</p>  
+                <p>Giá: {{$value->price}}/1 phòng</p>  
               </li>
+            </a>
             @endforeach
           </ul>
       </div>
       </div>
-      <!--  "id" => 2
-        "orderID" => 26
-        "roomID" => 1
-        "qty" => 2
-        "price" => "563000"
-        "created_at" => "2021-01-16 23:34:41"
-        "updated_at" => "2021-01-20 22:49:16"
-        "name" => "Royal Suite"
-        "number" => "101" -->
       <!-- /.row (main row) -->
       <!--  /Hang 2 contents -->
 

@@ -131,11 +131,13 @@ class AdminController extends Controller
             $room->number=$number;
           }
           $table = $data->detail;
+          $color = 1;
         }
       }else {
         $table  = Room::All();
+        $color = 0;
       }
-      return view('admin.index',['table'=>$table,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
+      return view('admin.index',['table'=>$table,'colorss'=>$color,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
 
     public function postTable(Request $request)
@@ -154,12 +156,12 @@ class AdminController extends Controller
             $room->number=$number;
           }
           $table = $data->detail;
-          $color ='red';
+          $color = 1;
         }
       }else {
         $table  = Room::All();
-        $color ='blue';
+        $color = 0;
       }
-      return view('admin.index',['table'=>$table,'color'=>$color,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
+      return view('admin.index',['table'=>$table,'colorss'=>$color,'dateS'=> $dateInput,'collection'=>$collection,'chuaxacnhan'=>$chuaxacnhan,'daxacnhan'=>$daxacnhan,'hoanthanh'=>$hoanthanh]);
     }
 }
