@@ -14,7 +14,6 @@
         </label>
         <div class="row g-0">
             <div class="col-md-1"></div>
-
             <div class="col-md-2 border border-dark round" style="padding: 0; border-radius: 10px;">
                 <div class=" nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active tab" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
@@ -28,14 +27,14 @@
                 </div>
             </div>
             <div class="col-md-8" style="padding-left: 10px;">
-                <form method="POST" action="http://localhost/hotel/vieworder"
+                <form method="POST" action="vieworder"
                     class="form-inline d-flex justify-content-center md-form form-sm mt-0" style="margin: 10px;">
                     {{ csrf_field()}}
                     <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
                         aria-label="Search" name="searchPhone" />
-                    <button type="submit" class="btn btn-outline-success">
+                    <button type="submit" class="btn btn-outline-success" style="margin-left:5px; ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
+                            class="bi bi-search" viewBox="0 0 15 15">
                             <path
                                 d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z">
                             </path>

@@ -10,4 +10,7 @@ class Room extends Model
     protected $primaryKey = 'id';
     protected $keyType = 'integer';
     protected $guarded = [];
+    protected function detail(){
+        return $this->belongsTo('App\OrderDetail','roomID');
+    }
 }
