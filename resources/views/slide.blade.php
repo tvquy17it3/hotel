@@ -149,6 +149,7 @@
                         @foreach ($room1 as $value)
                         @if($value->kindOfRooms == '1')
                         @component('room')
+                        @slot('img') {{$value->img}}@endslot
                         @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
@@ -168,6 +169,7 @@
                         @foreach ($room1 as $value)
                         @if($value->kindOfRooms == '2')
                         @component('room')
+                        @slot('img') {{$value->img}}@endslot
                         @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
@@ -188,6 +190,7 @@
                         @foreach ($room2 as $value)
                         @if($value->kindOfRooms == '1')
                         @component('room')
+                        @slot('img') {{$value->img}}@endslot
                         @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
@@ -207,6 +210,7 @@
                         @foreach ($room2 as $value)
                         @if($value->kindOfRooms == '2')
                         @component('room')
+                        @slot('img') {{$value->img}}@endslot
                         @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
@@ -229,6 +233,7 @@
                         @foreach ($room3 as $value)
                         @if($value->kindOfRooms == '1')
                         @component('room')
+                        @slot('img') {{$value->img}}@endslot
                         @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
@@ -248,6 +253,7 @@
                         @foreach ($room3 as $value)
                         @if($value->kindOfRooms == '2')
                         @component('room')
+                        @slot('img') {{$value->img}}@endslot
                         @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
@@ -269,6 +275,7 @@
                         @foreach ($room4 as $value)
                         @if($value->kindOfRooms == '1')
                         @component('room')
+                        @slot('img') {{$value->img}}@endslot
                         @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn
@@ -288,6 +295,7 @@
                         @foreach ($room4 as $value)
                         @if($value->kindOfRooms == '2')
                         @component('room')
+                        @slot('img') {{$value->img}}@endslot
                         @slot('roomInfo') {{$value->id}} @endslot
                         @slot('name') {{$value->name}} @endslot
                         @slot('introduce') Với phòng {{$value->name}} quý khách sẽ được thưởng thức trọn vẹn vẻ đẹp ấn

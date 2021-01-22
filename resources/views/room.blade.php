@@ -14,7 +14,7 @@
 <div class="card mb-3  d-none d-lg-block" style="border-color: rgb(242, 169, 0);">
     <div class="row g-0">
         <div class="col-md-3" style="padding: 10px; padding-top: 20px;">
-            <img src="public/ks.png" class="card-img-top" alt="...">
+            <img src="{{$img}}" class="card-img-top" alt="...">
         </div>
         <div class="col-md-9 d-none d-lg-block">
             <div class="card-body cutpad">
@@ -103,7 +103,7 @@
 <div class="card mb-3 d-lg-none" style="border-color: rgb(242, 169, 0);">
     <div class="row g-0">
         <div class="col-md-3" style="padding: 10px; padding-top: 20px;">
-            <img src="public/ks.png" class="card-img-top" alt="...">
+            <img src="{{$img}}" class="card-img-top" alt="...">
         </div>
     </div>
 
@@ -172,7 +172,7 @@
 <div class="card mb-3 d-lg-none" style="border-color: rgb(242, 169, 0);">
     <div class="row g-0">
         <div class="col-md-3" style="padding: 10px; padding-top: 20px;">
-            <img src="public/ks.png" class="card-img-top" alt="...">
+            <img src="{{$img}}" class="card-img-top" alt="...">
         </div>
     </div>
 
