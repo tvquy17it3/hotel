@@ -25,9 +25,9 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Deluxe Twin Ocean View', 'number' => '204', 'img'=> '','kindOfRooms' => '2', 'price'=>1417500, 'capacity' => '4', 'status' => '0' ],
          ]);
          DB::table('users')->insert([
-            ['name' => 'Võ Văn Nhã','email' => 'vvnha.17it3@sict.udn.vn','phone' => '0905903902', 'email_verified_at'=>'', 'password'=>'$2y$10$iNvCL3cT.jJAomB5a.8eEOFsfxU1eeKPNpH3eWdxd83C.AJRCFys.', 'role' => '1', 'remember_token'=>'', 'created_at'=>'', 'updated_at'=>''],
-            ['name' => 'Trần Văn Quý','email' => 'vanquy@gmail.com','phone' => '0905906666', 'email_verified_at'=>'', 'password'=>'$2y$10$iNvCL3cT.jJAomB5a.8eEOFsfxU1eeKPNpH3eWdxd83C.AJRCFys.', 'role' => '1', 'remember_token'=>'', 'created_at'=>'', 'updated_at'=>''],
-            ['name' => 'Nguyễn Văn Tuyên','email' => 'tuyen1@gmail.com','phone' => '0905903902', 'email_verified_at'=>'', 'password'=>'$2y$10$iNvCL3cT.jJAomB5a.8eEOFsfxU1eeKPNpH3eWdxd83C.AJRCFys.', 'role' => '1', 'remember_token'=>'', 'created_at'=>'', 'updated_at'=>'']
+            ['name' => 'Võ Văn Nhã','email' => 'vvnha.17it3@sict.udn.vn','phone' => '0905903902', 'email_verified_at'=>'', 'password'=>'$2y$10$iNvCL3cT.jJAomB5a.8eEOFsfxU1eeKPNpH3eWdxd83C.AJRCFys.', 'role' => '1', 'remember_token'=>''],
+            ['name' => 'Trần Văn Quý','email' => 'vanquy@gmail.com','phone' => '0905906666', 'email_verified_at'=>'', 'password'=>'$2y$10$iNvCL3cT.jJAomB5a.8eEOFsfxU1eeKPNpH3eWdxd83C.AJRCFys.', 'role' => '1', 'remember_token'=>''],
+            ['name' => 'Nguyễn Văn Tuyên','email' => 'tuyen1@gmail.com','phone' => '0905903902', 'email_verified_at'=>'', 'password'=>'$2y$10$iNvCL3cT.jJAomB5a.8eEOFsfxU1eeKPNpH3eWdxd83C.AJRCFys.', 'role' => '1', 'remember_token'=>'']
          ]);
     }
 }
