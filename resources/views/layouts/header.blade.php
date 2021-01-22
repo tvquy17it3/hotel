@@ -48,7 +48,8 @@
     .position-ref {
         position: relative;
     }
-       /* Top right text */
+
+    /* Top right text */
     .top-right {
         position: absolute;
         max-width: 25%;
@@ -152,10 +153,10 @@
         max-width: 25%;
     }
 
- 
+
 
     /* Bottom right text */
-  /*  .bottom-right {
+    /*  .bottom-right {
         position: absolute;
         bottom: 8px;
         right: 16px;
@@ -196,9 +197,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="khachsan">KHÁCH SẠN <span class="sr-only">(current)</span></a>
-                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="checkin">ĐẶT PHÒNG</a>
                     </li>
@@ -207,27 +205,31 @@
                         <a class="nav-link" id="danhgia" href="#rating">
                             XEM ĐÁNH GIÁ
                         </a>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 9e476fd1677a1be349b351eac4162ddb647c5a76
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="vieworder">XEM ĐÃ ĐẶT</a>
                     </li>
-                    
+
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             ƯU ĐÃI
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="lehoi">LỄ HỘI</a>
-                            <a class="dropdown-item" href="muahe">MÙA HÈ</a>
-                            <a class="dropdown-item" href="tet">TẾT</a>
+                            <a class="dropdown-item" href="#">LỄ HỘI</a>
+                            <a class="dropdown-item" href="#">MÙA HÈ</a>
+                            <a class="dropdown-item" href="#">TẾT</a>
                         </div>
                     </li>
                 </ul>
                 @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                    <a href="{{ url('/admin') }}" >{{ Auth::user()->name }}</a>
+                    <a href="{{ url('/admin') }}">{{ Auth::user()->name }}</a>
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
                         {{ __('Logout') }}
@@ -237,7 +239,7 @@
                     </form>
 
                     @else
-                    <a href="{{ route('login') }}" >Login</a>
+                    <a href="{{ route('login') }}">Login</a>
                     @endauth
                 </div>
                 @endif
