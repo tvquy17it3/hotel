@@ -1,255 +1,260 @@
-
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@yield('title')</title>
-  <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
-  <base href="{{asset('')}}">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-  <!-- Bootstrap 3.3.7 -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>@yield('title')</title>
+    <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}">
+    <base href="{{asset('')}}">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
 
-  @yield('css')
-  <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="public/css/font-awesome.min.css">
-  <!-- Ionicons -->
-  <link rel="stylesheet" href="public/css/ionicons.min.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="public/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
+    @yield('css')
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="public/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="public/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="public/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
        folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="public/css/_all-skins.min.css">
+    <link rel="stylesheet" href="public/css/_all-skins.min.css">
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+    <!-- Google Font -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
 
-  <div class="wrapper">
-    <header class="main-header">
-    <!-- Logo -->
-    <a href="admin" class="logo">
-      <span class="logo-mini"><b>N</b>L</span>
-      <span class="logo-lg"><b>NOVOTEL</b></span>
-    </a>
-    <!-- Header Navbar: style can be found in header.less -->
-    <nav class="navbar navbar-static-top">
-      <!-- Sidebar toggle button-->
-      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-
-      <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav">
-
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+    <div class="wrapper">
+        <header class="main-header">
+            <!-- Logo -->
+            <a href="admin" class="logo">
+                <span class="logo-mini"><b>N</b>L</span>
+                <span class="logo-lg"><b>NOVOTEL</b></span>
             </a>
-            <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
-                    </a>
-                  </li>
+            <!-- Header Navbar: style can be found in header.less -->
+            <nav class="navbar navbar-static-top">
+                <!-- Sidebar toggle button-->
+                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+
+                        <!-- Notifications: style can be found in dropdown.less -->
+                        <li class="dropdown notifications-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">10</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 10 notifications</li>
+                                <li>
+                                    <!-- inner menu: contains the actual data -->
+                                    <ul class="menu">
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-warning text-yellow"></i> Very long description here
+                                                that may not fit into the
+                                                page and may cause design problems
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-users text-red"></i> 5 new members joined
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <i class="fa fa-user text-red"></i> You changed your username
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">View all</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- User Account: style can be found in dropdown.less -->
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img src="public/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <span class="hidden-xs">{{ Auth::user()->name }} </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img src="public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        {{ Auth::user()->name }}
+                                        <small>Member since Nov. 2020</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a href="{{ route('logout') }}" class="btn btn-default btn-flat"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                            Logout
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            style="display: none;">
+                                            {{ csrf_field() }}
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+        <aside class="main-sidebar">
+            <!-- sidebar: style can be found in sidebar.less -->
+            <section class="sidebar">
+                <!-- Sidebar user panel -->
+                <div class="user-panel">
+                    <div class="pull-left image">
+                        <img src="public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                    </div>
+                    <div class="pull-left info">
+                        <p> {{ Auth::user()->name }} </p>
+                        <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+                    </div>
+                </div>
+                <!-- search form -->
+                <form action="#" method="get" class="sidebar-form">
+                    <div class="input-group">
+                        <input type="text" name="q" class="form-control" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i
+                                    class="fa fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+                <!-- /.search form -->
+
+                <!-- sidebar menu: : style can be found in sidebar.less -->
+                <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li><a href="admin"><i class="fa fa-table"></i> <span>Phòng</span></a></li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-pie-chart"></i>
+                            <span>Order</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="admin/order"><i class="fa fa-circle-o"></i>Chưa xác nhận</a></li>
+                            <li><a href="admin/xacnhan"><i class="fa fa-circle-o"></i>Đã xác nhận</a></li>
+                            <li><a href="admin/success"><i class="fa fa-circle-o"></i>Hoàn thành</a></li>
+                            <li><a href="admin/allorder"><i class="fa fa-circle-o"></i>Xem tất cả</a></li>
+                            <li><a href="admin/huy"><i class="fa fa-circle-o"></i>Đã hủy</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Room</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="admin/room"><i class="fa fa-circle-o"></i>Tất cả các phòng</a></li>
+                            <li><a href="admin/room/vip"><i class="fa fa-circle-o"></i> Phòng Vip</a></li>
+                            <li><a href="admin/room/thuong"><i class="fa fa-circle-o"></i> Phòng thường</a></li>
+                            <!--  <li><a href="admin/food/tm"><i class="fa fa-circle-o"></i> Tráng miệng</a></li> -->
+                            <li><a href="admin/addroom"><i class="fa fa-circle-o"></i>Thêm phòng</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-bar-chart"></i>
+                            <span>Statistic</span>
+                            <span class="pull-right-container">
+                                <span class="label label-primary pull-right">Today</span>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Thống kê 7 ngày</a></li>
+                            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Thống kê 30 ngày</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href=""><i class="fa fa-book"></i> <span>Ghi chú</span></a></li>
+                    @if(Auth::user()->role==1)
+                    <li class="header">Users</li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Accounts</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="admin/account"><i class="fa fa-circle-o"></i>Tất cả</a></li>
+                            <li><a href="admin/account/blocks"><i class="fa fa-circle-o"></i>Đã khóa</a></li>
+                        </ul>
+                    </li>
+                    @endif
+
+                    @if(Auth::user()->role==2)
+                    <li class="header">Users</li>
+                    <li class="treeview">
+                        <a href="#">
+                            <i class="fa fa-edit"></i> <span>Accounts</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li><a href="admin/account/manager"><i class="fa fa-circle-o"></i>Tất cả</a></li>
+                            <li><a href="admin/account/blockmn"><i class="fa fa-circle-o"></i>Đã khóa</a></li>
+                        </ul>
+                    </li>
+                    @endif
+
+                    <li><a href=""><i class="fa fa-circle-o text-red"></i> <span>Hotel</span></a></li>
+                    <li><a href=""><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
                 </ul>
-              </li>
-              <li class="footer"><a href="#">View all</a></li>
-            </ul>
-          </li>
+            </section>
+            <!-- /.sidebar -->
+        </aside>
 
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="public/img/user2-160x160.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">{{ Auth::user()->name }} </span>
-            </a>
-            <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-
-                <p>
-                  {{ Auth::user()->name }} 
-                  <small>Member since Nov. 2020</small>
-                </p>
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
-                </div>
-                <div class="pull-right">
-                  <a href="{{ route('logout') }}"  class="btn btn-default btn-flat" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                          Logout
-                      </a>
-
-                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                      {{ csrf_field() }}
-                  </form>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
-    <!-- Left side column. contains the logo and sidebar -->
-  <aside class="main-sidebar">
-    <!-- sidebar: style can be found in sidebar.less -->
-    <section class="sidebar">
-      <!-- Sidebar user panel -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="public/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        <div class="content-wrapper">
+            @yield('content')
         </div>
-        <div class="pull-left info">
-          <p> {{ Auth::user()->name }} </p>
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-      <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
-        <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
-          <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
-                </button>
-              </span>
-        </div>
-      </form>
-      <!-- /.search form -->
+    </div>
 
-      <!-- sidebar menu: : style can be found in sidebar.less -->
-      <ul class="sidebar-menu" data-widget="tree">
-        <li class="header">MAIN NAVIGATION</li>
-        <li><a href="admin"><i class="fa fa-table"></i> <span>Phòng</span></a></li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-pie-chart"></i>
-            <span>Order</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="admin/order"><i class="fa fa-circle-o"></i>Chưa xác nhận</a></li>
-            <li><a href="admin/xacnhan"><i class="fa fa-circle-o"></i>Đã xác nhận</a></li>
-            <li><a href="admin/success"><i class="fa fa-circle-o"></i>Hoàn thành</a></li>
-            <li><a href="admin/allorder"><i class="fa fa-circle-o"></i>Xem tất cả</a></li>
-            <li><a href="admin/huy"><i class="fa fa-circle-o"></i>Đã hủy</a></li>
-            <li><a href="admin/addorder"><i class="fa fa-circle-o"></i>Đặt phòng</a></li>
-          </ul>
-        </li>
-
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Room</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="admin/room"><i class="fa fa-circle-o"></i>Tất cả các phòng</a></li>
-            <li><a href="admin/room/vip"><i class="fa fa-circle-o"></i> Phòng Vip</a></li>
-            <li><a href="admin/room/thuong"><i class="fa fa-circle-o"></i> Phòng thường</a></li>
-           <!--  <li><a href="admin/food/tm"><i class="fa fa-circle-o"></i> Tráng miệng</a></li> -->
-            <li><a href="admin/addroom"><i class="fa fa-circle-o"></i>Thêm phòng</a></li>
-          </ul>
-        </li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-bar-chart"></i>
-            <span>Statistic</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">Today</span>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Thống kê 7 ngày</a></li>
-            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Thống kê 30 ngày</a></li>
-          </ul>
-        </li>
-
-        <li><a href=""><i class="fa fa-book"></i> <span>Ghi chú</span></a></li>
-        @if(Auth::user()->role==1)
-        <li class="header">Users</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Accounts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="admin/account"><i class="fa fa-circle-o"></i>Tất cả</a></li>
-            <li><a href="admin/account/blocks"><i class="fa fa-circle-o"></i>Đã khóa</a></li>
-          </ul>
-        </li>
-        @endif
-
-        @if(Auth::user()->role==2)
-        <li class="header">Users</li>
-        <li class="treeview">
-          <a href="#">
-            <i class="fa fa-edit"></i> <span>Accounts</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="admin/account/manager"><i class="fa fa-circle-o"></i>Tất cả</a></li>
-            <li><a href="admin/account/blockmn"><i class="fa fa-circle-o"></i>Đã khóa</a></li>
-          </ul>
-        </li>
-        @endif
-
-        <li><a href=""><i class="fa fa-circle-o text-red"></i> <span>Hotel</span></a></li>
-        <li><a href=""><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
-      </ul>
-    </section>
-    <!-- /.sidebar -->
-  </aside>
-
-      <div class="content-wrapper">
-        @yield('content')
-      </div>
-  </div>
-
-<!--   <footer class="main-footer" >
+    <!--   <footer class="main-footer" >
     <div class="pull-right hidden-xs">
       <b>Version</b> 2.4.13
     </div>
@@ -257,23 +262,24 @@
     reserved.
   </footer> -->
 
-  <!-- Add the sidebar's background. This div must be placed
+    <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->
-  <div class="control-sidebar-bg"></div>
+    <div class="control-sidebar-bg"></div>
 
-<!-- jQuery UI 1.11.4 -->
-<!-- <script src="public/js/jquery-ui.min.js"></script> -->
-<!-- jQuery 3 -->
-<script src="public/js/jquery.min.js"></script>
-<!-- Bootstrap 3.3.7 -->
-<script src="public/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="public/js/fastclick.js"></script>
-<!-- AdminLTE App -->
-<script src="public/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="public/js/demo.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <!-- <script src="public/js/jquery-ui.min.js"></script> -->
+    <!-- jQuery 3 -->
+    <script src="public/js/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="public/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="public/js/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="public/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="public/js/demo.js"></script>
 
-@yield('scripts')
+    @yield('scripts')
 </body>
+
 </html>

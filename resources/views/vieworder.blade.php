@@ -13,8 +13,7 @@
             <h4>Danh sách các phòng đã đặt</h4>
         </label>
         <div class="row g-0">
-            <div class="col-md-1"></div>
-            <div class="col-md-2 border border-dark round" style="padding: 0; border-radius: 10px;">
+            <!-- <div class="col-md-2 border border-dark round d-lg-none" style="padding: 0; border-radius: 10px;">
                 <div class=" nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                     <a class="nav-link active tab" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home"
                         role="tab" aria-controls="v-pills-home" aria-selected="true">Lễ hội</a>
@@ -25,13 +24,14 @@
                     <a class="nav-link tab" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings"
                         role="tab" aria-controls="v-pills-settings" aria-selected="false">Quốc Khánh</a>
                 </div>
-            </div>
+            </div> -->
+            <div class="col-md-2" style="padding: 0; border-radius: 10px;"></div>
             <div class="col-md-8" style="padding-left: 10px;">
                 <form method="POST" action="vieworder"
                     class="form-inline d-flex justify-content-center md-form form-sm mt-0" style="margin: 10px;">
                     {{ csrf_field()}}
-                    <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-                        aria-label="Search" name="searchPhone" />
+                    <input class="form-control me-2  w-75" type="text" placeholder="Search" aria-label="Search"
+                        name="searchPhone" />
                     <button type="submit" class="btn btn-outline-success" style="margin-left:5px; ">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                             class="bi bi-search" viewBox="0 0 15 15">
