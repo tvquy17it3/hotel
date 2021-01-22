@@ -24,5 +24,8 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Superior Twin', 'number' => '203', 'img'=> '','kindOfRooms' => '1', 'price'=>1373000, 'capacity' => '4', 'status' => '0' ],
             ['name' => 'Deluxe Twin Ocean View', 'number' => '204', 'img'=> '','kindOfRooms' => '2', 'price'=>1417500, 'capacity' => '4', 'status' => '0' ],
          ]);
+         DB::table('users')->insert([
+            ['name' => 'Nhã', 'email' => 'vvnha.17it3@sict.udn.vn', 'phone'=> '0905905905','kindOfRooms' => '2', 'email_verified_at'=>'', 'password' => '$2y$10$0eCGHlUcbjJeVGVrDkYDcuCDKyiv4s7I4go3cT2IKjYHIEZ.XhQJu', 'role' => '1', 'remember_token'=>'']
+         ]);
     }
 }
