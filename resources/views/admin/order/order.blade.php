@@ -54,12 +54,12 @@ table {
           <div class="small-box bg-aqua">
             <div class="inner">
               <h3>{{$collection}}</h3>
-              <p>Tổng số đặt hàng</p>
+              <p>Tổng số đặt phòng</p>
             </div>
             <div class="icon">
               <i class="ion ion-bag"></i>
             </div>
-            <a href="admin/food/addfood" class="small-box-footer">Thêm menu <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="admin/allorder" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -67,13 +67,13 @@ table {
           <!-- small box -->
           <div class="small-box bg-green">
             <div class="inner">
-              <h3>10<sup style="font-size: 20px"></sup></h3>
-              <p>Người dùng</p>
+              <h3>{{$hoanthanh}}<sup style="font-size: 20px"></sup></h3>
+              <p>Hoàn thành</p>
             </div>
             <div class="icon">
               <i class="ion ion-stats-bars"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="admin/success" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -81,13 +81,13 @@ table {
           <!-- small box -->
           <div class="small-box bg-yellow">
             <div class="inner">
-              <h3>10</h3>
-              <p>Nhân viên</p>
+              <h3>{{$daxacnhan}}</h3>
+              <p>Đã xác nhận</p>
             </div>
             <div class="icon">
               <i class="ion ion-person-add"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="admin/xacnhan" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col -->
@@ -95,14 +95,14 @@ table {
           <!-- small box -->
           <div class="small-box bg-red">
             <div class="inner">
-              <h3>10</h3>
+              <h3>{{$chuaxacnhan}}</h3>
 
-              <p>Đầu bếp</p>
+              <p>Chưa xác nhận</p>
             </div>
             <div class="icon">
               <i class="ion ion-pie-graph"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="admin/order" class="small-box-footer">Xem thêm <i class="fa fa-arrow-circle-right"></i></a>
           </div>
         </div>
         <!-- ./col 4 cai tren-->
@@ -157,7 +157,8 @@ table {
                     <td>{{$value->status}}</td>
                     <td>
                         <a href="admin/order/vieworder/{{$value->id}}" class="edit open-modal"><i class="fa fa-pencil-square-o" data-toggle="tooltip" title="Xem"></i></a>
-                        <a href="admin/order/delete/{{$value->id}}" class="delete" ><i class="fa fa-trash-o" title="Xóa" onclick="return confirm('Hủy đơn này?')"></i></a>
+                        <!-- <a href="admin/order/delete/{{$value->id}}" class="delete" ><i class="fa fa-trash-o" title="Xóa" onclick="return confirm('Hủy đơn này?')"></i></a> -->
+                        <a onclick="event.preventDefault();huyForms({{$value->id}});" href="#" class="delete" data-toggle="modal"><i class="fa fa-trash-o" data-toggle="tooltip" title="Delete"></i></a>
                     </td>
                   </tr>
                   @endforeach
@@ -165,6 +166,7 @@ table {
           </table>
         </div>
       </div>
+      @include('admin.order.partials.deleteorder')
       <div class="active" style="margin-top: 0px;height: 50px;">
         {!! $orders->links() !!}
       </div>
@@ -173,4 +175,8 @@ table {
     </section>
 
 @endsection
-<!-- id`, `cusName`, `phone`, `price`, `people`, `status`, `checkIn`, `checkOut`, `created_at`, `updated_at -->
+@section('scripts')
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public/js/tasks.js"></script>
+@endsection

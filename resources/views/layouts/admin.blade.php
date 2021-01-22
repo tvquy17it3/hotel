@@ -199,9 +199,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Các ngày trong tuần</a></li>
-            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Các tháng trong năm</a></li>
-            <li><a href="admin/analysis"><i class="fa fa-area-chart"></i>Analysis </a></li>
+            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Thống kê 7 ngày</a></li>
+            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Thống kê 30 ngày</a></li>
           </ul>
         </li>
 
@@ -218,6 +217,22 @@
           <ul class="treeview-menu">
             <li><a href="admin/account"><i class="fa fa-circle-o"></i>Tất cả</a></li>
             <li><a href="admin/account/blocks"><i class="fa fa-circle-o"></i>Đã khóa</a></li>
+          </ul>
+        </li>
+        @endif
+
+        @if(Auth::user()->role==2)
+        <li class="header">Users</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>Accounts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="admin/account/manager"><i class="fa fa-circle-o"></i>Tất cả</a></li>
+            <li><a href="admin/account/blockmn"><i class="fa fa-circle-o"></i>Đã khóa</a></li>
           </ul>
         </li>
         @endif

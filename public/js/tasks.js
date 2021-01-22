@@ -7,11 +7,11 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'POST',
-            url: '/admin/order/vieworder/add',
+            url: 'admin/order/vieworder/add',
             data: {
-                foodName: $("#frmAddTask :selected").val(),
+                roomID: $("#frmAddTask :selected").val(),
                 soluong: $("#frmAddTask input[name=soluong]").val(),
-                id: $("#frmAddTask input[name=id]").val(),
+                orderID: $("#frmAddTask input[name=orderID]").val(),
             },
             dataType: 'json',
             success: function(data) {
@@ -41,7 +41,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'PUT',
-            url: '/admin/order/vieworder/update/' + $("#frmEditTask input[name=task_id]").val(),
+            url: 'admin/order/vieworder/update/' + $("#frmEditTask input[name=task_id]").val(),
             data: {
                 task: $("#frmEditTask input[name=task]").val(),
                 soluong: $("#frmEditTask input[name=soluong]").val(),
@@ -72,7 +72,27 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'DELETE',
-            url: '/admin/order/vieworder/delete/' + $("#frmDeleteTask input[name=task_id]").val(),
+            url: 'admin/order/vieworder/delete/' + $("#frmDeleteTask input[name=task_id]").val(),
+            dataType: 'json',
+            success: function(data) {
+                $("#frmDeleteTask .close").click();
+                window.location.reload();
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    });
+
+    $("#btn-huy").click(function() {
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type: 'PUT',
+            url: 'admin/order/huyorder/' + $("#frmDeleteTask input[name=task_id]").val(),
             dataType: 'json',
             success: function(data) {
                 $("#frmDeleteTask .close").click();
@@ -92,15 +112,17 @@ function addTaskForm() {
     });
 }
 
+
 function editTaskForm(task_id) {
     $.ajax({
         type: 'GET',
-        url: '/admin/order/vieworder/detail/' + task_id,
+        url: 'admin/order/vieworder/detail/' + task_id,
         success: function(data) {
+            console.log(task_id);
             $("#edit-error-bag").hide();
-            $("#frmEditTask input[name=task]").val(data.namefood);
+            $("#frmEditTask input[name=task]").val("Phòng "+data.nameroom+" - Giá: " +data.task.price + " vnd");
             $("#frmEditTask input[name=soluong]").val(data.task.qty);
-            $("#frmEditTask input[name=task_id]").val(data.task.detailID);
+            $("#frmEditTask input[name=task_id]").val(data.task.id);
             $('#editTaskModal').modal('show');
         },
         error: function(data) {
@@ -112,14 +134,23 @@ function editTaskForm(task_id) {
 function deleteTaskForm(task_id) {
     $.ajax({
         type: 'GET',
-        url: '/admin/order/vieworder/detail/' + task_id,
+        url: 'admin/order/vieworder/detail/' + task_id,
         success: function(data) {
-            $("#frmDeleteTask #delete-title").html("Delete Food ("+ data.namefood +" ID: "+ data.task.detailID + ")?");
-            $("#frmDeleteTask input[name=task_id]").val(data.task.detailID);
+            $("#frmDeleteTask #delete-title").html("Phòng "+ data.nameroom + "?");
+            $("#frmDeleteTask input[name=task_id]").val(data.task.id);
             $('#deleteTaskModal').modal('show');
         },
         error: function(data) {
             console.log(data);
         }
+    });
+}
+
+function huyForms(task_id) {
+     $(document).ready(function() {
+        $("#add-error-bag").hide();
+        $("#frmDeleteTask #delete-title").html("Hủy Order ID:  "+ task_id + "?");
+        $("#frmDeleteTask input[name=task_id]").val(task_id);
+        $('#deleteTaskModals').modal('show');
     });
 }

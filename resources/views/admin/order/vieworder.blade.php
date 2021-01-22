@@ -52,16 +52,16 @@ table {
       <!-- /.row -->
       <!-- Main row -->
       <div class="active bg-primary" style="padding: 10px">
-        <p class="active"> Tên khách hàng: {{$userss->name}}</p>
-        <p class="active"> Số điện thoại: {{$userss->phone}}</p>
-        <p class="active"> Ngày đặt: {{$giodat}}</p>
-        <p class="active"> Đặt ngày: {{$datngay}}</p>
-        <p class="active"> Số bàn: {{$perNum}}</p>
-        <form action="{{url('admin/order/vieworder/editservice')}}" method="POST">
+        <p class="active"> Tên khách hàng: {{$dataCus->cusName}}</p>
+        <p class="active"> Số điện thoại: {{$dataCus->phone}}</p>
+        <p class="active"> Ngày đặt: {{$dataCus->created_at}}</p>
+        <p class="active"> Check In: {{$dataCus->checkIn}}</p>
+        <p class="active"> Check Out: {{$dataCus->checkOut}}</p>
+        <form action="{{url('admin/order/vieworder/editstatus')}}" method="POST">
           {{ csrf_field() }}
-          <input type="" name="id" hidden value="{{$id}}">
-          <select name="service" class="bg-green">
-            <option value="{{$service}}">{{$service}}</option>
+          <input type="" name="id" hidden value="{{$orderID}}">
+          <select name="status" class="bg-green">
+            <option value="{{$dataCus->status}}">{{$dataCus->status}}</option>
             <option value="0">0 - Chưa xác nhận</option>
             <option value="1">1 - Đã xác nhận</option>
             <option value="2">2 - Hoàn thành</option>
@@ -79,7 +79,7 @@ table {
                         <h2>Manage <b>Food</b></h2>
                     </div>
                     <div class="col-sm-6">
-                        <a onclick="event.preventDefault();addTaskForm();" href="#" class="btn btn-success" data-toggle="modal"><span>Add New Food</span></a>                       
+                        <a onclick="event.preventDefault();addTaskForm();" href="#" class="btn btn-success" data-toggle="modal"><span>Thêm phòng</span></a>                       
                     </div>
                 </div>
             </div>
@@ -87,25 +87,28 @@ table {
                 <thead>
                     <tr>
                       <th>STT</th>
-                      <th>Tên</th>
-                      <th>Số lượng</th>
+                      <th>Tên Phòng</th>
+                      <th>Số Phòng</th>
+                      <th>Số Lượng</th>
                       <th>Giá</th>
                       <th>Sửa / Xóa</th>
                     </tr>
                 </thead>
                 <tbody>
                   <p hidden="">{{$valueT=0}}</p>
-                    @foreach($foods as $value)
+                  <p hidden="">{{$stt=0}}</p>
+                    @foreach($dataRoom as $value)
                     <tr>
                       <td>{{$stt+=1}}</td>
-                      <td>{{$value->foodName}}</td>
+                      <td>{{$value->name}}</td>
+                      <td>{{$value->number}}</td>
                       <td>{{$value->qty}}</td>
                       <td>{{number_format($prices = $value->price*$value->qty)}} vnd</td>
                       <p hidden="">{{$valueT+=$prices}}</p>
                       <td>
-                          <a onclick="event.preventDefault();editTaskForm({{$value->detailID}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$value->detailID}}"><i class="fa fa-pencil-square-o" data-toggle="tooltip" title="Edit"></i></a>
+                          <a onclick="event.preventDefault();editTaskForm({{$value->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$value->id}}"><i class="fa fa-pencil-square-o" data-toggle="tooltip" title="Edit"></i></a>
                           
-                          <a onclick="event.preventDefault();deleteTaskForm({{$value->detailID}});" href="#" class="delete" data-toggle="modal"><i class="fa fa-trash-o" data-toggle="tooltip" title="Delete"></i></a>
+                          <a onclick="event.preventDefault();deleteTaskForm({{$value->id}});" href="#" class="delete" data-toggle="modal"><i class="fa fa-trash-o" data-toggle="tooltip" title="Delete"></i></a>
                       </td>
                     </tr>
                     @endforeach
@@ -129,19 +132,20 @@ table {
         <div style="height: 20px;margin-bottom: 30px;">
           <form action="{{url('admin/order/vieworder/thanhtoan')}}" method="POST">
             {{ csrf_field() }}
-            <input name="id" hidden value="{{$id}}">
+            <input name="id" hidden value="{{$orderID}}">
             <input name="tongtien" hidden value="{{$valueT}}">
             <input name="service" hidden value="2">
-            <button type="submit" class="btn btn-success" style="float: left;">Thanh toán</button>
+            <button type="submit" class="btn btn-success" style="float: left;" onclick="return confirm('Xác nhận khách hàng đã thanh toán?')">Thanh toán</button>
           </form>
 
-          <form action="{{url('admin/order/vieworder/editservice')}}" method="POST">
+          <form action="{{url('admin/order/vieworder/editstatus')}}" method="POST">
             {{ csrf_field() }}
-            <input name="id" hidden value="{{$id}}">
-            <input name="service" hidden value="3">
-            <button type="submit" class="btn btn-danger" style="float: left;margin-left: 10px;">Hủy đơn này</button>
+            <input name="id" hidden value="{{$orderID}}">
+            <input name="status" hidden value="3">
+            <button type="submit" class="btn btn-danger" style="float: left;margin-left: 10px;" onclick="return confirm('Đồng ý hủy?')">Hủy đơn này</button>
           </form>
         </div>
+        <a href="admin/printorder/{{$orderID}}" target="_blank" class="text-success"><b>In hóa đơn</b></a><br/><br/>
       </div>
     </section>
     
