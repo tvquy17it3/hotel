@@ -26,6 +26,12 @@ table {
     overflow-x: auto;
     width: 100%;
 }
+
+@media only screen and (max-width: 768px) {
+    .hid {
+        display: none;
+    }
+}
 </style>
 <link rel="stylesheet" href="public/css/table.css">
 @endsection
@@ -135,15 +141,24 @@ table {
             <ul class="list-group list-group-horizontal">
                 @foreach($table as $value)
                 @if($colorss==1)
+                <!-- <div class="row"> -->
                 <a href="admin/order/vieworder/{{$value->orderID}}">
                     <li class="list-group-item col-sm-3"
                         style="margin: 0px 5px 5px 0px; background:#dd4b39;color: #f9f9f9;">
                         @else
+
                     <li class="list-group-item col-sm-3" style="margin: 0px 5px 5px 0px; ">
                         @endif
-                        <p>Phòng: {{$value->number}} - {{$value->name}}</p>
-                        <p>Số lượng: {{$value->qty}}</p>
-                        <p>Giá: {{number_format($value->price)}} vnđ/1 phòng</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img src="{{$value->img}}" style="width: 100%;height: 100%;" class="hid" />
+                            </div>
+                            <div class="col-md-6">
+                                <p>Phòng: {{$value->number}} - {{$value->name}}</p>
+                                <p class="hid">Số lượng: {{$value->qty}}</p>
+                                <p>Giá: {{number_format($value->price)}} vnđ/1 phòng</p>
+                            </div>
+                        </div>
                     </li>
                 </a>
                 @endforeach

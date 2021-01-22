@@ -34,7 +34,7 @@
                         sống.</p>
                 </div>
                 <div class="row g-0" style="text-align: right;">
-                    <p>TÌM HIỂU THÊM VỀ NOVOTEL</p>
+                    <p><a href="https://www.novotel-saigon-centre.com/vi/">TÌM HIỂU THÊM VỀ NOVOTEL</a></p>
                 </div>
             </div>
             <div class="col-md-5 border border-warning" style="padding:20px; border-radius: 10px; margin-left: 10px;">

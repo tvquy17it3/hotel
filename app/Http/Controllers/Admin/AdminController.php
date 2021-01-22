@@ -152,8 +152,11 @@ class AdminController extends Controller
           foreach ($data->detail as $room) {
             $name = Room::find((int)$room->roomID)->name;
             $number = Room::find((int)$room->roomID)->number;
+            $img = Room::find((int)$room->roomID)->img;
             $room->name = $name;
             $room->number=$number;
+            $room->img=$img;
+
           }
           $table = $data->detail;
           $color = 1;
