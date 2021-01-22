@@ -5,6 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/fontawesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" />
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -200,7 +203,12 @@
                         <a class="nav-link" href="checkin">ĐẶT PHÒNG</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="danhgia">XEM ĐÁNH GIÁ</a>
+
+                        {{-- <a class="nav-link" href="/hotel/danhgia">XEM ĐÁNH GIÁ</a> --}}
+                        <a class="nav-link" id="danhgia" href="#rating">
+                            XEM ĐÁNH GIÁ
+                        </a>
+
                     </li>
                      <li class="nav-item">
                         <a class="nav-link" href="vieworder">XEM ĐÃ ĐẶT</a>
