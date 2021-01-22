@@ -40,7 +40,7 @@ class AdminController extends Controller
           ->groupBy('date')
           ->orderBy('date', 'ASC')
           ->get([DB::raw('Date("checkOut") as date'),
-            DB::raw('sum(price) as sums')
+            DB::raw('sum("price") as sums')
           ])->All();
 
         $counts = count($stats);
@@ -66,7 +66,7 @@ class AdminController extends Controller
           ->groupBy('date')
           ->orderBy('date', 'ASC')
           ->get([DB::raw('Date("checkOut") as date'),
-            DB::raw('sum(price) as sums')
+            DB::raw('sum("price") as sums')
           ])->All();
 
         $counts = count($stats);
@@ -95,7 +95,7 @@ class AdminController extends Controller
           ->groupBy('date')
           ->orderBy('date', 'ASC')
           ->get([DB::raw('Date("checkOut") as date'),
-            DB::raw('sum(price) as sums')
+            DB::raw('sum("price") as sums')
           ])->All();
 
         $counts = count($stats);
