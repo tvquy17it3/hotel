@@ -19,7 +19,7 @@ class Permission
     {
         $check = Auth::guard($guard)->user()->role;
         if ($check != 1) {
-            if ($check !=3) {
+            if ($check !=2) {
                 return redirect('/');
             }
         }
