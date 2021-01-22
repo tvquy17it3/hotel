@@ -12,7 +12,7 @@
     @slot('numStep') 3 @endslot
     @endcomponent
     <?php if(!isset(session('checkin')['dateCheckIn'])){header('Location: http://localhost/hotel/checkin'); die(); }
-        if(count(session('cart'))==0){$message = "Moi ban chon phong truoc";
+        if(count(session('cart'))==0){$message = "Mời bạn chọn phòng trước";
             echo "<script type='text/javascript'>alert('$message');</script>"; header('Location: http://localhost/hotel/chooseroom'); die(); }  ?>
 
     <?php $total = 0; ?>
@@ -97,15 +97,13 @@
                                             {{$num==$i ? 'selected' : '' }}>{{$i}}
                                             người
                                             </option>
-                                            @endfor
+                                        @endfor
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-
 
                 <div class="row g-0" style="margin-top:20px;">
                     <label>
@@ -187,8 +185,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="row g-0  border border-warning rounded" style="padding:10px;margin-top: 20px;">
 
                             <div class="row g-0 ">
@@ -208,9 +204,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
 
                         <div class="row g-0  border border-warning rounded" style="padding:10px;margin-top: 20px;">
                             <label>Phương thức thanh toán</label>
@@ -245,11 +238,8 @@
                         <div class="row g-0  border border-warning rounded" style="padding:10px;margin-top: 20px;">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input vertical-center " id="checkbox" type="checkbox"
-                                    id="inlineCheckbox1" value="option1" style="margin-top: 5px;">
-                                <p class="form-check-label " for="inlineCheckbox1">Tôi đã đọc và chấp nhận
-                                    Chính sách
-                                    đặt
-                                    phòng</p>
+                                    id="inlineCheckbox1" value="option1" style="margin-top: 5px;" required>
+                                <p class="form-check-label " for="inlineCheckbox1">Tôi đã đọc và chấp nhận chính sách đặt phòng</p>
                             </div>
                         </div>
 
@@ -272,24 +262,23 @@
                                     </div>
                                     <div class="col-md-7">
                                         <button type="button" id="order" style="background-color: rgb(242, 169, 0);"
-                                            class="btn btn-warning"><a href="/hotel/submit"
+                                            class="btn btn-warning">
+                                            <a href="/hotel/submit"
                                                 style="text-decoration: none; color:black;">Đặt phòng
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd"
                                                         d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
                                                 </svg>
-                                            </a></button>
+                                            </a>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                         <div class="col-md-6"></div>
                     </div>
                 </div>
-
-
 
                 <div class="row g-0 " style="margin-top:20px;">
                     <label>
@@ -313,7 +302,6 @@
                 <div class="col-md-2"></div>
             </div>
 
-
             <div class="row g-0">
                 <div class="col-md-6"></div>
             </div>
@@ -326,7 +314,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     var tokenCSRF;
     var loading = true;
-    $.get("http://localhost/hotel/bar").done(function(data) {
+    $.get("bar").done(function(data) {
         tokenCSRF = data;
 
 
@@ -354,8 +342,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (name != '' && last != '' && email != '' && emailVerify != '' && phone != '') {
                 if (checkbox == true) {
                     var cusName = last + " " + name;
-
-                    $.post("http://localhost/hotel/form", {
+                    $.post("form", {
                         cusName: cusName,
                         phone: phone,
                         price: <?php echo $total ?>,
@@ -364,13 +351,13 @@ document.addEventListener('DOMContentLoaded', function() {
                         checkIn: <?php  echo isset(session('checkin')['dateCheckIn'])? strtotime(session('checkin')['dateCheckIn']):"0-0-0"   ?>,
                         checkOut: <?php  echo isset(session('checkin')['dateCheckOut'])?  strtotime(session('checkin')['dateCheckOut']):"0-0-0"  ?>
                     }).done(function(data) {
-                        window.location.replace("http://localhost/hotel/submit");
+                        window.location.replace("submit");
                     });
                 } else {
-                    alert('Vui long chap nhan de dat phong');
+                    alert('Vui lòng chấp nhận để đặt phòng');
                 }
             } else {
-                alert('Vui long nhap day du thong tin');
+                alert('Vui lòng nhập đầy đủ thông tin');
             }
         });
     });

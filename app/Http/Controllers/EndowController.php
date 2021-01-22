@@ -10,4 +10,9 @@ class EndowController extends Controller
     {
         return view('endow');
     }
+
+    public function lehoi()
+    {
+        return view('lehoi');
+    }
 }

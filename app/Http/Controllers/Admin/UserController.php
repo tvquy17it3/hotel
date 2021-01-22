@@ -38,6 +38,12 @@ class UserController extends Controller
         return redirect()->back();
     }
 
+    public function manager()
+    {
+        
+        $accounts = User::orderBy('id', 'ASC')->whereIn('role', [2,3])->paginate(8);
+        return view('admin.users.manager',['accounts'=>$accounts]);
+    }
     public function block($id)
     {
         $ldate = date('Y-m-d H:i:s');
@@ -46,5 +52,11 @@ class UserController extends Controller
         $user->updated_at = $ldate;
         $user->save();
         return redirect()->back();
+    }
+    public function blockmn()
+    {
+        
+        $accounts = User::orderBy('id', 'ASC')->Where('role', 3)->paginate(8);
+        return view('admin.users.blockmn',['accounts'=>$accounts]);
     }
 }

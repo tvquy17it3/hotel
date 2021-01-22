@@ -167,9 +167,9 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="admin/order"><i class="fa fa-circle-o"></i>Chưa xác nhận</a></li>
-            <li><a href="admin/order/xacnhan"><i class="fa fa-circle-o"></i>Đã xác nhận</a></li>
+            <li><a href="admin/xacnhan"><i class="fa fa-circle-o"></i>Đã xác nhận</a></li>
             <li><a href="admin/success"><i class="fa fa-circle-o"></i>Hoàn thành</a></li>
-            <li><a href="admin/order/allorder"><i class="fa fa-circle-o"></i>Xem tất cả</a></li>
+            <li><a href="admin/allorder"><i class="fa fa-circle-o"></i>Xem tất cả</a></li>
             <li><a href="admin/huy"><i class="fa fa-circle-o"></i>Đã hủy</a></li>
             <li><a href="admin/addorder"><i class="fa fa-circle-o"></i>Đặt phòng</a></li>
           </ul>
@@ -199,9 +199,8 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Các ngày trong tuần</a></li>
-            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Các tháng trong năm</a></li>
-            <li><a href="admin/analysis"><i class="fa fa-area-chart"></i>Analysis </a></li>
+            <li><a href="admin/week"><i class="fa fa-bar-chart"></i>Thống kê 7 ngày</a></li>
+            <li><a href="admin/year"><i class="fa fa-bar-chart"></i>Thống kê 30 ngày</a></li>
           </ul>
         </li>
 
@@ -222,7 +221,23 @@
         </li>
         @endif
 
-        <li><a href="admin"><i class="fa fa-circle-o text-red"></i> <span>Admin</span></a></li>
+        @if(Auth::user()->role==2)
+        <li class="header">Users</li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-edit"></i> <span>Accounts</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="admin/account/manager"><i class="fa fa-circle-o"></i>Tất cả</a></li>
+            <li><a href="admin/account/blockmn"><i class="fa fa-circle-o"></i>Đã khóa</a></li>
+          </ul>
+        </li>
+        @endif
+
+        <li><a href=""><i class="fa fa-circle-o text-red"></i> <span>Hotel</span></a></li>
         <li><a href=""><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li>
       </ul>
     </section>

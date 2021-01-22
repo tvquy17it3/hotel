@@ -88,15 +88,15 @@ table {
                           <input type="" name="id" hidden value="{{$value->id}}">
                           <select name="role" class="bg-green">
                             <option value="{{$value->role}}">{{$value->role}}</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="1">1- Admin</option>
+                            <option value="2">2 - Manager</option>
+                            <option value="3">3 - Block</option>
                           </select>
                           <button type="submit" class="bg-primary small">CẬP NHẬT</button>
                         </form>
                       </td>
                       <td>
-                          <a href="admin/account/block/{{$value->id}}" class="delete" ><i class="fa fa-ban" aria-hidden="true" title="Block"></i></a>
+                          <a href="admin/account/block/{{$value->id}}" class="delete" ><i class="fa fa-ban" aria-hidden="true" title="Block" onclick="return confirm('Delete Account?')"></i></a>
                       </td>
                     </tr>
                     @endforeach

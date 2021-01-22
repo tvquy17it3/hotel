@@ -11,7 +11,7 @@
     @component('status')
     @slot('numStep') 1 @endslot
     @endcomponent
-    <form method="POST" action="http://localhost/hotel/checkin" class="col-md-12 border border-warning"
+    <form method="POST" action="checkin" class="col-md-12 border border-warning"
         style="max-width: 700px;margin: auto; padding: 20px; margin-top: 20px; border-radius: 50px 50px; box-shadow: 2px 5px 5px gray;">
         {{ csrf_field()}}
         <div class="form-group">
@@ -41,9 +41,8 @@
                     @for($i =1; $i < 5; $i++) <option value='{{$i}}'>{{$i}}
                         người
                         </option>
-                        @endfor
+                    @endfor
                 </select>
-
             </div>
         </div>
         <div class="row g-0" style="margin-top: 10px;">
@@ -59,17 +58,14 @@ document.addEventListener('DOMContentLoaded', function() {
     //import axios from 'axios';
     var tokenCSRF;
     var loading = true;
-    $.get("http://localhost/hotel/bar").done(function(data) {
+    $.get("bar").done(function(data) {
         tokenCSRF = data;
-
 
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': tokenCSRF
             }
         });
-
-
 
         $('.btn-warning').on('click', function(e) {
             e.preventDefault();
@@ -79,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function() {
             var dataCheckOut = $('#checkOut').val();
             var qty = $('#numPeople').val();
             if (qty !== '0' && dataCheckIn !== '' && dataCheckOut !== '') {
-                $.post("http://localhost/hotel/checkin", {
+                $.post("checkin", {
                     dateCheckIn: dataCheckIn,
                     dateCheckOut: dataCheckOut,
                     qty: qty
                 }).done(function(data) {
-                    window.location.replace("http://localhost/hotel/chooseroom");
+                    window.location.replace("chooseroom");
                 });
             } else {
                 alert('Mời điền đầy đủ thông tin');

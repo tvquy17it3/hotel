@@ -1,9 +1,10 @@
-<div class="row g-0 border border-dark" style="border-radius: 25px 25px; margin-top: 20px;">
+<div class="row g-0 border border-dark" style="border-radius: 16px 16px; margin-top: 20px;">
     <div class="row g-0">
         <?php $i = 1; ?>
-        <div class="row g-0">
+        <div class="row g-0" style="margin-top: 10px; margin-right: 5px; margin-bottom: 5px;">
             @foreach($roomInfo['detail'] as $value)
-            <p style="margin: auto; padding-left: 20px; font-size:14px"><b><?php echo $i; $i++; ?>. Phòng
+            <p style="margin: auto; padding-left: 20px; font-size:14px; font-weight: bold;"><b><?php echo $i; $i++; ?>.
+                    Phòng
                     {{$value['name']}}
                 </b></p>
             <div class="row g-0">
@@ -15,7 +16,7 @@
                         {{$value['created_at']}}
                     </p>
                 </div>
-                <div class="col-md-5" style="padding-right: 10px; text-align: right;">
+                <div class="col-md-5" style="padding-right: 20px; text-align: right;">
                     <p style="margin: auto; padding-left: 20px; font-size:14px">Số lượng phòng: {{$value['qty']}}
                     </p>
                     <p class="on" style="margin: auto; font-size: 13px;"><b>Tiền: <u>đ</u>
@@ -32,8 +33,9 @@
                     {{$roomInfo['dateCheckOut']}}</p>
             </div>
             <hr>
-            <div class="col-md-12" style="padding-right: 10px; text-align: right;">
-                <p class="on" style="margin: auto; font-size: 13px; font-size: 17px"><b>Tổng tiền: <u>đ</u>
+            <div class="col-md-12" style="padding-right: 20px; text-align: right;">
+                <p class="on" style="margin: auto; font-size: 13px; font-size: 17px; color: blue;"><b>Tổng tiền:
+                        <u>đ</u>
                         {{$roomInfo['price']}}</b></p>
                 <p style="margin: auto; padding-left: 20px; font-size:14px">Đã thanh toán qua visa
                 </p>

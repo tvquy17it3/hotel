@@ -113,7 +113,7 @@
                     <img src="http://muongthanh.com/images/slideshow/2019/10/16/slideshow_large/true-viet-nam_banner-web_1_1571217576.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="http://muongthanh.com/images/slideshow/2019/10/16/slideshow_large/true-viet-nam_banner-web_1_1571217576.jpg" class="d-block w-100" alt="...">
+                    <img src="http://muongthanh.com/images/promotion/2020/07/13/resized/summer-escape_banner_thumb_1_1594614138.jpg" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
                     <img src="http://muongthanh.com/images/slideshow/2019/10/16/slideshow_large/true-viet-nam_banner-web_1_1571217576.jpg" class="d-block w-100" alt="...">
@@ -198,7 +198,7 @@
         </div>
         <div class="row g-0">
             <div class="col-md-12" style="text-align: right">
-                <a href="#" style="text-decoration: none; color: #636B6F">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
+                <a href="/hotel/endow" style="text-decoration: none; color: #636B6F">Xem tất cả <i class="fas fa-angle-double-right"></i></a>
             </div>
         </div>
         <div class="row g-0" style="margin-top: 20px; display: flex">
@@ -207,7 +207,7 @@
                     <div class="card-body">
                         <img src="http://muongthanh.com/images/config/icon3_1558584975.jpg" width="100%">
                         <h5 class="card-title text-center" style="margin-top: 10px">ĐẬM ĐÀ BẢN SẮC VIỆT</h5>
-                        <p class="card-text">Khởi nguồn từ vùng đất Điện Biên lịch sử, nơi mang đậm phong cách của dân tộc Thái vùng Tây Bắc, mỗi khách sạn Mường Thanh đều thừa hưởng nét tinh tế trong cái nôi văn hóa ấy, từ hoa ban, váy thái, đến rượu táo mèo, xôi nếp nương. Khi nhớ đến Mường Thanh, du khách sẽ nhớ đến màu sắc thuần Việt, tạo nên bởi sự giao thoa giữa văn hóa đặc trưng của vùng núi Tây Bắc và dịch vụ chân thành trong nụ cười hồn hậu của con người Việt Nam.</p>
+                        <p class="card-text">Khởi nguồn từ vùng đất Điện Biên lịch sử, nơi mang đậm phong cách của dân tộc Thái vùng Tây Bắc, mỗi khách sạn Novotel đều thừa hưởng nét tinh tế trong cái nôi văn hóa ấy, từ hoa ban, váy thái, đến rượu táo mèo, xôi nếp nương. Khi nhớ đến Novotel, du khách sẽ nhớ đến màu sắc thuần Việt, tạo nên bởi sự giao thoa giữa văn hóa đặc trưng của vùng núi Tây Bắc và dịch vụ chân thành trong nụ cười hồn hậu của con người Việt Nam.</p>
                     </div>
                 </div>
             </div>
@@ -216,7 +216,7 @@
                     <div class="card-body">
                         <img src="http://muongthanh.com/images/config/icon3a_1558585109.jpg" width="100%">
                         <h5 class="card-title text-center" style="margin-top: 10px">HỆ THỐNG KHÁCH SẠN LỚN NHẤT VIỆT NAM</h5>
-                        <p class="card-text">Mường Thanh được chứng nhận là “Chuỗi khách sạn tư nhân lớn nhất Đông Dương” với hệ thống trên 60 khách sạn phủ hơn 40 tỉnh thành từ Bắc vào Nam và nước bạn Lào. Mỗi khách sạn Mường Thanh đều thừa hưởng nét tinh tế trong cái nôi văn hóa ấy, từ hoa ban, váy thái. Trên muôn nẻo hành trình khám phá Việt Nam, du khách có thể lựa chọn Mường Thanh là điểm dừng chân lý tưởng, hoàn toàn yên tâm về sản phẩm đồng nhất và các dịch vụ đa dạng theo nhu cầu.</p>
+                        <p class="card-text">Novotel được chứng nhận là “Chuỗi khách sạn tư nhân lớn nhất Đông Dương” với hệ thống trên 60 khách sạn phủ hơn 40 tỉnh thành từ Bắc vào Nam và nước bạn Lào. Mỗi khách sạn Novotel đều thừa hưởng nét tinh tế trong cái nôi văn hóa ấy, từ hoa ban, váy thái. Trên muôn nẻo hành trình khám phá Việt Nam, du khách có thể lựa chọn Novotel là điểm dừng chân lý tưởng, hoàn toàn yên tâm về sản phẩm đồng nhất và các dịch vụ đa dạng theo nhu cầu.</p>
                     </div>
                 </div>
             </div>
