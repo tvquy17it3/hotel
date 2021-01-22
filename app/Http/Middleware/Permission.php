@@ -18,8 +18,8 @@ class Permission
     public function handle($request, Closure $next, $guard = null)
     {
         $check = Auth::guard($guard)->user()->role;
-        if ($check != 1) {
-            if ($check !=2) {
+        if ($check != 0) {
+            if ($check !=0) {
                 return redirect('/');
             }
         }
