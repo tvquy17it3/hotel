@@ -97,7 +97,7 @@
                                             {{$num==$i ? 'selected' : '' }}>{{$i}}
                                             người
                                             </option>
-                                        @endfor
+                                            @endfor
                                     </select>
                                 </div>
                             </div>
@@ -208,20 +208,8 @@
                         <div class="row g-0  border border-warning rounded" style="padding:10px;margin-top: 20px;">
                             <label>Phương thức thanh toán</label>
                             <div class="row g-0 ">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"
-                                        id="exampleRadios1" value="visa">
-                                    <label class="form-check-label" for="exampleRadios1">
-                                        Thanh toán qua thẻ visa
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="exampleRadios"
-                                        id="exampleRadios2" value="ATM">
-                                    <label class="form-check-label" for="exampleRadios2">
-                                        Thanh toán qua thẻ ATM
-                                    </label>
-                                </div>
+
+
                                 <div class="form-check">
                                     <input class="form-check-input" type="radio" name="exampleRadios"
                                         id="exampleRadios3" value="COD" checked>
@@ -229,6 +217,18 @@
                                         Thanh toán khi nhận phòng
                                     </label>
                                 </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" onclick="myFunction()"
+                                        name="exampleRadios" id="exampleRadios1" value="visa">
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Thanh toán qua thẻ visa
+                                    </label>
+                                </div>
+                                <div id="myDIV" style="display:none;">
+                                    <input placeholder="Nhập mã thẻ..." />
+                                    <input placeholder="Nhập mã CCV..." />
+                                </div>
+
                             </div>
 
                         </div>
@@ -239,7 +239,8 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input vertical-center " id="checkbox" type="checkbox"
                                     id="inlineCheckbox1" value="option1" style="margin-top: 5px;" required>
-                                <p class="form-check-label " for="inlineCheckbox1">Tôi đã đọc và chấp nhận chính sách đặt phòng</p>
+                                <p class="form-check-label " for="inlineCheckbox1">Tôi đã đọc và chấp nhận chính sách
+                                    đặt phòng</p>
                             </div>
                         </div>
 
@@ -263,8 +264,8 @@
                                     <div class="col-md-7">
                                         <button type="button" id="order" style="background-color: rgb(242, 169, 0);"
                                             class="btn btn-warning">
-                                            <a href="/hotel/submit"
-                                                style="text-decoration: none; color:black;">Đặt phòng
+                                            <a href="/hotel/submit" style="text-decoration: none; color:black;">Đặt
+                                                phòng
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                                                     fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
                                                     <path fill-rule="evenodd"
@@ -361,7 +362,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+
 });
+</script>
+<script>
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
 </script>
 
 @endsection

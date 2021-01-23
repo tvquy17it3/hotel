@@ -39,9 +39,9 @@ class AdminController extends Controller
           ->where('checkOut', '>=', $range)
           ->groupBy('date')
           ->orderBy('date', 'ASC')
-          ->get([DB::raw('Date(checkOut) as date'),
-            DB::raw('sum(price) as sums')
-          ])->All();
+          ->get([DB::raw('Date("checkOut") as date'),
+            DB::raw('sum("price") as sums')
+          ])->get();
 
         $counts = count($stats);
         for ($i=0; $i< $counts; $i++) {
@@ -65,9 +65,9 @@ class AdminController extends Controller
           ->where('checkOut', '>=', $range)
           ->groupBy('date')
           ->orderBy('date', 'ASC')
-          ->get([DB::raw('Date(checkOut) as date'),
-            DB::raw('sum(price) as sums')
-          ])->All();
+          ->get([DB::raw('Date("checkOut") as date'),
+            DB::raw('sum("price") as sums')
+          ])->get();
 
         $counts = count($stats);
         for ($i=0; $i< $counts; $i++) {
@@ -94,8 +94,8 @@ class AdminController extends Controller
           ->where('checkOut', '>=', $dateInput)
           ->groupBy('date')
           ->orderBy('date', 'ASC')
-          ->get([DB::raw('Date(checkOut) as date'),
-            DB::raw('sum(price) as sums')
+          ->get([DB::raw('Date("checkOut") as date'),
+            DB::raw('sum("price") as sums')
           ])->All();
 
         $counts = count($stats);
@@ -152,8 +152,11 @@ class AdminController extends Controller
           foreach ($data->detail as $room) {
             $name = Room::find((int)$room->roomID)->name;
             $number = Room::find((int)$room->roomID)->number;
+            $img = Room::find((int)$room->roomID)->img;
             $room->name = $name;
             $room->number=$number;
+            $room->img=$img;
+
           }
           $table = $data->detail;
           $color = 1;

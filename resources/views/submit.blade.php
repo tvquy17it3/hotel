@@ -44,7 +44,7 @@
                             </h6>
                         </div>
                         <div class="row">
-                            <a href="/hotel/vieworder"
+                            <a href="/vieworder"
                                 style="text-decoration: none; color:black;text-align:center; color: blue;">
                                 <h6>Kiểm tra phòng đã đặt</h6>
                             </a>
