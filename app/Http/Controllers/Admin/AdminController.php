@@ -41,7 +41,7 @@ class AdminController extends Controller
           ->orderBy('date', 'ASC')
           ->get([DB::raw('Date("checkOut") as date'),
             DB::raw('sum("price") as sums')
-          ])->All();
+          ])->get();
 
         $counts = count($stats);
         for ($i=0; $i< $counts; $i++) {
@@ -67,7 +67,7 @@ class AdminController extends Controller
           ->orderBy('date', 'ASC')
           ->get([DB::raw('Date("checkOut") as date'),
             DB::raw('sum("price") as sums')
-          ])->All();
+          ])->get();
 
         $counts = count($stats);
         for ($i=0; $i< $counts; $i++) {
