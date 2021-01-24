@@ -64,8 +64,18 @@
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif -->
+                                <hr style="width: 75%;" />
+                                <p style="margin-top: 5px;">Hoặc</p>
+                                <div>
+                                    <a href="/hotel">
+                                        <img src="public/img/logofc9.jpg" style="width: 75%;">
+                                        <img src="public/img/gg.jpg" style="margin-top: 5px;width: 75%;">
+                                    </a>
+                                </div>
                             </div>
+
                         </div>
+                        
                     </form>
                 </div>
             </div>
