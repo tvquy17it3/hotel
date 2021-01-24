@@ -127,4 +127,21 @@ class RoomController extends Controller
         return redirect()->back()->with('success', 'Xóa thành công!');
     }
 
+      public function updateurl(Request $request,$id)
+    {
+        $validator = Validator::make($request->all(), [ 
+          'urlimg' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $ldate = date('Y-m-d H:i:s');
+        $room = Room::find($id);
+        $room->img = $request->urlimg;
+        $room->updated_at = $ldate;
+        $room->save();
+        return redirect()->back()->with('success', 'Cập nhật thành công!');
+    }
+
 }

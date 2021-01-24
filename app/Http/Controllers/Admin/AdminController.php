@@ -120,15 +120,16 @@ class AdminController extends Controller
       $dateInput =  date('Y-m-d');
       $tk = $this->thongke();
       extract($tk);
-
       $order = Order::where('checkIn', 'LIKE', '%' . $dateInput . '%') ->where('status','<=', 1)->get();
       if (count($order) >0) {
         foreach ($order as $data) {
+          $checkIn =  $data->checkIn;
           foreach ($data->detail as $room) {
-            $name = Room::find((int)$room->roomID)->name;
-            $number = Room::find((int)$room->roomID)->number;
-            $room->name = $name;
-            $room->number=$number;
+            $dt = Room::find((int)$room->roomID);
+            $room->name = $dt->name;
+            $room->number=$dt->number;
+            $room->img=$dt->img;
+            $room->created_at = $checkIn;
           }
           $table = $data->detail;
           $color = 1;
@@ -145,18 +146,16 @@ class AdminController extends Controller
       $tk = $this->thongke();
       extract($tk);
       $dateInput = $request->dateS;
-        // $room = Room::All();
       $order = Order::where('checkIn', 'LIKE', '%' . $dateInput . '%') ->where('status','<=', 1)->get();
-      if (count($order) >0) {
+      if (count($order) > 0) {
         foreach ($order as $data) {
+          $checkIn =  $data->checkIn;
           foreach ($data->detail as $room) {
-            $name = Room::find((int)$room->roomID)->name;
-            $number = Room::find((int)$room->roomID)->number;
-            $img = Room::find((int)$room->roomID)->img;
-            $room->name = $name;
-            $room->number=$number;
-            $room->img=$img;
-
+            $dt = Room::find((int)$room->roomID);
+            $room->name = $dt->name;
+            $room->number=$dt->number;
+            $room->img=$dt->img;
+            $room->created_at = $checkIn;
           }
           $table = $data->detail;
           $color = 1;

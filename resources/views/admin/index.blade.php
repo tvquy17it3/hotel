@@ -32,6 +32,14 @@ table {
         display: none;
     }
 }
+@media only screen and (min-width: 768px) {
+    .bocuc {
+        height: 210px;
+    }
+    .bocucchinh{
+        width: 300px;
+    }
+}
 </style>
 <link rel="stylesheet" href="public/css/table.css">
 @endsection
@@ -140,23 +148,26 @@ table {
         <div class="row" style="padding: 15px">
             <ul class="list-group list-group-horizontal">
                 @foreach($table as $value)
+
                 @if($colorss==1)
                 <!-- <div class="row"> -->
                 <a href="admin/order/vieworder/{{$value->orderID}}">
-                    <li class="list-group-item col-sm-3"
+                    <li class="list-group-item col-sm-3 bocucchinh"
                         style="margin: 0px 5px 5px 0px; background:#dd4b39;color: #f9f9f9;">
                         @else
 
-                    <li class="list-group-item col-sm-3" style="margin: 0px 5px 5px 0px; ">
+                    <li class="list-group-item col-sm-3 bocucchinh" style="margin: 0px 5px 5px 0px;" >
                         @endif
-                        <div class="row">
+                        <div class="row bocuc">
                             <div class="col-md-6">
                                 <img src="{{$value->img}}" style="width: 100%;height: 100%;" class="hid" />
                             </div>
                             <div class="col-md-6">
-                                <p>Phòng: {{$value->number}} - {{$value->name}}</p>
-                                <p class="hid">Số lượng: {{$value->qty}}</p>
-                                <p>Giá: {{number_format($value->price)}} vnđ/1 phòng</p>
+                                <p>Phòng: {{$value->number}}</p>
+                                <p class="hid nd">{{$value->name}}</p>
+                                <p class="hid nd">Số lượng: {{$value->qty}}</p>
+                                <p class="nd">CheckIn: {{$value->created_at}}</p>
+                                <p class="hid nd">Giá: {{number_format($value->price)}} vnđ/1 phòng</p>
                             </div>
                         </div>
                     </li>

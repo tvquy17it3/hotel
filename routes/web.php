@@ -75,6 +75,9 @@ Route::group(['namespace' => 'Admin','as' => 'admin::','prefix' => 'admin', 'mid
  	Route::post('/room/edit/{id}', ['as' => 'edits', 'uses' => 'RoomController@update']);
  	Route::post('/room/edita/upload/{id}', ['as' => 'editA', 'uses' => 'RoomController@upload']);
  	Route::get('/room/delete/{id}', ['as' => 'edits', 'uses' => 'RoomController@delete']);
+ 	Route::post('/room/urlimg/{id}', ['as' => 'editss', 'uses' => 'RoomController@updateurl']);
+
+ 	
 
  	#account
  	Route::get('/account', ['as' => 'room', 'uses' => 'UserController@accounts']);

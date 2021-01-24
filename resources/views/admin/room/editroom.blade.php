@@ -107,6 +107,14 @@
         <button class="btn btn-primary" type="submit" style="margin-top: 10px;">Tải lên</button>
       </div>
     </form>
+    <form action="{{url('admin/room/urlimg/' . $room->id)}}" method="POST" style="margin-bottom: 20px;margin-right: 60px;margin-left: 60px;">
+            {{ csrf_field() }}
+           <div class="form-group">
+            <label for="formGroupExampleInput2" >Thay link ảnh</label>
+              <input type="text" class="form-control" name="urlimg" required value="{{$room->img}}">
+            <button class="btn btn-primary" type="submit" style="margin-top: 10px;">Lưu</button>
+          </div>
+    </form>
 
 </div>
 @endsection
