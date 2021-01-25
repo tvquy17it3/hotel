@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HotelController@index');
+Route::get('/hotel', 'HotelController@index1');
 Route::get('/checkin', 'CheckinController@index');
 Route::post('/checkin', 'CheckinController@postData');
 Route::get('/chooseroom', 'RoomController@index');
