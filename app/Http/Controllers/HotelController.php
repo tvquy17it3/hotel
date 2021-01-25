@@ -10,4 +10,8 @@ class HotelController extends Controller
     {
         return view('index');
     }
+     public function index1()
+    {
+        return view('index');
+    }
 }
