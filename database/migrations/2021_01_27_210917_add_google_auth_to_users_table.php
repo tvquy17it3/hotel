@@ -14,8 +14,8 @@ class AddGoogleAuthToUsersTable extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('provider')->after('email');
-            $table->string('provider_id')->after('email');
+            $table->string('provider')->after('email')->nullable();
+            $table->string('provider_id')->after('email')->nullable();
         });
     }
 
