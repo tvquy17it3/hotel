@@ -1,7 +1,7 @@
 @extends('layouts.header')
 @section('title', 'HOTEL ')
 @section('content')
-<?php $numOption = 5; $type = 0; ?>
+<?php $numOption = 15; $type = 0; ?>
 <div class="container">
     <div class="row">
         <img width="190" height="70"

@@ -13,6 +13,7 @@
     margin: 10000px;
 }
 </style>
+<?php $numOption = 15; $type = 0; ?>
 <div class="container">
     <div class="row">
         <img width="190" height="70"
@@ -95,7 +96,8 @@
                                     $num = session()->get('cart')[(string)$rooms->id]['qty'];
                                 } 
                             ?>
-                                    @for($i =0; $i < 5; $i++) <option value='{{$i}}' {{$num==$i ? 'selected' : '' }}>
+                                    @for($i =0; $i < $numOption; $i++) <option value='{{$i}}'
+                                        {{$num==$i ? 'selected' : '' }}>
                                         {{$i}}
                                         phòng
                                         </option>
