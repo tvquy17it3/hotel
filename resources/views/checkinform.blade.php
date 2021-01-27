@@ -1,6 +1,7 @@
 @extends('layouts.header')
 @section('title', 'HOTEL ')
 @section('content')
+<?php $numOption = 5; $type = 0; ?>
 <div class="container">
     <div class="row">
         <img width="190" height="70"
@@ -46,11 +47,36 @@
                     @if(count(session('cart'))>0)
                     @foreach(session('cart') as $value)
                     <div class="row g-0">
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Phòng {{$value['name']}}</b></p>
                         </div>
-                        <div class="col-md-2">
-                            <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Số lượng: {{$value['qty']}}</b>
+                        <div class="col-md-4">
+                            <div class="row g-0" style="margin: auto; padding: 10px 0px 0px 20px;">
+                                <!-- <div class="col-md-6">
+                                    <p style="margin: auto; padding: 10px 0px 0px 20px;"><b>Số lượng:
+                                            {{$value['qty']}}</b>
+                                </div> -->
+                                <div class="col-md-6" style="text-align: right; padding-right:10px;">
+                                    <p><b>Số lượng:</b>
+                                </div>
+                                <div class="col-md-6">
+                                    <small class="text-muted">
+                                        <select class="form-select form-select-sm" roomID={{$value['id']}}
+                                            roomName={{$value['name']}} name="chooseRoom"
+                                            aria-label=".form-select-sm example">
+                                            <?php 
+                                $num = $value['qty'];
+                            ?>
+                                            @for($i =0; $i < $numOption; $i++) <option value='{{$i}}'
+                                                {{$num==$i ? 'selected' : '' }}>
+                                                {{$i}}
+                                                phòng
+                                                </option>
+                                                @endfor
+                                        </select>
+                                    </small>
+                                </div>
+                            </div>
                             </p>
                         </div>
                         <div class="col-md-4" style="padding-right: 10px; text-align: right;">
@@ -361,6 +387,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 alert('Vui lòng nhập đầy đủ thông tin');
             }
         });
+
+        $('.form-select').on('change', function(e) {
+            e.preventDefault();
+            //console.log(e.target.attributes.roomid.value);
+            var qty = e.target.value;
+            var roomID = e.target.attributes.roomid.value;
+
+            $.post("chooseroom", {
+                id: roomID,
+                qty: qty
+            }).done(function(data) {
+
+                // alert("Data Loaded: " +
+                //     data);
+                alert("Sua hang thanh cong!!!");
+
+                localStorage.setItem('cart',
+                    JSON.stringify(
+                        <?php echo json_encode(session('cart')) ?>));
+            });
+        });
+
     });
 
 
