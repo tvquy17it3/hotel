@@ -10,7 +10,7 @@
     margin: 10000px;
 }
 </style>
-<?php $numOption = 5; $type = 0; ?>
+<?php $numOption = 15; $type = 0; ?>
 <div class="card mb-3  d-none d-lg-block" style="border-color: rgb(242, 169, 0);">
     <div class="row g-0">
         <div class="col-md-3" style="padding: 10px; padding-top: 20px;">
@@ -216,7 +216,7 @@
                                     $num = session()->get('cart')[(string)$roomInfo]['qty'];
                                 } 
                             ?>
-                            @for($i =0; $i < 5; $i++) <option value='{{$i}}' {{$num==$i ? 'selected' : '' }}>
+                            @for($i =0; $i < $numOption; $i++) <option value='{{$i}}' {{$num==$i ? 'selected' : '' }}>
                                 {{$i}}
                                 phòng
                                 </option>
