@@ -33,5 +33,11 @@ return [
     'sparkpost' => [
         'secret' => env('SPARKPOST_SECRET'),
     ],
+    
+    'google' => [
+    'client_id' => '847395168429-jup9s49mjr0es9bpsi5kgo4u4j1cpo2c.apps.googleusercontent.com',
+    'client_secret' => 'C9w3NYPWYRloYNW8KT06BTCe',
+    'redirect' => 'https://novotel.herokuapp.com/callback/google',
+    ], 
 
 ];

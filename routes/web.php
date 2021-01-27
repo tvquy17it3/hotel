@@ -28,6 +28,9 @@ Route::get('/recruit', 'RecruitController@index');
 Route::get('/endow', 'EndowController@index');
 
 Auth::routes();  //login and register
+Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
+Route::get('/callback/{provider}', 'SocialController@callback');
+
 Route::get('/home', 'HomeController@home')->name('home');
 Route::get('/ss', 'HomeController@deleteSession');
 
