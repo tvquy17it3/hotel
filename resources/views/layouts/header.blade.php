@@ -50,12 +50,7 @@
     }
 
     /* Top right text */
-    .top-right {
-        position: absolute;
-        max-width: 25%;
-        top: 15px;
-        right: 15px;
-    }
+  
 
     .content {
         text-align: center;
@@ -65,15 +60,6 @@
         font-size: 84px;
     }
 
-    .links>a {
-        color: #636b6f;
-        padding: 0 25px;
-        font-size: 13px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
 
     .m-b-md {
         margin-bottom: 30px;
@@ -153,8 +139,6 @@
         max-width: 25%;
     }
 
-
-
     /* Bottom right text */
     /*  .bottom-right {
         position: absolute;
@@ -184,6 +168,26 @@
         font-weight: bold;
         color: #000000;
     }
+
+  
+    @media only screen and (min-width: 968px) {
+      .top-right {
+        position: absolute;
+        max-width: 25%;
+        top: 20px;
+        right: 15px;
+    }
+    
+      .links>a {
+        color: #636b6f;
+        padding: 0 25px;
+        font-size: 13px;
+        font-weight: 550;
+        letter-spacing: .1rem;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
     </style>
 </head>
 
@@ -223,24 +227,30 @@
                             <a class="dropdown-item" href="#">TẾT</a>
                         </div>
                     </li>
-                </ul>
-                @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                    <a href="{{ url('/admin') }}">{{ Auth::user()->name }}</a>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                     document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
 
-                    @else
-                    <a href="{{ route('login') }}">Login</a>
-                    @endauth
-                </div>
-                @endif
+                    <li class="nav-item">
+                              @if (Route::has('login'))
+                            <div class="top-right links hid">
+                                @auth
+                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ Auth::user()->name }}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ url('/admin') }}">Admin</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                 document.getElementById('logout-form').submit();"> {{ __('Logout') }}</a>
+                                </div>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                                @else
+                                <a class="nav-link" href="{{ route('login') }}">Login</a>
+                                @endauth
+                            </div>
+                            @endif
+                    </li>
+                </ul>
             </div>
         </nav>
 
