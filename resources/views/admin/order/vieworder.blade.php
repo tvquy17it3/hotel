@@ -76,7 +76,7 @@ table {
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>Food</b></h2>
+                        <h2>Manage <b>Order</b></h2>
                     </div>
                     <div class="col-sm-6">
                         <a onclick="event.preventDefault();addTaskForm();" href="#" class="btn btn-success" data-toggle="modal"><span>Thêm phòng</span></a>                       
