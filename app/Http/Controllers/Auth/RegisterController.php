@@ -70,6 +70,8 @@ class RegisterController extends Controller
             'phone' => $data['phone'],
             'password' => Hash::make($data['password']),
             'role'=>'3',
+            'provider_id'=>'', 
+            'provider'=>''
         ]);
     }
 }
