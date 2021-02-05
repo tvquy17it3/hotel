@@ -54,7 +54,7 @@ table {
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-6">
-                        <h2>Manage <b>Food</b></h2>
+                        <h2>Manage <b>Room</b></h2>
                     </div>
                       <div class="col-sm-6">
                         <a  href="admin/addroom" class="btn btn-success" data-toggle="modal"><span>Thêm phòng</span></a>                       
